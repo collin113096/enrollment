@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Student;
-use App\Father;
-use App\Mother;
 
 class ApplicationController extends Controller
 {
@@ -14,7 +12,7 @@ class ApplicationController extends Controller
     	return view('application.create');
     }
 
-    public function store(Student $student, Father $father, Mother $mother, Request $request){
+    public function store(Student $student, Request $request){
 
     	$record = $student->create(
     		$request->except([
