@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::get('/applications','ApplicationController@create');
+Route::post('/applications','ApplicationController@store')->name('application.store');
