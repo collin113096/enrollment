@@ -144,6 +144,22 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+            'student.first_name' => 'first name',
+            'student.middle_name' => 'middle name',
+            'student.last_name' => 'last name',
+            'student.home_address' => 'home address',
+            'student.birth_date' => 'birth date',
+            'student.birth_place' => 'birth date',
+            'student.religion' => 'religion',
+            'student.gender' => 'gender',
+            'student.grade' => 'grade',
+            'father.name' => 'father name',
+            'father.occupation' => 'father occupation',
+            'father.contact' => 'father contact',
+            'mother.name' => 'mother name',
+            'mother.occupation' => 'mother occupation',
+            'mother.contact' => 'mother contact',
+    ],
 
 ];

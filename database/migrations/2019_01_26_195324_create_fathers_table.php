@@ -16,9 +16,9 @@ class CreateFathersTable extends Migration
         Schema::create('fathers', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('student_id');
-            $table->string('father_name');
-            $table->string('father_occupation');
-            $table->unsignedBigInteger('father_contact'); 
+            $table->string('name');
+            $table->string('occupation');
+            $table->unsignedBigInteger('contact'); 
             $table->foreign('student_id')->references('id')->on('students');
         });
     }

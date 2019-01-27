@@ -16,9 +16,9 @@ class CreateMothersTable extends Migration
         Schema::create('mothers', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('student_id');
-            $table->string('mother_name');
-            $table->string('mother_occupation');
-            $table->unsignedBigInteger('mother_contact');
+            $table->string('name');
+            $table->string('occupation');
+            $table->unsignedBigInteger('contact');
             $table->foreign('student_id')->references('id')->on('students');
         });
     }
