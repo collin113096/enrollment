@@ -40,5 +40,7 @@ class ApplicationController extends Controller
     			'mother_contact'
     		])
     	);
+
+        return redirect()->route('document.create',['student' => $record]);
     }
 }

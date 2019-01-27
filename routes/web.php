@@ -18,5 +18,5 @@ Route::get('/', function () {
 Route::get('/applications','ApplicationController@create');
 Route::post('/applications','ApplicationController@store')->name('application.store');
 
-Route::get('/documents','DocumentController@create');
-Route::post('/documents','DocumentController@store')->name('document.store');
+Route::get('/documents/{student}','DocumentController@create')->name('document.create');
+Route::post('/documents/{student}','DocumentController@store')->name('document.store');

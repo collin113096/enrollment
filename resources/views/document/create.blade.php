@@ -1,7 +1,7 @@
 @extends('template')
 @section('title','Application Form for Enrollment')
 @section('content')
-<form class="col-md-12" method="post" action="{{ route('document.store') }}" enctype="multipart/form-data">@csrf
+<form class="col-md-12" method="post" action="{{ route('document.store',compact('student')) }}" enctype="multipart/form-data">@csrf
 <div class="card">
 	<div class="card-header py-4 text-center">
 		<span class="h5 font-weight-bold">Pagsanjan Academy Required Documents For Enrolee</span>

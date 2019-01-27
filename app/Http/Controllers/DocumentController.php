@@ -9,16 +9,14 @@ use App\Document\Document;
 class DocumentController extends Controller
 {
     
-    public function create(){
+    public function create(Student $student){
 
-    	return view('document.create');
+    	return view('document.create',compact('student'));
     }
 
-    public function store(Request $request, Document $document){
+    public function store(Request $request, Student $student, Document $document){
 
-   		$student = Student::find(1);
-   		$document->store($student, $request, $this->getDocumentTypes($request));
-  
+   		$document->store($student, $request, $this->getDocumentTypes($request)); 
     }
 
     private function getDocumentTypes($request){
