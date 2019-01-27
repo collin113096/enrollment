@@ -124,29 +124,5 @@
 	</div>
 </div>
 </form>
-<script>
-	$(document).ready(function(){
-
-		//if the user type
-		$('input').keyup(function(){
-			
-			if($(this).val() == ''){
-				turnToGray($(this));
-			}else{
-				turnToGreen($(this));
-			}
-		});
-		
-	});
-
-	function turnToGray(element){
-		$(element).removeClass('is-invalid');
-		$(element).removeClass('is-valid');
-	}
-
-	function turnToGreen(element){
-		$(element).removeClass('is-invalid');
-		$(element).addClass('is-valid');
-	}
-</script>
+<script src="{{ asset('js/application_form_validation.js') }}"></script>
 @endsection
