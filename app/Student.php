@@ -18,4 +18,9 @@ class Student extends Model
 
     	return $this->hasOne('\App\Mother');
     }
+
+    public function documents(){
+
+    	return $this->hasMany('\App\Document');
+    }
 }

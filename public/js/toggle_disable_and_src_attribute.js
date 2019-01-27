@@ -1,11 +1,18 @@
- var requirement = ['birth_certificate','certificate_of_transfer','certificate_of_good_moral_character',
-    'form137','form138','picture'];
+ var requirement = [
+         'birth_certificate',
+         'certificate_of_transfer',
+         'certificate_of_good_moral_character',
+         'form137',
+         'form138',
+         'picture'
+ ];
 
 var asset_url = $('#asset').val();
 
 $('#student_type').change(function(){
-   var selected = $(this).children("option:selected").val();
-
+  var selected = $(this).children("option:selected").val();
+   $('.card-body input').val('');
+   
    switch(selected){
     case 'New Student':
         enableAll(requirement);

@@ -1,7 +1,7 @@
 @extends('template')
 @section('title','Application Form for Enrollment')
 @section('content')
-<form method="post" action="{{ route('application.store') }}">@csrf
+<form class="col-md-8" method="post" action="{{ route('application.store') }}">@csrf
 <div class="card">
 	<div class="card-header py-4 text-center">
 		<span class="h5 font-weight-bold">Pagsanjan Academy Application Form for Enrollment</span>
