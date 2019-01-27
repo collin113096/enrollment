@@ -16,6 +16,6 @@ class ApplicationController extends Controller
     public function store(ApplicationFormRequest $request, Student $student){
 
        $student = $student->saveFormData($request);
-       // return redirect()->route('document.create',['student' => $form->getStudent()]);
+       return redirect()->route('document.create',compact('student'));
     }
 }

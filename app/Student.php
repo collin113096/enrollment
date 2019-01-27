@@ -31,5 +31,7 @@ class Student extends Model
         $student = $this->create($validatedData['student']);
         $student->father()->create($validatedData['father']);
         $student->mother()->create($validatedData['mother']);
+
+        return $student;
     }
 }
