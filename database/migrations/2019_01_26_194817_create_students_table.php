@@ -24,6 +24,7 @@ class CreateStudentsTable extends Migration
             $table->string('religion');
             $table->string('gender');
             $table->string('grade');
+            $table->boolean('admitted')->default(false);
             $table->timestamps();
         });
     }
