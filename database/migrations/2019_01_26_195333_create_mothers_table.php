@@ -18,7 +18,7 @@ class CreateMothersTable extends Migration
             $table->unsignedInteger('student_id');
             $table->string('name');
             $table->string('occupation');
-            $table->unsignedBigInteger('contact');
+            $table->string('contact');
             $table->foreign('student_id')->references('id')->on('students');
         });
     }

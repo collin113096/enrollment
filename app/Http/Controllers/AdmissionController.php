@@ -1,0 +1,21 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Student;
+
+class AdmissionController extends Controller
+{
+    
+    public function index(){
+    	$students = Student::latest()->paginate(8);
+    	return view('applicant.index',compact('students'));
+    }	
+
+    public function show(Student $student){
+
+    	return view('applicant.show',compact('student'));
+    }
+}

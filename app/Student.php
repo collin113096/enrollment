@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Student extends Model
 {
     private $id;
-    public $timestamps = false;
     protected $guarded = [];
 
     public function father(){

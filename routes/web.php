@@ -20,3 +20,6 @@ Route::post('/applications','ApplicationController@store')->name('application.st
 
 Route::get('/documents/{student}','DocumentController@create')->name('document.create');
 Route::post('/documents/{student}','DocumentController@store')->name('document.store');
+
+Route::get('/applicants','AdmissionController@index');
+Route::get('/applicants/{student}/show','AdmissionController@show')->name('applicant.show');
