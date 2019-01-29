@@ -45,6 +45,12 @@ class Student extends Model
         }
     }
 
+    public function admitted(){
+        $this->update([
+            'admitted' => 1,
+        ]);
+    }
+
     private function details($individualDocument, $neededDocument)
     {
         return [

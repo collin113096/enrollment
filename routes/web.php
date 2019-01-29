@@ -23,3 +23,6 @@ Route::post('/documents/{student}','DocumentController@store')->name('document.s
 
 Route::get('/applicants','AdmissionController@index');
 Route::get('/applicants/{student}/show','AdmissionController@show')->name('applicant.show');
+Route::patch('/applicants/{student}','AdmissionController@update');
+
+Route::get('/admitted','AdmittedController@index');

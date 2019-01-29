@@ -1,7 +1,7 @@
 @extends('template')
 @section('title','Applicants')
 @section('content')
-<div class="col-md-8">
+<div class="col-md-9">
 	<div class="card">
 		<div class="card-header">
 			<strong>Applicants List</strong>
@@ -11,18 +11,23 @@
 				<thead>
 					<tr>
 						<th>Applicant Name</th>
-						<th>Date Submitted</th>
-						<th>Action</th>
+						<th class="text-center">Action</th>
 					</tr>
 				</thead>
 				<tbody>
 					@foreach($students as $student)
 					<tr>
-						<td>{{ $student->last_name }}, {{ $student->first_name }} {{ $student->first_name }}</td>
-						<td>{{ date('i',time() - strtotime($student->created_at)) }} Minutes Ago</td>
 						<td>
-							<a class="btn btn-primary" href="{{ route('applicant.show',compact('student')) }}">View Documents</a>
-							<a class="btn btn-light" href="{{ route('applicant.show',compact('student')) }}">Details</a>
+							{{ $student->last_name }}, {{ $student->first_name }} {{ $student->middle_name }}
+						</td>
+						<td class="d-flex justify-content-around">
+							<a class="btn btn-primary" href="{{ route('applicant.show',compact('student')) }}">Show Applicant Form</a>
+							<a class="btn btn-secondary" href="{{ route('applicant.show',compact('student')) }}">Show Documents</a>
+							<form class="m-0" method="post" action="/applicants/{{ $student->id }}">
+								@csrf
+								@method('PATCH')
+								<button class="btn btn-success" type="submit">Admit Student</button>
+							</form>
 						</td>
 					</tr>
 					@endforeach

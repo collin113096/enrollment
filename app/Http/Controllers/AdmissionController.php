@@ -10,12 +10,18 @@ class AdmissionController extends Controller
 {
     
     public function index(){
-    	$students = Student::latest()->paginate(8);
+    	$students = Student::where('admitted',0)->latest()->paginate(8);
     	return view('applicant.index',compact('students'));
     }	
 
     public function show(Student $student){
 
     	return view('applicant.show',compact('student'));
+    }
+
+    public function update(Student $student){
+
+    	$student->admitted();
+    	return redirect('/applicants');
     }
 }
