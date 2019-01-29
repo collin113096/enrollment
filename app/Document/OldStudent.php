@@ -2,9 +2,9 @@
 
 namespace App\Document;
 
-class OldStudentDocument 
+class OldStudent
 {
-	public $docTypes =  [
+	public $documents =  [
 			'form138',
 			'picture',
 		];

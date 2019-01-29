@@ -2,10 +2,10 @@
 
 namespace App\Document;
 
-class TransfereeStudentDocument 
+class TransfereeStudent
 {
 
-    public $docTypes = [
+    public $documents = [
             'birth_certificate',
             'certificate_of_transfer',
             'certificate_of_good_moral_character',
