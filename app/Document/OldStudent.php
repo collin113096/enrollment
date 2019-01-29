@@ -4,7 +4,7 @@ namespace App\Document;
 
 class OldStudent
 {
-	public $documents =  [
+	public $neededDocuments =  [
 			'form138',
 			'picture',
 		];

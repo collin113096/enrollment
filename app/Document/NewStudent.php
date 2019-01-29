@@ -4,7 +4,7 @@ namespace App\Document;
 
 class NewStudent
 { 
-	public $documents =  [
+	public $neededDocuments =  [
     		'birth_certificate',
     		'certificate_of_good_moral_character',
     		'form137',

@@ -24,10 +24,8 @@ class Student extends Model
     	return $this->hasMany('\App\Document');
     }
 
-    public function saveApplicationForm($request)
+    public function saveApplicationForm($validatedDataOf)
     {
-        $validatedDataOf = $request->validated();
-
         $student = $this->create($validatedDataOf['student']);
         $student->father()->create($validatedDataOf['father']);
         $student->mother()->create($validatedDataOf['mother']);
@@ -35,18 +33,24 @@ class Student extends Model
         return $student;
     }
 
-     public function saveDocument($request)
+     public function saveDocument()
      {
-        foreach($this->student()->documents as $document)
+        foreach($this->student()->neededDocuments as $neededDocument)
         {
-            foreach($request->file($document) as $file)
+            foreach(request($neededDocument) as $individualDocument)
             {
-                $this->documents()->create([
-                    'url' => $file->store('/'),
-                    'document_type' => $this->type($document);
-                ]);
+                $documentDetails = $this->details($individualDocument,$neededDocument);
+                $this->documents()->create($documentDetails);
             }
         }
+    }
+
+    private function details($individualDocument, $neededDocument)
+    {
+        return [
+            'url' => $individualDocument->store('/'),
+            'document_type' => $this->type($neededDocument)
+        ];
     }
 
     private function type($document)

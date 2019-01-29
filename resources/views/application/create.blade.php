@@ -14,43 +14,43 @@
 		<div class="form-group form-row">			
 			<label class="col-md-4 text-md-right col-form-label">Last Name</label>			
 			<div class="col-md-6">
-				<input class="form-control {{ $errors->has('student.last_name') ? 'is-invalid' : '' }}" type="text" name="student[last_name]">
+				<input class="form-control {{ $errors->has('student.last_name') ? 'is-invalid' : '' }}" type="text" name="student[last_name]" value="{{ old('student.last_name') }}">
 			</div>
 		</div>
 		<div class="form-group form-row">			
 			<label class="col-md-4 text-md-right col-form-label">First Name</label>			
 			<div class="col-md-6">
-				<input class="form-control {{ $errors->has('student.first_name') ? 'is-invalid' : '' }}" type="text" name="student[first_name]">
+				<input class="form-control {{ $errors->has('student.first_name') ? 'is-invalid' : '' }}" type="text" name="student[first_name]" value="{{ old('student.first_name') }}">
 			</div>
 		</div>
 		<div class="form-group form-row">			
 			<label class="col-md-4 text-md-right col-form-label">Middle Name</label>			
 			<div class="col-md-6">
-				<input class="form-control {{ $errors->has('student.middle_name') ? 'is-invalid' : '' }}" type="text" name="student[middle_name]">
+				<input class="form-control {{ $errors->has('student.middle_name') ? 'is-invalid' : '' }}" type="text" name="student[middle_name]" value="{{ old('student.middle_name') }}">
 			</div>
 		</div>
 		<div class="form-group form-row">			
 			<label class="col-md-4 text-md-right col-form-label">Home Address</label>			
 			<div class="col-md-6">
-				<input class="form-control {{ $errors->has('student.home_address') ? 'is-invalid' : '' }}" type="text" name="student[home_address]">
+				<input class="form-control {{ $errors->has('student.home_address') ? 'is-invalid' : '' }}" type="text" name="student[home_address]" value="{{ old('student.home_address') }}">
 			</div>
 		</div>
 		<div class="form-group form-row">			
 			<label class="col-md-4 text-md-right col-form-label">Birth Date</label>			
 			<div class="col-md-6">
-				<input class="form-control {{ $errors->has('student.birth_date') ? 'is-invalid' : '' }}" type="date" name="student[birth_date]">
+				<input class="form-control {{ $errors->has('student.birth_date') ? 'is-invalid' : '' }}" type="date" name="student[birth_date]" value="{{ old('student.birth_date') }}">
 			</div>
 		</div>
 		<div class="form-group form-row">			
 			<label class="col-md-4 text-md-right col-form-label">Birth Place</label>			
 			<div class="col-md-6">
-				<input class="form-control {{ $errors->has('student.birth_place') ? 'is-invalid' : '' }}" type="text" name="student[birth_place]">
+				<input class="form-control {{ $errors->has('student.birth_place') ? 'is-invalid' : '' }}" type="text" name="student[birth_place]" value="{{ old('student.birth_place') }}">
 			</div>
 		</div>
 		<div class="form-group form-row">			
 			<label class="col-md-4 text-md-right col-form-label">Religion</label>			
 			<div class="col-md-6">
-				<input class="form-control {{ $errors->has('student.religion') ? 'is-invalid' : '' }}" type="text" name="student[religion]">
+				<input class="form-control {{ $errors->has('student.religion') ? 'is-invalid' : '' }}" type="text" name="student[religion]" value="{{ old('student.religion') }}">
 			</div>
 		</div>
 		<div class="form-group form-row">			
@@ -58,8 +58,8 @@
 			<div class="col-md-6">
 				<select class="custom-select {{ $errors->has('student.gender') ? 'is-invalid' : '' }}" name="student[gender]">
 					<option value="" hidden>Choose</option>
-					<option value="male">Male</option>
-					<option value="female">Female</option>
+					<option value="male" @if(old('student.gender') == 'male') selected @endif>Male</option>
+					<option value="female" @if(old('student.gender') == 'female') selected @endif>Female</option>
 				</select>
 			</div>
 		</div>
@@ -69,7 +69,8 @@
 					<select class="custom-select {{ $errors->has('student.grade') ? 'is-invalid' : '' }}" name="student[grade]" id="">
 						<option value="" hidden>Choose</option>
 						@foreach($grades as $grade)
-						<option value="{{ $grade->name }}">{{ $grade->name }}</option>
+						<option value="{{ $grade->name }}" {{ old('student.grade') == $grade->name ? 'selected
+						':'' }}>{{ $grade->name }}</option>
 						@endforeach
 					</select>
 				</div>
@@ -81,19 +82,19 @@
 		<div class="form-group form-row">			
 				<label class="col-md-4 text-md-right col-form-label">Father Name</label>			
 				<div class="col-md-6">
-					<input class="form-control {{ $errors->has('father.name') ? 'is-invalid' : '' }}" type="text" name="father[name]">
+					<input class="form-control {{ $errors->has('father.name') ? 'is-invalid' : '' }}" type="text" name="father[name]" value="{{ old('father.name') }}">
 				</div>
 		</div>
 		<div class="form-group form-row">			
 				<label class="col-md-4 text-md-right col-form-label">Contact</label>			
 				<div class="col-md-6">
-					<input class="form-control {{ $errors->has('father.contact') ? 'is-invalid' : '' }}" type="number" name="father[contact]">
+					<input class="form-control {{ $errors->has('father.contact') ? 'is-invalid' : '' }}" type="number" name="father[contact]" value="{{ old('father.contact') }}">
 				</div>
 		</div>
 		<div class="form-group form-row">			
 				<label class="col-md-4 text-md-right col-form-label">Occupation</label>			
 				<div class="col-md-6">
-					<input class="form-control {{ $errors->has('father.occupation') ? 'is-invalid' : '' }}" type="text" name="father[occupation]">
+					<input class="form-control {{ $errors->has('father.occupation') ? 'is-invalid' : '' }}" type="text" name="father[occupation]" value="{{ old('father.occupation') }}">
 				</div>
 		</div>
 		<hr>
@@ -103,19 +104,19 @@
 		<div class="form-group form-row">			
 				<label class="col-md-4 text-md-right col-form-label">Mother Name</label>			
 				<div class="col-md-6">
-					<input class="form-control {{ $errors->has('mother.name') ? 'is-invalid' : '' }}" type="text" name="mother[name]">
+					<input class="form-control {{ $errors->has('mother.name') ? 'is-invalid' : '' }}" type="text" name="mother[name]" value="{{ old('mother.name') }}">
 				</div>
 		</div>
 		<div class="form-group form-row">			
 				<label class="col-md-4 text-md-right col-form-label">Contact</label>			
 				<div class="col-md-6">
-					<input class="form-control {{ $errors->has('mother.contact') ? 'is-invalid' : '' }}" type="number" name="mother[contact]">
+					<input class="form-control {{ $errors->has('mother.contact') ? 'is-invalid' : '' }}" type="number" name="mother[contact]" value="{{ old('mother.contact') }}">
 				</div>
 		</div>
 		<div class="form-group form-row">			
 				<label class="col-md-4 text-md-right col-form-label">Occupation</label>			
 				<div class="col-md-6">
-					<input class="form-control {{ $errors->has('mother.occupation') ? 'is-invalid' : '' }}" type="text" name="mother[occupation]">
+					<input class="form-control {{ $errors->has('mother.occupation') ? 'is-invalid' : '' }}" type="text" name="mother[occupation]" value="{{ old('mother.occupation') }}">
 				</div>
 		</div>
 	</div>
