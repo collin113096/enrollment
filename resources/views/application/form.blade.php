@@ -6,7 +6,7 @@
 @include('errors')
 
 <!-- CARD -->
-<div class="card">
+<div class="card" id="card1">
 
 	<!-- CARD HEADER -->
 	<div class="card-header py-4 text-center">
@@ -23,7 +23,7 @@
 
 		<!-- LAST NAME -->
 		<div class="form-group form-row">			
-			<label class="col-md-4 text-md-right col-form-label">Last Name</label>			
+			<label class="col-md-4 font-weight-bold text-md-right col-form-label">Last Name</label>			
 			<div class="col-md-6">
 				<input 
 					class="form-control {{ $errors->has('student.last_name') ? 'is-invalid' : '' }}" 
@@ -36,7 +36,7 @@
 
 		<!-- FIRST NAME -->
 		<div class="form-group form-row">			
-			<label class="col-md-4 text-md-right col-form-label">First Name</label>			
+			<label class="col-md-4 font-weight-bold text-md-right col-form-label">First Name</label>			
 			<div class="col-md-6">
 				<input 
 					class="form-control {{ $errors->has('student.first_name') ? 'is-invalid' : '' }}" 
@@ -49,7 +49,7 @@
 
 		<!-- MIDDLE NAME -->
 		<div class="form-group form-row">			
-			<label class="col-md-4 text-md-right col-form-label">Middle Name</label>			
+			<label class="col-md-4 font-weight-bold text-md-right col-form-label">Middle Name</label>			
 			<div class="col-md-6">
 				<input 
 					class="form-control {{ $errors->has('student.middle_name') ? 'is-invalid' : '' }}" 
@@ -62,7 +62,7 @@
 
 		<!-- HOME ADDRESS -->
 		<div class="form-group form-row">			
-			<label class="col-md-4 text-md-right col-form-label">Home Address</label>			
+			<label class="col-md-4 font-weight-bold text-md-right col-form-label">Home Address</label>			
 			<div class="col-md-6">
 				<input 
 					class="form-control {{ $errors->has('student.home_address') ? 'is-invalid' : '' }}" 
@@ -75,7 +75,7 @@
 
 		<!-- BIRTH DATE -->
 		<div class="form-group form-row">			
-			<label class="col-md-4 text-md-right col-form-label">Birth Date</label>			
+			<label class="col-md-4 font-weight-bold text-md-right col-form-label">Birth Date</label>			
 			<div class="col-md-6">
 				<input 
 					class="form-control {{ $errors->has('student.birth_date') ? 'is-invalid' : '' }}" 
@@ -88,7 +88,7 @@
 
 		<!-- BIRTH PLACE -->
 		<div class="form-group form-row">			
-			<label class="col-md-4 text-md-right col-form-label">Birth Place</label>			
+			<label class="col-md-4 font-weight-bold text-md-right col-form-label">Birth Place</label>			
 			<div class="col-md-6">
 				<input 
 					class="form-control {{ $errors->has('student.birth_place') ? 'is-invalid' : '' }}" 
@@ -101,7 +101,7 @@
 
 		<!-- RELIGION -->
 		<div class="form-group form-row">			
-			<label class="col-md-4 text-md-right col-form-label">Religion</label>			
+			<label class="col-md-4 font-weight-bold text-md-right col-form-label">Religion</label>			
 			<div class="col-md-6">
 				<input 
 					class="form-control {{ $errors->has('student.religion') ? 'is-invalid' : '' }}" 
@@ -114,7 +114,7 @@
 
 		<!-- GENDER -->
 		<div class="form-group form-row">			
-			<label class="col-md-4 text-md-right col-form-label">Gender</label>			
+			<label class="col-md-4 font-weight-bold text-md-right col-form-label">Gender</label>			
 			<div class="col-md-6">
 				<select 
 					class="custom-select {{ $errors->has('student.gender') ? 'is-invalid' : '' }}" 
@@ -129,7 +129,7 @@
 
 		<!-- GRADE -->
 		<div class="form-group form-row">			
-				<label class="col-md-4 text-md-right col-form-label ">Grade</label>			
+				<label class="col-md-4 font-weight-bold text-md-right col-form-label ">Grade</label>			
 				<div class="col-md-6">
 					<select 
 						class="custom-select {{ $errors->has('student.grade') ? 'is-invalid' : '' }}" 
@@ -143,15 +143,41 @@
 					</select>
 				</div>
 		</div>
-		<hr>
-		<!-- FATHER INFORMATION HEADER -->
+		
+
+	<!-- END OF CARD BODY -->
+	</div>
+
+
+	<!-- CARD FOOTER -->
+	<div class="card-footer d-flex justify-content-end">				
+		<div class="btn btn-primary" id="card1-button">Next Form <i class="fas fa-arrow-right mx-2"></i></div>
+	</div>
+
+<!-- END OF CARD -->
+</div>
+
+
+
+	<!-- CARD -->
+<div class="card collapse" id="card2">
+
+	<!-- CARD HEADER -->
+	<div class="card-header py-4 text-center">
+		<span class="h5 font-weight-bold">Pagsanjan Academy Application Form for Enrollment</span>
+	</div>
+
+	<!-- CARD BODY -->
+	<div class="card-body">	
+
+		<!-- PARENT INFORMATION HEADER -->
 		<div class="form-group">			
-			<div class="col-md-6 offset-md-4 text-center font-weight-bold">Father Information</div>
+			<div class="col-md-6 offset-md-4 text-center font-weight-bold">Parent Information</div>
 		</div>
 
 		<!-- FATHER NAME -->
 		<div class="form-group form-row">			
-				<label class="col-md-4 text-md-right col-form-label">Father Name</label>			
+				<label class="col-md-4 font-weight-bold text-md-right col-form-label">Father Name</label>			
 				<div class="col-md-6">
 					<input 
 						class="form-control {{ $errors->has('father.name') ? 'is-invalid' : '' }}" 
@@ -164,7 +190,7 @@
 
 		<!-- FATHER CONTACT -->
 		<div class="form-group form-row">			
-				<label class="col-md-4 text-md-right col-form-label">Contact</label>			
+				<label class="col-md-4 font-weight-bold text-md-right col-form-label">Contact</label>			
 				<div class="col-md-6">
 					<input 
 						class="form-control {{ $errors->has('father.contact') ? 'is-invalid' : '' }}" 
@@ -177,7 +203,7 @@
 
 		<!-- FATHER OCCUPATION -->
 		<div class="form-group form-row">			
-				<label class="col-md-4 text-md-right col-form-label">Occupation</label>			
+				<label class="col-md-4 font-weight-bold text-md-right col-form-label">Occupation</label>			
 				<div class="col-md-6">
 					<input 
 						class="form-control {{ $errors->has('father.occupation') ? 'is-invalid' : '' }}" 
@@ -186,17 +212,11 @@
 						value="{{ old('father.occupation') }}"
 					>
 				</div>
-		</div>
-		<hr>
-
-		<!-- MOTHER INFORMATION HEADER -->
-		<div class="form-group">			
-			<div class="col-md-6 offset-md-4 text-center font-weight-bold">Mother Information</div>
-		</div>
+		</div><hr>
 
 		<!-- MOTHER NAME -->
 		<div class="form-group form-row">			
-				<label class="col-md-4 text-md-right col-form-label">Mother Name</label>			
+				<label class="col-md-4 font-weight-bold text-md-right col-form-label">Mother Name</label>			
 				<div class="col-md-6">
 					<input 
 						class="form-control {{ $errors->has('mother.name') ? 'is-invalid' : '' }}" 
@@ -209,7 +229,7 @@
 
 		<!-- MOTHER CONTACT -->
 		<div class="form-group form-row">			
-				<label class="col-md-4 text-md-right col-form-label">Contact</label>			
+				<label class="col-md-4 font-weight-bold text-md-right col-form-label">Contact</label>			
 				<div class="col-md-6">
 					<input 
 						class="form-control {{ $errors->has('mother.contact') ? 'is-invalid' : '' }}" 
@@ -222,7 +242,7 @@
 
 		<!-- MOTHER OCCUPATION -->
 		<div class="form-group form-row">			
-				<label class="col-md-4 text-md-right col-form-label">Occupation</label>			
+				<label class="col-md-4 font-weight-bold text-md-right col-form-label">Occupation</label>			
 				<div class="col-md-6">
 					<input 
 						class="form-control {{ $errors->has('mother.occupation') ? 'is-invalid' : '' }}" 
@@ -237,16 +257,23 @@
 	</div>
 
 	<!-- CARD FOOTER -->
-	<div class="card-footer d-flex justify-content-end">				
-		<button class="btn btn-primary">Send Application Form</button>
+	<div class="card-footer d-flex justify-content-between">
+		<div class="btn btn-light" id="card2-button"><i class="fas fa-arrow-left mx-2"></i> Back to Form 1</div>			
+		<button class="btn btn-primary"><i class="fas fa-check-circle mx-2"></i> Send Application Form</button>
 	</div>
 
 <!-- END OF CARD -->
 </div>
 
+
+
+
 <!-- END OF FORM -->
 </form>
 
+
+
 <!-- SCRIPTS -->
 <script src="{{ asset('js/application_form_validation.js') }}"></script>
+<script src="{{ asset('js/application_form_next_and_back.js') }}"></script>
 @endsection

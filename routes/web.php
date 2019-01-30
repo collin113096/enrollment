@@ -21,8 +21,10 @@ Route::post('/application_form','ApplicationFormController@store');
 Route::get('/documents/{student}','DocumentController@create');
 Route::post('/documents/{student}','DocumentController@store');
 
-// Route::get('/applicants','AdmissionController@index');
-// Route::get('/applicants/{student}/show','AdmissionController@show')->name('applicant.show');
+Route::get('/applicants','AdmissionController@index');
+Route::get('/applicant/{student}/application_form','AdmissionController@showApplicationForm');
+Route::get('/applicant/{student}/documents','AdmissionController@showDocuments');
+
 // Route::patch('/applicants/{student}','AdmissionController@update');
 
 // Route::get('/admitted','AdmittedController@index');

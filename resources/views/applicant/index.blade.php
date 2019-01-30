@@ -1,7 +1,7 @@
 @extends('template')
 @section('title','Applicants')
 @section('content')
-<div class="col-md-9">
+<div class="col-md-8">
 	<div class="card">
 		<div class="card-header">
 			<strong>Applicants List</strong>
@@ -11,6 +11,7 @@
 				<thead>
 					<tr>
 						<th>Applicant Name</th>
+						<th>Grade</th>
 						<th class="text-center">Action</th>
 					</tr>
 				</thead>
@@ -20,14 +21,11 @@
 						<td>
 							{{ $student->last_name }}, {{ $student->first_name }} {{ $student->middle_name }}
 						</td>
+						<td>{{ $student->grade }}</td>
 						<td class="d-flex justify-content-around">
-							<a class="btn btn-primary" href="{{ route('applicant.show',compact('student')) }}">Show Applicant Form</a>
-							<a class="btn btn-secondary" href="{{ route('applicant.show',compact('student')) }}">Show Documents</a>
-							<form class="m-0" method="post" action="/applicants/{{ $student->id }}">
-								@csrf
-								@method('PATCH')
-								<button class="btn btn-success" type="submit">Admit Student</button>
-							</form>
+							<a 
+								class="btn btn-primary" 
+								href="/applicant/{{ $student->id }}/documents">Show Documents</a>
 						</td>
 					</tr>
 					@endforeach

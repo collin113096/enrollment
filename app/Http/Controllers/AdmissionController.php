@@ -14,9 +14,14 @@ class AdmissionController extends Controller
     	return view('applicant.index',compact('students'));
     }	
 
-    public function show(Student $student){
+    public function showApplicationForm(Student $student){
 
-    	return view('applicant.show',compact('student'));
+        return view('applicant.form',compact('student'));
+    }
+
+    public function showDocuments(Student $student){
+
+    	return view('applicant.document',compact('student'));
     }
 
     public function update(Student $student){
