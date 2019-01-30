@@ -14,6 +14,5 @@ $factory->define(Student::class, function (Faker $faker) {
         'gender' => $faker->numberBetween(1,2) == 1 ? 'Male' : 'Female',
         'religion' => $faker->lastName,
         'grade' => 'Grade '.$faker->numberBetween(1,2),
-       
     ];
 });

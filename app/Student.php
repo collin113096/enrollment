@@ -9,7 +9,7 @@ class Student extends Model
     private $id;
     protected $guarded = [];
 
-    public function father()
+    public function father() 
     {
     	return $this->hasOne('\App\Father');
     }
@@ -24,7 +24,7 @@ class Student extends Model
     	return $this->hasMany('\App\Document');
     }
 
-    public function saveApplicationForm($validatedDataOf)
+    public function saveApplicationForm($validatedDataOf) //tested
     {
         $student = $this->create($validatedDataOf['student']);
         $student->father()->create($validatedDataOf['father']);
