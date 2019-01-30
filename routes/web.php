@@ -24,7 +24,5 @@ Route::post('/documents/{student}','DocumentController@store');
 Route::get('/applicants','AdmissionController@index');
 // Route::get('/applicant/{student}/application_form','AdmissionController@showApplicationForm');
 Route::get('/applicant/{student}/information','AdmissionController@showDocuments');
-
 // Route::patch('/applicants/{student}','AdmissionController@update');
-
 // Route::get('/admitted','AdmittedController@index');
