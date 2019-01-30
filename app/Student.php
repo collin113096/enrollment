@@ -29,7 +29,6 @@ class Student extends Model
         $student = $this->create($validatedDataOf['student']);
         $student->father()->create($validatedDataOf['father']);
         $student->mother()->create($validatedDataOf['mother']);
-
         return $student;
     }
 

@@ -5,12 +5,12 @@ use Illuminate\Http\Request;
 use App\Student;
 use App\Http\Requests\ApplicationFormRequest;
 
-class ApplicationController extends Controller
+class ApplicationFormController extends Controller
 {
 
     public function create(){
 
-    	return view('application.create');
+    	return view('application.form');
     }
 
     public function store(ApplicationFormRequest $request, Student $student){

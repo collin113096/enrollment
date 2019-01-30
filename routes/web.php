@@ -15,14 +15,14 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/applications','ApplicationController@create');
-Route::post('/applications','ApplicationController@store')->name('application.store');
+Route::get('/application_form','ApplicationFormController@create');
+Route::post('/application_form','ApplicationFormController@store');
 
-Route::get('/documents/{student}','DocumentController@create')->name('document.create');
-Route::post('/documents/{student}','DocumentController@store')->name('document.store');
+Route::get('/documents/{student}','DocumentController@create');
+Route::post('/documents/{student}','DocumentController@store');
 
-Route::get('/applicants','AdmissionController@index');
-Route::get('/applicants/{student}/show','AdmissionController@show')->name('applicant.show');
-Route::patch('/applicants/{student}','AdmissionController@update');
+// Route::get('/applicants','AdmissionController@index');
+// Route::get('/applicants/{student}/show','AdmissionController@show')->name('applicant.show');
+// Route::patch('/applicants/{student}','AdmissionController@update');
 
-Route::get('/admitted','AdmittedController@index');
+// Route::get('/admitted','AdmittedController@index');

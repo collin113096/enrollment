@@ -10,7 +10,7 @@ class DocumentController extends Controller
     
     public function create(Student $student){
 
-    	return view('document.create')->with(compact('student'));
+    	return view('document.create',compact('student'));
     }
 
     public function store(Student $student){
