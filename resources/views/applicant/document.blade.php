@@ -8,7 +8,7 @@
 
 input.form-control.bg-white, select.custom-select.bg-white {
     border: none;
-    border-bottom: 1px solid #555;
+    border-bottom: 1px solid gainsboro;
     border-radius: 0;
 }
 
@@ -20,8 +20,9 @@ input.form-control.bg-white, select.custom-select.bg-white {
 }
 
 </style>
+
 @foreach($student->documents as $document)
-<div class="modal" id="document-{{ $loop->iteration }}">
+<div class="modal fade" id="document-{{ $loop->iteration }}">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -41,7 +42,7 @@ input.form-control.bg-white, select.custom-select.bg-white {
 <form class="col-md-8" method="post" action="/application_form">@csrf
 
 <!-- CARD -->
-<div class="card">
+<div class="card" id="card1">
 
 	<!-- CARD HEADER -->
 	<div class="card-header">
@@ -187,10 +188,32 @@ input.form-control.bg-white, select.custom-select.bg-white {
 					</select>
 				</div>
 		</div>
-		<hr>
+	
+	<!-- END OF CARD BODY -->
+	</div>
+
+	<!-- CARD FOOTER -->
+	<div class="card-footer d-flex justify-content-end">				
+		<div class="btn btn-light" id="card1-button">Next Form <i class="fas fa-arrow-right mx-2"></i></div>
+	</div>
+
+<!-- END OF CARD -->
+</div>
+
+<!-- CARD -->
+<div class="card collapse" id="card2">
+
+	<!-- CARD HEADER -->
+	<div class="card-header">
+		Application Form for Enrollment
+	</div>
+
+	<!-- CARD BODY -->
+	<div class="card-body">	
+
 		<!-- FATHER INFORMATION HEADER -->
 		<div class="form-group">			
-			<div class="col-md-6 offset-md-4 text-center font-weight-bold">Father Information</div>
+			<div class="col-md-6 offset-md-4 text-center font-weight-bold">Parent Information</div>
 		</div>
 
 		<!-- FATHER NAME -->
@@ -235,12 +258,6 @@ input.form-control.bg-white, select.custom-select.bg-white {
 				</div>
 		</div>
 		<hr>
-
-		<!-- MOTHER INFORMATION HEADER -->
-		<div class="form-group">			
-			<div class="col-md-6 offset-md-4 text-center font-weight-bold">Mother Information</div>
-		</div>
-
 		<!-- MOTHER NAME -->
 		<div class="form-group form-row">			
 				<label class="col-md-4 text-md-right col-form-label">Mother Name</label>			
@@ -286,13 +303,18 @@ input.form-control.bg-white, select.custom-select.bg-white {
 	<!-- END OF CARD BODY -->
 	</div>
 
+	<!-- CARD FOOTER -->
+	<div class="card-footer d-flex justify-content-between">
+		<div class="btn btn-light" id="card2-button"><i class="fas fa-arrow-left mx-2"></i> Back to Form 1</div>			
+	</div>
+
 <!-- END OF CARD -->
 </div>
 
 <!-- END OF FORM -->
 </form>
 
-<div class="col-md-3">
+<div class="col-md-4">
 	<div class="card">
 		<div class="card-header">
 			Documents
@@ -308,4 +330,5 @@ input.form-control.bg-white, select.custom-select.bg-white {
 	</div>
 </div>
 
+<script src="{{ asset('js/application_form_next_and_back.js') }}"></script>
 @endsection
