@@ -1,30 +1,32 @@
 @extends('template')
-@section('title','All Room')
+@section('title','All Time')
 @section('content')
 <div class="col-md-8">
 <div class="card">
 	<div class="card-header">
-		Room
+		Time
 	</div>
 	<div class="card-body">
-		<a class="btn btn-success mb-3" href="/rooms/create">
+		<a class="btn btn-success mb-3" href="/times/create">
 			<i class="fas fa-plus-circle"></i> Add</a>
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Room Name</th>
+					<th>Time In</th>
+					<th>Time Out</th>
 					<th class="text-center">Action</th>
 				</tr>
 			</thead>
 			<tbody>
-				@foreach($rooms as $room)
+				@foreach($times as $time)
 				<tr>
-					<td>{{ $room->name }}</td>
+					<td>{{ $time->in }}</td>
+					<td>{{ $time->out }}</td>
 					<td>
 						<div class="text-center">
-							<a class="btn btn-warning" href="/rooms/{{ $room->id }}/edit">
+							<a class="btn btn-warning" href="/times/{{ $time->id }}/edit">
 								<i class="fas fa-pen"></i> Edit</a>
-							<form class="m-0 d-inline" method="post" action="/rooms/{{ $room->id }}">
+							<form class="m-0 d-inline" method="post" action="/times/{{ $time->id }}">
 								@csrf 
 								@method('DELETE')
 								<button class="btn btn-danger" type="submit">

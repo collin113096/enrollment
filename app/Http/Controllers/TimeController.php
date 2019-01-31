@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Time;
 
 class TimeController extends Controller
 {
@@ -13,7 +14,8 @@ class TimeController extends Controller
      */
     public function index()
     {
-        //
+        $times = Time::paginate(8);
+        return view('time.index',compact('times'));
     }
 
     /**
@@ -23,7 +25,7 @@ class TimeController extends Controller
      */
     public function create()
     {
-        //
+        return view('time.create');
     }
 
     /**
@@ -32,9 +34,10 @@ class TimeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        Time::create(request()->all());
+        return redirect('/times');
     }
 
     /**
@@ -54,9 +57,9 @@ class TimeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Time $time)
     {
-        //
+        return view('time.edit',compact('time'));
     }
 
     /**
@@ -66,9 +69,10 @@ class TimeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Time $time)
     {
-        //
+        $time->update(request()->all());
+        return redirect('/times');
     }
 
     /**
@@ -77,8 +81,9 @@ class TimeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Time $time)
     {
-        //
+        $time->delete();
+        return redirect('/times');
     }
 }
