@@ -26,3 +26,9 @@ Route::get('/applicants','AdmissionController@index');
 Route::get('/applicant/{student}/information','AdmissionController@showDocuments');
 // Route::patch('/applicants/{student}','AdmissionController@update');
 // Route::get('/admitted','AdmittedController@index');
+
+
+
+Route::resource('/times','TimeController');
+Route::resource('/rooms','RoomController');
+Route::resource('/subjects','SubjectController')

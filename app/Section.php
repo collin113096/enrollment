@@ -18,4 +18,14 @@ class Section extends Model
     {
     	return $this->belongsTo('App\Grade');
     }
+
+    public function teachers()
+    {
+    	return $this->belongsToMany('App\Teacher');
+    }
+
+    public function classes()
+    {
+        return $this->hasMany('App\Class');
+    }
 }

@@ -28,4 +28,9 @@ class Class extends Model
     {
     	return $this->belongsTo('App\Teacher');
     }
+
+    public function section()
+    {
+        return $this->belongsTo('App\Section');
+    }
 }

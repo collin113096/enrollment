@@ -13,4 +13,9 @@ class Teacher extends Model
     {
     	return $this->hasMany('App\Class');
     }
+
+     public function sections()
+    {
+    	return $this->belongsToMany('App\Section');
+    }
 }
