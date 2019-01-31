@@ -59,41 +59,13 @@ input.form-control.bg-white, select.custom-select.bg-white {
 
 		<!-- LAST NAME -->
 		<div class="form-group form-row">			
-			<label class="col-md-4 text-md-right col-form-label">Last Name</label>			
+			<label class="col-md-4 text-md-right col-form-label">Applicant Name</label>			
 			<div class="col-md-6">
 				<input 
 					class="form-control bg-white {{ $errors->has('student.last_name') ? 'is-invalid' : '' }}" 
 					type="text" 
 					name="student[last_name]" 
-					value="{{ $student->last_name }}"
-					disabled="" 
-				>
-			</div>
-		</div>
-
-		<!-- FIRST NAME -->
-		<div class="form-group form-row">			
-			<label class="col-md-4 text-md-right col-form-label">First Name</label>			
-			<div class="col-md-6">
-				<input 
-					class="form-control bg-white {{ $errors->has('student.first_name') ? 'is-invalid' : '' }}" 
-					type="text" 
-					name="student[first_name]" 
-					value="{{ $student->first_name }}"
-					disabled="" 
-				>
-			</div>
-		</div>
-
-		<!-- MIDDLE NAME -->
-		<div class="form-group form-row">			
-			<label class="col-md-4 text-md-right col-form-label">Middle Name</label>			
-			<div class="col-md-6">
-				<input 
-					class="form-control bg-white {{ $errors->has('student.middle_name') ? 'is-invalid' : '' }}" 
-					type="text" 
-					name="student[middle_name]" 
-					value="{{ $student->middle_name }}"
+					value="{{ $student->last_name }}, {{ $student->first_name }} {{ $student->middle_name }}"
 					disabled="" 
 				>
 			</div>

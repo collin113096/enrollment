@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Subject;
+use Faker\Factory as Faker;
 
 class SubjectSeeder extends Seeder
 {
@@ -25,10 +26,12 @@ class SubjectSeeder extends Seeder
     		'Elective Computer'
     	];
         
+        $faker = Faker::create();
         foreach($subjects as $subject)
         {
         	Subject::create([
 	        	'name' => $subject,
+                'unit' => $faker->numberBetween(1,4),
 	        	'description' => 'Description..',
 	        ]);
         }
