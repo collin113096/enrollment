@@ -15,10 +15,13 @@
 	<!-- CARD BODY -->
 	<div class="card-body">
 		<div class="form-group">
-			<label>Section Name</label>
+			<label><strong>Section Name</strong></label>
 			<input class="form-control" type="text" name="name">
 		</div>
-		<button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> Save</button>
+		<div class="form-row justify-content-end">
+			<a class="btn btn-light mr-1" href="/sections">Cancel</a>
+			<button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> Save</button>
+		</div>
 	</div>
 
 <!-- END OF CARD -->

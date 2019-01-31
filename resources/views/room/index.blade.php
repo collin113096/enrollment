@@ -22,7 +22,7 @@
 					<td>{{ $room->name }}</td>
 					<td>
 						<div class="text-center">
-							<a class="btn btn-warning" href="/rooms/{{ $room->id }}/edit">
+							<a class="btn btn-primary" href="/rooms/{{ $room->id }}/edit">
 								<i class="fas fa-pen"></i> Edit</a>
 							<form class="m-0 d-inline" method="post" action="/rooms/{{ $room->id }}">
 								@csrf 

@@ -13,6 +13,7 @@
 			<thead>
 				<tr>
 					<th>Section Name</th>
+					<th>Adviser</th>
 					<th class="text-center">Action</th>
 				</tr>
 			</thead>
@@ -20,9 +21,10 @@
 				@foreach($sections as $section)
 				<tr>
 					<td>{{ $section->name }}</td>
+					<td>Llarena</td>
 					<td>
 						<div class="text-center">
-							<a class="btn btn-warning" href="/sections/{{ $section->id }}/edit">
+							<a class="btn btn-primary" href="/sections/{{ $section->id }}/edit">
 								<i class="fas fa-pen"></i> Edit</a>
 							<form class="m-0 d-inline" method="post" action="/sections/{{ $section->id }}">
 								@csrf 
@@ -30,6 +32,8 @@
 								<button class="btn btn-danger" type="submit">
 									<i class="fas fa-minus-circle"></i> Delete</button>
 							</form>
+							<a class="btn btn-warning" href="/sections/{{ $section->id }}/edit">
+								<i class="fas fa-pen"></i> Assign Adviser</a>
 						</div>
 					</td>
 				</tr>

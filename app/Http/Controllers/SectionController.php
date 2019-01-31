@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Section;
 use Illuminate\Http\Request;
 
 class SectionController extends Controller
@@ -13,7 +13,8 @@ class SectionController extends Controller
      */
     public function index()
     {
-        //
+        $sections = Section::paginate(8);
+        return view('section.index',compact('sections'));
     }
 
     /**
@@ -23,7 +24,7 @@ class SectionController extends Controller
      */
     public function create()
     {
-        //
+        return view('section.create');
     }
 
     /**
@@ -32,9 +33,10 @@ class SectionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        Section::create(request()->all());
+        return redirect('/sections');
     }
 
     /**
@@ -54,9 +56,9 @@ class SectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Section $section)
     {
-        //
+        return view('section.edit',compact('section'));
     }
 
     /**
@@ -66,9 +68,10 @@ class SectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Section $section)
     {
-        //
+        $section->update(request()->all());
+        return redirect('/sections');
     }
 
     /**
@@ -77,8 +80,9 @@ class SectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Section $section)
     {
-        //
+        $section->delete();
+        return redirect('/sections');
     }
 }

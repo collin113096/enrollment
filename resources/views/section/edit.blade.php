@@ -19,7 +19,10 @@
 			<label>Section Name</label>
 			<input class="form-control" type="text" name="name" value="{{ $section->name }}">
 		</div>
-		<button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> Save</button>
+		<div class="form-row justify-content-end">
+			<a class="btn btn-light mr-1" href="/sections">Cancel</a>
+			<button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> Save</button>
+		</div>
 	</div>
 
 <!-- END OF CARD -->

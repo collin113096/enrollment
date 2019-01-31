@@ -24,7 +24,7 @@
 					<td>{{ $time->out }}</td>
 					<td>
 						<div class="text-center">
-							<a class="btn btn-warning" href="/times/{{ $time->id }}/edit">
+							<a class="btn btn-primary" href="/times/{{ $time->id }}/edit">
 								<i class="fas fa-pen"></i> Edit</a>
 							<form class="m-0 d-inline" method="post" action="/times/{{ $time->id }}">
 								@csrf 

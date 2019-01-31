@@ -26,7 +26,7 @@
 					<td>{{ $subject->unit }}</td>
 					<td>
 						<div class="text-center">
-							<a class="btn btn-warning" href="/subjects/{{ $subject->id }}/edit">
+							<a class="btn btn-primary" href="/subjects/{{ $subject->id }}/edit">
 								<i class="fas fa-pen"></i> Edit</a>
 							<form class="m-0 d-inline" method="post" action="/subjects/{{ $subject->id }}">
 								@csrf 
