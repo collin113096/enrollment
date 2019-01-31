@@ -11,17 +11,22 @@ class Student extends Model
 
     public function father() 
     {
-    	return $this->hasOne('\App\Father');
+    	return $this->hasOne('App\Father');
     }
 
     public function mother()
     {
-    	return $this->hasOne('\App\Mother');
+    	return $this->hasOne('App\Mother');
     }
 
     public function documents()
     {
-    	return $this->hasMany('\App\Document');
+    	return $this->hasMany('App\Document');
+    }
+
+    public function sections(){
+
+        return $this->belongsToMany('App\Section');
     }
 
     public function saveApplicationForm($validatedDataOf) //tested
