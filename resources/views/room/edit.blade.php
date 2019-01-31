@@ -16,7 +16,7 @@
 	<!-- CARD BODY -->
 	<div class="card-body">
 		<div class="form-group">
-			<label>Room Name</label>
+			<label><strong>Room Name</strong></label>
 			<input class="form-control" type="text" name="name" value="{{ $room->name }}">
 		</div>
 		<div class="form-row justify-content-end">

@@ -13,6 +13,8 @@
 			<thead>
 				<tr>
 					<th>Subject Name</th>
+					<th>Description</th>
+					<th>Unit(s)</th>
 					<th class="text-center">Action</th>
 				</tr>
 			</thead>
@@ -20,6 +22,8 @@
 				@foreach($subjects as $subject)
 				<tr>
 					<td>{{ $subject->name }}</td>
+					<td>{{ $subject->description }}</td>
+					<td>{{ $subject->unit }}</td>
 					<td>
 						<div class="text-center">
 							<a class="btn btn-warning" href="/subjects/{{ $subject->id }}/edit">

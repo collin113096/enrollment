@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Subject;
 use Illuminate\Http\Request;
 
 class SubjectController extends Controller
@@ -13,7 +14,8 @@ class SubjectController extends Controller
      */
     public function index()
     {
-        //
+        $subjects = Subject::paginate(8);
+        return view('subject.index',compact('subjects'));
     }
 
     /**
@@ -23,7 +25,7 @@ class SubjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('subject.create');
     }
 
     /**
@@ -32,9 +34,10 @@ class SubjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        Subject::create(request()->all());
+        return redirect('/subjects');
     }
 
     /**
@@ -54,9 +57,9 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Subject $subject)
     {
-        //
+        return view('subject.edit',compact('subject'));
     }
 
     /**
@@ -66,9 +69,10 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Subject $subject)
     {
-        //
+        $subject->update(request()->all());
+        return redirect('/subjects');
     }
 
     /**
@@ -77,8 +81,9 @@ class SubjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Subject $subject)
     {
-        //
+        $subject->delete();
+        return redirect('/subjects');
     }
 }
