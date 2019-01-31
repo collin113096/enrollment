@@ -30,7 +30,7 @@ Route::get('/applicant/{student}/information','AdmissionController@showDocuments
 
 
 Route::resource('/times','TimeController');
-Route::resource('/subjects','SubjectController')
+Route::resource('/subjects','SubjectController');
 Route::resource('/rooms','RoomController');
 Route::resource('/teachers','TeacherController');
 Route::resource('/sections','SectionController');
