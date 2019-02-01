@@ -67,7 +67,7 @@ input.form-control.bg-white, select.custom-select.bg-white {
 					name="student[last_name]" 
 					value="{{ $student->last_name }}, {{ $student->first_name }} {{ $student->middle_name }}"
 					disabled="" 
-				>
+				> 
 			</div>
 		</div>
 

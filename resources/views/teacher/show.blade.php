@@ -1,15 +1,25 @@
 @extends('template')
-@section('title','Create Teacher')
+@section('title','Show Teacher')
 @section('content')
+<style>
+
+input.form-control, select.custom-select {
+    border: none;
+    border-bottom: 1px solid gainsboro;
+    border-radius: 0;
+}
+
+</style>
 <!-- FORM -->
-<form class="col-md-8" method="post" action="/teachers">
+<form class="col-md-8" method="post" action="/teachers/{{ $teacher->id }}">
 @csrf
+@method('PATCH')
 <!-- CARD -->
 <div class="card">
 	
 	<!-- CARD HEADER -->
 	<div class="card-header">
-		Create Teacher
+		Show Teacher
 	</div>
 	
 	<!-- CARD BODY -->
@@ -17,33 +27,17 @@
 
 		<!-- LAST NAME -->
 		<div class="form-row form-group">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Last Name</strong></label>
+			<label class="col-md-4 text-md-right col-form-label"><strong>Teacher Name</strong></label>
 			<div class="col-md-6">
-				<input class="form-control" type="text" name="last_name">
+				<input class="bg-white form-control" type="text" name="last_name" value="{{ $teacher->last_name }}, {{ $teacher->first_name }} {{ $teacher->middle_name }}" disabled="">
 			</div>
 		</div>
 
-		<!-- FIRST NAME -->
-		<div class="form-row form-group">
-			<label class="col-md-4 text-md-right col-form-label"><strong>First Name</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="text" name="first_name">
-			</div>
-		</div>
-
-		<!-- MIDDLE NAME -->
-		<div class="form-row form-group">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Middle Name</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="text" name="middle_name">
-			</div>
-		</div>
-		
 		<!-- CLASSIFICATION -->
 		<div class="form-row form-group">
 			<label class="col-md-4 text-md-right col-form-label"><strong>Classification</strong></label>
 			<div class="col-md-6">
-				<input class="form-control" type="text" name="classification">
+				<input class="bg-white form-control" type="text" name="classification" value="{{ $teacher->classification }}" disabled="">
 			</div>
 		</div>
 		
@@ -51,7 +45,7 @@
 		<div class="form-row form-group">
 			<label class="col-md-4 text-md-right col-form-label"><strong>Birth Date</strong></label>
 			<div class="col-md-6">
-				<input class="form-control" type="date" name="birth_date">
+				<input class="bg-white form-control" type="date" name="birth_date" value="{{ $teacher->birth_date }}" disabled="">
 			</div>
 		</div>
 
@@ -62,7 +56,7 @@
 		<div class="form-row form-group">
 			<label class="col-md-4 text-md-right col-form-label"><strong>Home Address</strong></label>
 			<div class="col-md-6">
-				<input class="form-control" type="text" name="home_address">
+				<input class="bg-white form-control" type="text" name="home_address" value="{{ $teacher->home_address }}" disabled="">
 			</div>
 		</div>
 
@@ -70,7 +64,7 @@
 		<div class="form-row form-group">
 			<label class="col-md-4 text-md-right col-form-label"><strong>Email</strong></label>
 			<div class="col-md-6">
-				<input class="form-control" type="email" name="email">
+				<input class="bg-white form-control" type="email" name="email" value="{{ $teacher->email }}" disabled="">
 			</div>
 		</div>
 		
@@ -78,7 +72,7 @@
 		<div class="form-row form-group">
 			<label class="col-md-4 text-md-right col-form-label"><strong>Contact</strong></label>
 			<div class="col-md-6">
-				<input class="form-control" type="number" name="contact">
+				<input class="bg-white form-control" type="number" name="contact" value="{{ $teacher->contact }}" disabled="">
 			</div>
 		</div>
 
@@ -86,9 +80,13 @@
 	</div>
 
 	<!-- CARD FOOTER -->
-	<div class="card-footer d-flex justify-content-end">
-			<a class="btn btn-light mr-1" href="/teachers">Cancel</a>
-			<button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> Save</button>
+	<div class="card-footer d-flex justify-content-between">
+			<a class="btn btn-light mr-1" href="/teachers"><i class="fas fa-arrow-left"></i> Back</a>
+			<a 
+				class="btn btn-primary" 
+				href="/teachers/{{ $teacher->id }}/edit">
+			<i class="fas fa-pen"></i> Edit
+			</a>
 	</div>
 
 <!-- END OF CARD -->

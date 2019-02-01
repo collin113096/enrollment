@@ -13,22 +13,24 @@
 			<thead>
 				<tr>
 					<th>Teacher Name</th>
+					<th>Classification</th>
 					<th class="text-center">Action</th>
 				</tr>
 			</thead>
 			<tbody>
 				@foreach($teachers as $teacher)
 				<tr>
-					<td>{{ $teacher->name }}</td>
+					<td>{{ $teacher->last_name }}, {{ $teacher->first_name }} {{ $teacher->middle_name }}</td>
+					<td>{{ $teacher->classification }}</td>
 					<td>
 						<div class="text-center">
-							<a class="btn btn-warning" href="/teachers/{{ $teacher->id }}/edit">
-								<i class="fas fa-pen"></i> Edit</a>
+							<a class="btn btn-warning" href="/teachers/{{ $teacher->id }}">
+								<i class="fas fa-eye"></i> View</a>
 							<form class="m-0 d-inline" method="post" action="/teachers/{{ $teacher->id }}">
 								@csrf 
 								@method('DELETE')
 								<button class="btn btn-danger" type="submit">
-									<i class="fas fa-minus-circle"></i> Delete</button>
+								<i class="fas fa-minus-circle"></i> Delete</button>
 							</form>
 						</div>
 					</td>

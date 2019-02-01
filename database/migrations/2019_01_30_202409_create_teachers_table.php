@@ -20,6 +20,8 @@ class CreateTeachersTable extends Migration
             $table->string('middle_name');
             $table->string('home_address');
             $table->date('birth_date');
+            $table->string('email');
+            $table->string('contact');
             $table->string('classification');
         });
     }

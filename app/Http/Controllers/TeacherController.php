@@ -14,7 +14,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        $teachers = Teacher::paginate(8);
+        return view('teacher.index',compact('teachers'));
     }
 
     /**
@@ -24,7 +25,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        //
+        return view('teacher.create');
     }
 
     /**
@@ -33,9 +34,10 @@ class TeacherController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        Teacher::create(request()->all());
+        return redirect('/teachers');
     }
 
     /**
@@ -44,9 +46,9 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Teacher $teacher)
     {
-        //
+        return view('teacher.show',compact('teacher'));
     }
 
     /**
@@ -55,9 +57,9 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Teacher $teacher)
     {
-        //
+        return view('teacher.edit',compact('teacher'));
     }
 
     /**
@@ -67,9 +69,10 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Teacher $teacher)
     {
-        //
+        $teacher->update(request()->all());
+        return redirect('/teachers');
     }
 
     /**
@@ -78,8 +81,9 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Teacher $teacher)
     {
-        //
+        $teacher->delete();
+        return redirect('/teachers');
     }
 }
