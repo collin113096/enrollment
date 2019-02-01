@@ -21,7 +21,7 @@
 		</div>
 		<div class="form-row justify-content-end">
 			<a class="btn btn-light mr-1" href="/rooms">Cancel</a>
-			<button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> Save</button>
+			<button class="btn btn-success" type="submit"><i class="fas fa-save"></i> Save</button>
 		</div>
 	</div>
 
