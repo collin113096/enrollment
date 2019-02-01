@@ -34,4 +34,10 @@ Route::resource('/subjects','SubjectController');
 Route::resource('/rooms','RoomController');
 Route::resource('/teachers','TeacherController');
 Route::resource('/sections','SectionController');
+
+Route::resource('/advisory','AdvisoryController');
+
+Route::get('/sections/{section}/display/adviser','SectionController@display');
+Route::post('/sections/{section}/assign/{teacher}','SectionController@assign');
 Route::resource('/grades','GradeController');
+Route::resource('/fees','FeeController');

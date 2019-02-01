@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 use App\Section;
+use App\Teacher;
 use Illuminate\Http\Request;
 
-class SectionController extends Controller
+class AdvisoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +15,7 @@ class SectionController extends Controller
     public function index()
     {
         $sections = Section::paginate(8);
-        return view('section.index',compact('sections'));
+        return view('advisory.index',compact('sections'));
     }
 
     /**
@@ -24,7 +25,7 @@ class SectionController extends Controller
      */
     public function create()
     {
-        return view('section.create');
+        //
     }
 
     /**
@@ -33,10 +34,9 @@ class SectionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(Request $request)
     {
-        Section::create(request()->all());
-        return redirect('/sections');
+        //
     }
 
     /**
@@ -56,9 +56,9 @@ class SectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Section $section)
+    public function edit($id)
     {
-        return view('section.edit',compact('section'));
+        //
     }
 
     /**
@@ -68,10 +68,9 @@ class SectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Section $section)
+    public function update(Request $request, $id)
     {
-        $section->update(request()->all());
-        return redirect('/sections');
+        //
     }
 
     /**
@@ -80,21 +79,8 @@ class SectionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Section $section)
+    public function destroy($id)
     {
-        $section->delete();
-        return redirect('/sections');
-    }
-
-    public function display(Section $section)
-    {
-        $teachers = Teacher::paginate(8);
-        return view('section.assign',compact('section') + compact('teachers'));
-    }
-
-    public function assign(Section $section, Teacher $teacher)
-    {
-        $section->teachers()->attach($teacher->id);
-        return redirect('/sections');
+        //
     }
 }

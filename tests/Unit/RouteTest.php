@@ -48,4 +48,10 @@ class RouteTest extends TestCase
       $response = $this->get('/grades');
       $response->assertSuccessful();
    }
+
+   public function test_fees()
+   {
+      $response = $this->get('/fees');
+      $response->assertSuccessful();
+   }
 }

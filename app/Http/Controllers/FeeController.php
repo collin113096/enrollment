@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Section;
+
+use App\Fee;
 use Illuminate\Http\Request;
 
-class SectionController extends Controller
+class FeeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,8 @@ class SectionController extends Controller
      */
     public function index()
     {
-        $sections = Section::paginate(8);
-        return view('section.index',compact('sections'));
+        $fees = Fee::paginate(8);
+        return view('fee.index',compact('fees'));
     }
 
     /**
@@ -24,7 +25,7 @@ class SectionController extends Controller
      */
     public function create()
     {
-        return view('section.create');
+        return view('fee.create');
     }
 
     /**
@@ -35,17 +36,17 @@ class SectionController extends Controller
      */
     public function store()
     {
-        Section::create(request()->all());
-        return redirect('/sections');
+        Fee::create(request()->all());
+        return redirect('/fees');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Fee  $fee
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Fee $fee)
     {
         //
     }
@@ -53,48 +54,36 @@ class SectionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Fee  $fee
      * @return \Illuminate\Http\Response
      */
-    public function edit(Section $section)
+    public function edit(Fee $fee)
     {
-        return view('section.edit',compact('section'));
+        return view('fee.edit',compact('fee'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Fee  $fee
      * @return \Illuminate\Http\Response
      */
-    public function update(Section $section)
+    public function update(Fee $fee)
     {
-        $section->update(request()->all());
-        return redirect('/sections');
+        $fee->update(request()->all());
+        return redirect('/fees');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Fee  $fee
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Section $section)
+    public function destroy(Fee $fee)
     {
-        $section->delete();
-        return redirect('/sections');
-    }
-
-    public function display(Section $section)
-    {
-        $teachers = Teacher::paginate(8);
-        return view('section.assign',compact('section') + compact('teachers'));
-    }
-
-    public function assign(Section $section, Teacher $teacher)
-    {
-        $section->teachers()->attach($teacher->id);
-        return redirect('/sections');
+        $fee->delete();
+        return redirect('/fees');
     }
 }

@@ -16,6 +16,8 @@ class CreateSectionsTable extends Migration
         Schema::create('sections', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->unsignedInteger('grade_id');
+            $table->foreign('grade_id')->references('id')->on('grades');
         });
     }
 
