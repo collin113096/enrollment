@@ -1,47 +1,66 @@
 @extends('template')
-@section('title','Edit Section')
+@section('title','Change Adviser')
 @section('content')
 <!-- FORM -->
-<form class="col-md-8" method="post" action="/sections/{{ $section->id }}">
-@csrf
-@method('PATCH')
+<div class="col-md-8">
+
 <!-- CARD -->
 <div class="card">
 	
 	<!-- CARD HEADER -->
 	<div class="card-header">
-		Edit Section
+		Change adviser for <strong>{{ $section->name }}</strong> section
 	</div>
 	
 	<!-- CARD BODY -->
 	<div class="card-body">
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Teacher</th>
+					<th class="text-center">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach($teachers as $teacher)
+				@if($section->teachers()->first()->id == $teacher->id)
+				<tr>
+					<td>
+						<label class="col-form-label">{{ $teacher->last_name }}, {{ $teacher->first_name }} {{ $teacher->middle_name }}</label>		
+						<span class="badge badge-primary">Current Adviser</span>
+					</td>
+					<td class="text-center">					
+							<button class="btn btn-success disabled" disabled="">Assign Adviser</button>
+					</td>
+				</tr>
+				@else
+				<tr>
+					<td>
+						<label class="col-form-label">{{ $teacher->last_name }}, {{ $teacher->first_name }} {{ $teacher->middle_name }}</label>			
+					</td>
+					<td class="text-center">
+						<form class="d-inline m-0" method="post" action="/advisory/{{ $section->id }}/assign/{{ $teacher->id }}">
+							@csrf
+							@method('PATCH')
+							<button class="btn btn-success" type="submit">Assign Adviser</button>
+						</form>
+					</td>
+				</tr>
 
-		<!-- SECTION NAME -->
-		<div class="form-group">
-			<label><strong>Section Name</strong></label>
-			<input class="form-control" type="text" name="name" value="{{ $section->name }}">
-		</div>
-
-		<!-- GRADE -->
-		<div class="form-group">
-			<label><strong>Grade</strong></label>
-			<select class="custom-select" name="grade_id">
-				@foreach($grades as $grade)
-					<option value="{{ $grade->id }}" {{ $grade->id == $section->grade_id ? 'selected':'' }}>{{ $grade->name }}</option>
+				@endif
 				@endforeach
-			</select>
-		</div>
+			</tbody>
+		</table>
 		
-		<!-- ACTION -->
-		<div class="form-row justify-content-end">
-			<a class="btn btn-light mr-1" href="/sections">Cancel</a>
-			<button class="btn btn-success" type="submit"><i class="fas fa-save"></i> Save</button>
-		</div>
+
+	<!-- END OF CARD BODY -->
 	</div>
 
 <!-- END OF CARD -->
 </div>
 
+{{ $teachers->links() }}
+
 <!-- END OF FORM -->
-</form>
+</div>
 @endsection

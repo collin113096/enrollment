@@ -23,9 +23,10 @@ class AdvisoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Section $section)
     {
-        //
+        $teachers = Teacher::paginate(8);
+        return view('advisory.create',compact('section') + compact('teachers'));
     }
 
     /**
@@ -34,9 +35,10 @@ class AdvisoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Section $section, Teacher $teacher)
     {
-        //
+        $section->teachers()->attach($teacher->id);
+        return redirect('/advisory');
     }
 
     /**
@@ -56,9 +58,10 @@ class AdvisoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Section $section)
     {
-        //
+        $teachers = Teacher::paginate(8);
+        return view('advisory.edit',compact('section') + compact('teachers'));
     }
 
     /**
@@ -68,9 +71,13 @@ class AdvisoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Section $section, Teacher $teacher)
     {
-        //
+        $section->teachers->first()->pivot->update([
+            'teacher_id' => $teacher->id,
+        ]);
+
+        return redirect('/advisory');
     }
 
     /**

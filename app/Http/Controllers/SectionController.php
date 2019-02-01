@@ -85,16 +85,4 @@ class SectionController extends Controller
         $section->delete();
         return redirect('/sections');
     }
-
-    public function display(Section $section)
-    {
-        $teachers = Teacher::paginate(8);
-        return view('section.assign',compact('section') + compact('teachers'));
-    }
-
-    public function assign(Section $section, Teacher $teacher)
-    {
-        $section->teachers()->attach($teacher->id);
-        return redirect('/sections');
-    }
 }

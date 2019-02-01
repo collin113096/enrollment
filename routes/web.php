@@ -22,8 +22,7 @@ Route::get('/documents/{student}','DocumentController@create');
 Route::post('/documents/{student}','DocumentController@store');
 
 Route::get('/applicants','AdmissionController@index');
-// Route::get('/applicant/{student}/application_form','AdmissionController@showApplicationForm');
-Route::get('/applicant/{student}/information','AdmissionController@showDocuments');
+Route::get('/applicant/{student}/information','AdmissionController@show');
 // Route::patch('/applicants/{student}','AdmissionController@update');
 // Route::get('/admitted','AdmittedController@index');
 
@@ -34,10 +33,14 @@ Route::resource('/subjects','SubjectController');
 Route::resource('/rooms','RoomController');
 Route::resource('/teachers','TeacherController');
 Route::resource('/sections','SectionController');
-
-Route::resource('/advisory','AdvisoryController');
-
-Route::get('/sections/{section}/display/adviser','SectionController@display');
-Route::post('/sections/{section}/assign/{teacher}','SectionController@assign');
 Route::resource('/grades','GradeController');
 Route::resource('/fees','FeeController');
+
+// Route::resource('/advisory','AdvisoryController');
+
+// Route::get('/advisory','AdvisoryController@create');
+Route::get('/advisory','AdvisoryController@index');
+Route::get('/advisory/{section}/create','AdvisoryController@create');
+Route::post('/advisory/{section}/assign/{teacher}','AdvisoryController@store');
+Route::get('/advisory/{section}/edit','AdvisoryController@edit');
+Route::patch('/advisory/{section}/assign/{teacher}','AdvisoryController@update');

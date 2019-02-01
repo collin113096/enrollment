@@ -53,17 +53,17 @@
 						<div class="text-center">
 
 							<!-- ASSIGN ADVISER -->
-							<a class="btn btn-warning" href="/sections/{{ $section->id }}/display/adviser">
+							<a class="btn btn-warning" href="/advisory/{{ $section->id }}/create">
 								<i class="fas fa-pen"></i> Assign Adviser
 							</a>
 							
 							<!-- EDIT ADVISER -->
-							<a class="btn btn-primary" href="/sections/{{ $section->id }}/display/adviser">
-								<i class="fas fa-pen"></i> Edit Adviser
+							<a class="btn btn-primary" href="/advisory/{{ $section->id }}/edit">
+								<i class="fas fa-pen"></i> Change Adviser
 							</a>
 
 							<!-- DELETE ADVISER -->
-							<a class="btn btn-danger" href="/sections/{{ $section->id }}/display/adviser">
+							<a class="btn btn-danger" href="/sections/{{ $section->id }}/delete/">
 								<i class="fas fa-trash"></i> Delete Adviser
 							</a>
 						</div>

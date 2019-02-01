@@ -1,46 +1,52 @@
 @extends('template')
-@section('title','Create Section')
+@section('title','Assign Adviser')
 @section('content')
 <!-- FORM -->
-<form class="col-md-8" method="post" action="/sections">
-@csrf
+<div class="col-md-8">
+
 <!-- CARD -->
 <div class="card">
 	
 	<!-- CARD HEADER -->
 	<div class="card-header">
-		Create Section
+		Assign adviser for <strong>{{ $section->name }}</strong> section
 	</div>
 	
 	<!-- CARD BODY -->
 	<div class="card-body">
-
-		<!-- SECTION NAME -->
-		<div class="form-group">
-			<label><strong>Section Name</strong></label>
-			<input class="form-control" type="text" name="name">
-		</div>
-		
-		<!-- GRADE -->
-		<div class="form-group">
-			<label><strong>Grade</strong></label>
-			<select class="custom-select" name="grade_id">
-				@foreach($grades as $grade)
-					<option value="{{ $grade->id }}">{{ $grade->name }}</option>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Teacher</th>
+					<th class="text-center">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				@foreach($teachers as $teacher)
+				<tr>
+					<td>
+						{{ $teacher->last_name }}, {{ $teacher->first_name }} {{ $teacher->middle_name }}
+					</td>
+					<td class="text-center">
+						<form class="d-inline m-0" method="post" action="/advisory/{{ $section->id }}/assign/{{ $teacher->id }}">
+							@csrf
+							<button class="btn btn-success" type="submit">Assign Adviser</button>
+						</form>
+					</td>
+				</tr>
 				@endforeach
-			</select>
-		</div>
+			</tbody>
+		</table>
+		
 
-		<!-- ACTION -->
-		<div class="form-row justify-content-end">
-			<a class="btn btn-light mr-1" href="/sections">Cancel</a>
-			<button class="btn btn-success" type="submit"><i class="fas fa-save"></i> Save</button>
-		</div>
+	<!-- END OF CARD BODY -->
 	</div>
 
 <!-- END OF CARD -->
 </div>
 
+{{ $teachers->links() }}
+
 <!-- END OF FORM -->
-</form>
+</div>
 @endsection
