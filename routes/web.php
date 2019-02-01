@@ -34,3 +34,4 @@ Route::resource('/subjects','SubjectController');
 Route::resource('/rooms','RoomController');
 Route::resource('/teachers','TeacherController');
 Route::resource('/sections','SectionController');
+Route::resource('/grades','GradeController');

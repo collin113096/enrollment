@@ -42,4 +42,10 @@ class RouteTest extends TestCase
    		$response = $this->get('/sections');
    		$response->assertSuccessful();
    }
+
+   public function test_grades()
+   {
+      $response = $this->get('/grades');
+      $response->assertSuccessful();
+   }
 }
