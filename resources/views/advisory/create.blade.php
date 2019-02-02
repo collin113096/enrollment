@@ -45,7 +45,9 @@
 <!-- END OF CARD -->
 </div>
 
-{{ $teachers->links() }}
+<div class="d-flex mt-3">
+	{{ $teachers->links() }}
+</div>
 
 <!-- END OF FORM -->
 </div>
