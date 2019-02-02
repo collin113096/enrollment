@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Section;
+use App\Classes;
 use Illuminate\Http\Request;
 
 class ClassController extends Controller
@@ -13,7 +15,8 @@ class ClassController extends Controller
      */
     public function index()
     {
-        //
+        $sections = Section::paginate(8);
+        return view('class.index',compact('sections'));
     }
 
     /**

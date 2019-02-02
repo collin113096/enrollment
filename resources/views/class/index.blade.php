@@ -1,30 +1,34 @@
 @extends('template')
-@section('title','All Room')
+@section('title','All Class')
 @section('content')
 <div class="col-md-8">
 <div class="card">
 	<div class="card-header">
-		Room
+		Class
 	</div>
 	<div class="card-body">
-		<a class="btn btn-success mb-3" href="/rooms/create">
+		<a class="btn btn-success mb-3" href="/classes/create">
 			<i class="fas fa-plus-circle"></i> Add</a>
 		<table class="table">
 			<thead>
 				<tr>
-					<th>Room Name</th>
+					<th>Section Name</th>
 					<th class="text-center">Action</th>
 				</tr>
 			</thead>
 			<tbody>
-				@foreach($rooms as $room)
+				@foreach($sections as $section)
 				<tr>
-					<td>{{ $room->name }}</td>
+					<td>{{ $section->name }}</td>
 					<td>
 						<div class="text-center">
-							<a class="btn btn-primary" href="/rooms/{{ $room->id }}/edit">
+
+							<!-- EDIT -->
+							<a class="btn btn-primary" href="">
 								<i class="fas fa-pen"></i> Edit</a>
-							<form class="m-0 d-inline" method="post" action="/rooms/{{ $room->id }}">
+
+							<!-- DELETE -->
+							<form class="m-0 d-inline" method="post" action="">
 								@csrf 
 								@method('DELETE')
 								<button class="btn btn-danger" type="submit">

@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Class extends Model
+class Classes extends Model
 {
     public $timestamps = false;
     protected $guarded = [];
+    protected $table = 'classes';
 
     public function time()
     {
