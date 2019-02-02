@@ -28,4 +28,10 @@ class Section extends Model
     {
         return $this->hasMany('App\Class');
     }
+
+    public function hasAdviser()
+    {
+        return $this->teachers->count() >= 1 ? true:false;
+    }
+
 }

@@ -23,6 +23,7 @@ class CreateTeachersTable extends Migration
             $table->string('email');
             $table->string('contact');
             $table->string('classification');
+            $table->boolean('assigned')->default(false);
         });
     }
 

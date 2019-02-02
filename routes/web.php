@@ -44,3 +44,4 @@ Route::get('/advisory/{section}/create','AdvisoryController@create');
 Route::post('/advisory/{section}/assign/{teacher}','AdvisoryController@store');
 Route::get('/advisory/{section}/edit','AdvisoryController@edit');
 Route::patch('/advisory/{section}/assign/{teacher}','AdvisoryController@update');
+Route::delete('/advisory/{section}','AdvisoryController@destroy');

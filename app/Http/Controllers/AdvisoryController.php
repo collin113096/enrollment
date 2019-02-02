@@ -25,7 +25,7 @@ class AdvisoryController extends Controller
      */
     public function create(Section $section)
     {
-        $teachers = Teacher::paginate(8);
+        $teachers = Teacher::where('assigned',0)->paginate(8);
         return view('advisory.create',compact('section') + compact('teachers'));
     }
 
@@ -37,7 +37,9 @@ class AdvisoryController extends Controller
      */
     public function store(Section $section, Teacher $teacher)
     {
+        $teacher->update(['assigned' => 1]);
         $section->teachers()->attach($teacher->id);
+        
         return redirect('/advisory');
     }
 
@@ -60,7 +62,7 @@ class AdvisoryController extends Controller
      */
     public function edit(Section $section)
     {
-        $teachers = Teacher::paginate(8);
+        $teachers = Teacher::where('assigned',0)->paginate(8);
         return view('advisory.edit',compact('section') + compact('teachers'));
     }
 
@@ -73,10 +75,9 @@ class AdvisoryController extends Controller
      */
     public function update(Section $section, Teacher $teacher)
     {
-        $section->teachers->first()->pivot->update([
-            'teacher_id' => $teacher->id,
-        ]);
-
+        $section->teachers()->first()->update(['assigned' => 0]);
+        $teacher->update(['assigned' => 1]);
+        $section->teachers()->first()->pivot->update(['teacher_id' => $teacher->id]);
         return redirect('/advisory');
     }
 
@@ -86,8 +87,10 @@ class AdvisoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Section $section)
     {
-        //
+        $section->teachers()->first()->update(['assigned' => false]);
+        $section->teachers()->first()->pivot->delete();
+        return redirect('/advisory');
     }
 }

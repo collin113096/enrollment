@@ -14,8 +14,14 @@ class Teacher extends Model
     	return $this->hasMany('App\Class');
     }
 
-     public function sections()
+    public function sections()
     {
     	return $this->belongsToMany('App\Section');
     }
+
+    public function areAllAssigned()
+    {
+        return $this->where('assigned',0)->get()->isEmpty();
+    }
+
 }

@@ -17,6 +17,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
         View::share('grades', \App\Grade::all());
+        View::share('teachers', \App\Teacher::all());
     }
 
     /**
