@@ -1,5 +1,5 @@
 @extends('template')
-@section('title','All Section')
+@section('title','All Advisory')
 @section('content')
 <!-- COLUMN -->
 <div class="col-md-10">
@@ -51,8 +51,10 @@
 
 						
 						<div class="text-center">
-	
-							@if($section->hasAdviser() || $teachers->first()->areAllAssigned())
+							@php
+								$teacher = new \App\Teacher;
+							@endphp
+							@if($section->hasAdviser() || $teacher->areAllAssigned())
 							<!-- ASSIGN ADVISER -->
 							<a class="btn btn-warning disabled" disabled>
 								<i class="fas fa-pen"></i> Assign Adviser

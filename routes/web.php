@@ -36,12 +36,12 @@ Route::resource('/sections','SectionController');
 Route::resource('/grades','GradeController');
 Route::resource('/fees','FeeController');
 
-// Route::resource('/advisory','AdvisoryController');
 
-// Route::get('/advisory','AdvisoryController@create');
 Route::get('/advisory','AdvisoryController@index');
 Route::get('/advisory/{section}/create','AdvisoryController@create');
 Route::post('/advisory/{section}/assign/{teacher}','AdvisoryController@store');
 Route::get('/advisory/{section}/edit','AdvisoryController@edit');
 Route::patch('/advisory/{section}/assign/{teacher}','AdvisoryController@update');
 Route::delete('/advisory/{section}','AdvisoryController@destroy');
+
+Route::resource('/classes','ClassController');
