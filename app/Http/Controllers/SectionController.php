@@ -13,7 +13,7 @@ class SectionController extends Controller
      */
     public function index()
     {
-        $sections = Section::paginate(8);
+        $sections = Section::paginate(5);
         return view('section.index',compact('sections'));
     }
 
