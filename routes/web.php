@@ -26,7 +26,12 @@ Route::get('/applicant/{student}/information','AdmissionController@show');
 Route::patch('/applicants/{student}','AdmissionController@update');
 Route::get('/admitted/applicants','AdmittedController@index');
 
-
+Route::get('/registers','RegisterController@index');
+Route::get('/registers/{student}','RegisterController@create');
+Route::post('/registers/{student}','RegisterController@store');
+Route::get('/registers/{register}/edit','RegisterController@edit');
+Route::delete('/registers/{register}','RegisterController@destroy');
+Route::patch('/registers/{register}','RegisterController@update');
 
 Route::resource('/times','TimeController');
 Route::resource('/subjects','SubjectController');

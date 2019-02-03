@@ -29,6 +29,11 @@ class Student extends Model
         return $this->belongsToMany('App\Section');
     }
 
+     public function registers()
+    {
+        return $this->hasMany('App\Register');
+    }
+
     public function saveApplicationForm($validatedDataOf) //tested
     {
         $student = $this->create($validatedDataOf['student']);
