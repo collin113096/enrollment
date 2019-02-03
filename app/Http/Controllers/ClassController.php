@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Subject;
+use App\Time;
+use App\Room;
+use App\Teacher;
 use App\Section;
 use App\Classes;
 use Illuminate\Http\Request;
@@ -15,8 +19,8 @@ class ClassController extends Controller
      */
     public function index()
     {
-        $sections = Section::paginate(8);
-        return view('class.index',compact('sections'));
+        $classes = Classes::paginate(5);
+        return view('class.index',compact('classes'));
     }
 
     /**
@@ -26,7 +30,13 @@ class ClassController extends Controller
      */
     public function create()
     {
-        //
+        return view('class.create',[
+            'subjects' => Subject::orderBy('name')->get(),
+            'times' => Time::orderBy('in')->get(),
+            'rooms' => Room::orderBy('name')->get(),
+            'teachers' => Teacher::orderBy('last_name')->get(),
+            'sections' => Section::orderBy('name')->get(),
+        ]);
     }
 
     /**
@@ -35,9 +45,10 @@ class ClassController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        Classes::create(request()->all());
+        return redirect('/classes');
     }
 
     /**
@@ -57,9 +68,16 @@ class ClassController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Classes $class)
     {
-        //
+        return view('class.edit',[
+            'subjects' => Subject::orderBy('name')->get(),
+            'times' => Time::orderBy('in')->get(),
+            'rooms' => Room::orderBy('name')->get(),
+            'teachers' => Teacher::orderBy('last_name')->get(),
+            'sections' => Section::orderBy('name')->get(),
+            'class' => $class,
+        ]);
     }
 
     /**
@@ -69,9 +87,10 @@ class ClassController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Classes $class)
     {
-        //
+        $class->update(request()->all());
+        return redirect('/classes');
     }
 
     /**
@@ -80,8 +99,9 @@ class ClassController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Classes $class)
     {
-        //
+        $class->delete();
+        return redirect('/classes');
     }
 }
