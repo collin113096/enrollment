@@ -23,8 +23,8 @@ Route::post('/documents/{student}','DocumentController@store');
 
 Route::get('/applicants','AdmissionController@index');
 Route::get('/applicant/{student}/information','AdmissionController@show');
-// Route::patch('/applicants/{student}','AdmissionController@update');
-// Route::get('/admitted','AdmittedController@index');
+Route::patch('/applicants/{student}','AdmissionController@update');
+Route::get('/admitted/applicants','AdmittedController@index');
 
 
 

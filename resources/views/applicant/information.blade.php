@@ -301,6 +301,10 @@ input.form-control.bg-white, select.custom-select.bg-white {
 		</div>
 	</div>
 </div>
-
+<form method="post" action="/applicants/{{ $student->id }}">
+	@csrf
+	@method('PATCH')
+	<button class="btn btn-success">Admit Applicant</button>
+</form>
 <script src="{{ asset('js/application_form_next_and_back.js') }}"></script>
 @endsection

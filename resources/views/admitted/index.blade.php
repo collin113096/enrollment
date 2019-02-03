@@ -21,7 +21,7 @@
 							{{ $admittedApplicant->last_name }}, {{ $admittedApplicant->first_name }} {{ $admittedApplicant->middle_name }}
 						</td>
 						<td class="d-flex justify-content-around">
-							<a class="btn btn-success" href="{{ route('applicant.show',compact('admittedApplicant')) }}">Register Applicant</a>
+							<a class="btn btn-success" href="">Register Applicant</a>
 						</td>
 					</tr>
 					@endforeach
