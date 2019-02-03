@@ -36,7 +36,7 @@
 				<select class="custom-select" name="time_id" >
 					<option value="" hidden>Choose Time</option>
 					@foreach($times as $time)
-					<option value="{{ $time->id }}" {{ $time->id == $class->time->id ? 'selected':'' }}>{{ $time->in }} - {{ $time->out }}</option>
+					<option value="{{ $time->id }}" {{ $time->id == $class->time->id ? 'selected':'' }}>{{ date('h:i A', strtotime($class->time->in)) }} - {{ date('h:i A', strtotime($class->time->out)) }}</option>
 					@endforeach
 				</select>
 			</div>

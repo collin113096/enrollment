@@ -27,7 +27,7 @@
 	@foreach($classes as $class)
 	<tr>
 		<td>{{ $class->subject->name }}</td>
-		<td>{{ $class->time->in }} - {{ $class->time->out }}</td>
+		<td>{{ date('h:i A', strtotime($class->time->in)) }} - {{ date('h:i A', strtotime($class->time->out)) }}</td>
 		<td>{{ $class->room->name }}</td>
 		<td>{{ $class->teacher->last_name }}, {{ $class->teacher->first_name }} {{ $class->teacher->middle_name }}</td>
 		<td>{{ $class->section->name }}</td>

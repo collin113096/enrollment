@@ -19,8 +19,8 @@
 @section('table_body')
 	@foreach($times as $time)
 	<tr>
-		<td>{{ $time->in }}</td>
-		<td>{{ $time->out }}</td>
+		<td>{{ date('h:i A', strtotime($time->in)) }}</td>
+		<td>{{ date('h:i A', strtotime($time->out)) }}</td>
 		<td class="text-center">
 		@component('edit_button')
 			@slot('href')
