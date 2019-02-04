@@ -23,9 +23,10 @@ class CreateStudentsTable extends Migration
             $table->string('birth_place');
             $table->string('religion');
             $table->string('gender');
-            $table->string('grade');
+            $table->unsignedInteger('grade_id');
             $table->boolean('admitted')->default(false);
             $table->timestamps();
+            $table->foreign('grade_id')->references('id')->on('grades');
         });
     }
 

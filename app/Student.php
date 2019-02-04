@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
-    private $id;
     protected $guarded = [];
 
     public function father() 
@@ -27,6 +26,11 @@ class Student extends Model
     public function sections(){
 
         return $this->belongsToMany('App\Section');
+    }
+
+    public function grade()
+    {
+        return $this->belongsTo('App\Grade');
     }
 
     // Non Relationship

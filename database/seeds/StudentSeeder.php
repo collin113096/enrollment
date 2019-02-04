@@ -2,6 +2,8 @@
 
 use Illuminate\Database\Seeder;
 use App\Student;
+use App\Father;
+use App\Mother;
 
 class StudentSeeder extends Seeder
 {
@@ -12,28 +14,11 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
-     	$student = Student::create([
-            'first_name' => 'Jiyo Collin',
-            'middle_name' => 'Babaan',
-            'last_name' => 'Pagtananan',
-            'home_address' => 'Brgy.Cabanbanan Pagsanjan, Laguna',
-            'birth_date' => '1996-11-30',
-            'birth_place' => 'Pagsanjan, Laguna',
-            'religion' => 'Iglesia Ni Cristo',
-            'gender' => 'male',
-            'grade' => 'Grade 1',
-     	]);
+     	$student = factory(Student::class,20)->create();
 
-        $student->father()->create([
-                'name' => 'Neil Pagtananan',
-                'contact' => '09508223452',
-                'occupation' => 'Farmer',
-            ]);
-
-        $student->mother()->create([
-                'name' => 'Laarni Pagtananan',
-                'contact' => '09508223452',
-                'occupation' => 'Housewife',
-            ]);
+        $student->each(function($student){
+            $student->father()->save(factory(Father::class)->make());
+            $student->mother()->save(factory(Mother::class)->make());
+        });
     }
 }

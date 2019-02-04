@@ -132,12 +132,12 @@
 				<label class="col-md-4 font-weight-bold text-md-right col-form-label ">Grade</label>			
 				<div class="col-md-6">
 					<select 
-						class="custom-select {{ $errors->has('student.grade') ? 'is-invalid' : '' }}" 
-						name="student[grade]"
+						class="custom-select {{ $errors->has('student.grade_id') ? 'is-invalid' : '' }}" 
+						name="student[grade_id]"
 					>
 						<option value="" hidden>Choose</option>
 						@foreach($grades as $grade)
-						<option value="{{ $grade->name }}" {{ old('student.grade') == $grade->name ? 'selected
+						<option value="{{ $grade->id }}" {{ old('student.grade_id') == $grade->id ? 'selected
 						':'' }}>{{ $grade->name }}</option>
 						@endforeach
 					</select>

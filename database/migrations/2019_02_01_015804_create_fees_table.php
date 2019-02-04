@@ -15,13 +15,14 @@ class CreateFeesTable extends Migration
     {
         Schema::create('fees', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('student_id');
-            $table->string('student_lrn');
-            $table->string('school_year');
-            $table->unsignedInteger('section_id');
+            $table->unsignedInteger('grade_id');
+            $table->string('payment_mode');
+            $table->smallInteger('registration');
+            $table->smallInteger('tuition');
+            $table->smallInteger('misc');
+            $table->smallInteger('computer');
 
-            $table->foreign('student_id')->references('id')->on('students');
-            $table->foreign('section_id')->references('id')->on('sections');
+            $table->foreign('grade_id')->references('id')->on('grades');
         });
     }
 

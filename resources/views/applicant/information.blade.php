@@ -154,8 +154,8 @@ input.form-control.bg-white, select.custom-select.bg-white {
 					>
 						<option value="" hidden>Choose</option>
 						@foreach($grades as $grade)
-						<option value="{{ $grade->name }}" {{ $student->grade == $grade->name ? 'selected
-						':'' }}>{{ $grade->name }}</option>
+						<option value="{{ $grade->id }}" {{ $student->grade_id == $grade->id ? 'selected
+						':'' }}>{{ $student->grade->name }}</option>
 						@endforeach
 					</select>
 				</div>

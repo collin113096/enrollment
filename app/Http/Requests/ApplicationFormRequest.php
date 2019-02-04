@@ -32,7 +32,7 @@ class ApplicationFormRequest extends FormRequest
             'student.birth_place' => 'required',
             'student.religion' => 'required',
             'student.gender' => 'required',
-            'student.grade' => 'required',
+            'student.grade_id' => 'required',
             'father.name' => 'required',
             'father.occupation' => 'required',
             'father.contact' => 'required',
