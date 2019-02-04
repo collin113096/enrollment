@@ -293,9 +293,13 @@ input.form-control.bg-white, select.custom-select.bg-white {
 		</div>
 			<div class="card-body text-secondary">
 				<ul class="list-group list-group-flush">
-					@foreach($student->documents as $document)
+					@forelse($student->documents as $document)
 						<li class="list-group-item text-truncate" data-target="#document-{{ $loop->iteration }}" data-toggle="modal"><i class="fas fa-file-image mx-3"></i> {{ $document->document_type }}</li>
-					@endforeach
+					@empty
+						<div class="alert alert-info">
+							No Documents Found
+						</div>
+					@endforelse
 				</ul>
 			</div>
 		</div>
