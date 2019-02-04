@@ -12,6 +12,6 @@ $factory->define(Teacher::class, function (Faker $faker) {
         'birth_date' => $faker->date('Y-m-d'),
         'home_address' => $faker->address,
      	'email' => $faker->email,
-     	'contact' => $faker->phoneNumber
+     	'contact' => '09'.$faker->numberBetween(1,9).'5822345'.$faker->numberBetween(1,9),
     ];
 });
