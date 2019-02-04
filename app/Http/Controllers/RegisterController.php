@@ -24,7 +24,8 @@ class RegisterController extends Controller
 
     public function store(Student $student)
     {
-    	$student->registers()->create(request()->all());
+    	$student->registers()->create(request()->all());  
+        return redirect('/registers');
     }
 
     public function edit(Register $register)

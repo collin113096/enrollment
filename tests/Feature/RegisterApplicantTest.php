@@ -13,25 +13,19 @@ class RegisterApplicantTest extends TestCase
 	// use RefreshDatabase;
     
     /** @test */
-    public function applicant_is_now_officially_a_student_of_the_school()
+    public function can_register_applicant()
     {
-    	// $this->withoutExceptionHandling();
-    	
         $student = factory(Student::class)->create();
         $section = factory(Section::class)->create();
-
-        $this->post("/registers/{{ $student->id }}",[
-       
+        $payload = [
             'student_lrn' => '113096',
             'school_year' => '2019',
             'section_id' => $section->id,
-        ]);
+        ];
 
-        $this->assertDatabaseHas('registers',[
-            
-            'student_lrn' => '113096',
-            'school_year' => '2019',
-            'section_id' => $section->id,
-        ]);
+        $response = $this->json('POST',"/registers/{$student->id}", $payload);
+        $response->assertRedirect('/registers');
+
+        $this->assertDatabaseHas('registers', $payload);
     }
 }
