@@ -38,24 +38,20 @@
 			<!-- ASSIGN ADVISER -->
 			@if($section->hasAdviser() || $teacher->areAllAssigned())
 			<a class="btn btn-warning disabled" disabled>
-				<i class="fas fa-pen"></i> Assign Adviser
-			</a>
 			@else
 			<a class="btn btn-warning" href="/advisory/{{ $section->id }}/create">
-				<i class="fas fa-pen"></i> Assign Adviser
-			</a>
 			@endif
+			<i class="fas fa-pen"></i> Assign Adviser
+			</a>
 			
 			<!-- EDIT ADVISER -->
 			@if($section->hasAdviser() && !$teachers->first()->areAllAssigned())
-			<a class="btn btn-primary" href="/advisory/{{ $section->id }}/edit">
-				<i class="fas fa-pen"></i> Change Adviser
-			</a>										
+			<a class="btn btn-primary" href="/advisory/{{ $section->id }}/edit">									
 			@else
 			<a class="btn btn-primary disabled" disabled>
-				<i class="fas fa-pen"></i> Change Adviser
-			</a>	
 			@endif
+			<i class="fas fa-pen"></i> Change Adviser
+			</a>	
 			
 			<!-- DELETE ADVISER -->
 			@if($section->hasAdviser())
@@ -63,14 +59,13 @@
 				@csrf
 				@method('DELETE')
 				<button class="btn btn-danger">
+			@else
+				<button class="btn btn-danger disabled" disabled="">
+			@endif
 					<i class="fas fa-trash"></i> Delete Adviser
 				</button>
 			</form>
-			@else
-				<button class="btn btn-danger disabled" disabled="">
-					<i class="fas fa-trash"></i> Delete Adviser
-				</button>
-			@endif
+			
 		</td>
 	</tr>
 	@endforeach

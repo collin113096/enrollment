@@ -7,13 +7,14 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Student;
 use App\Section;
+use App\Register;
 
 class RegisterApplicantTest extends TestCase
 {
-	// use RefreshDatabase;
+	use RefreshDatabase;
     
     /** @test */
-    public function can_register_applicant()
+    public function can_register_applicant_and_update_info()
     {
         $student = factory(Student::class)->create();
         $section = factory(Section::class)->create();
