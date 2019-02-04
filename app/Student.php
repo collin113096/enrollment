@@ -29,12 +29,9 @@ class Student extends Model
         return $this->belongsToMany('App\Section');
     }
 
-     public function registers()
-    {
-        return $this->hasMany('App\Register');
-    }
+    // Non Relationship
 
-    public function saveApplicationForm($validatedDataOf) //tested
+    public function saveApplicationForm($validatedDataOf) 
     {
         $student = $this->create($validatedDataOf['student']);
         $student->father()->create($validatedDataOf['father']);

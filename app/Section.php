@@ -9,24 +9,31 @@ class Section extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function students(){
-
-    	return $this->belongsToMany('App\Student');
-    }
-
-    public function grade()
+    public function registers()
     {
-    	return $this->belongsTo('App\Grade');
-    }
-
-    public function teachers()
-    {
-    	return $this->belongsToMany('App\Teacher');
+        return $this->hasMany('App\Register');
     }
 
     public function classes()
     {
         return $this->hasMany('App\Class');
+    }
+
+    public function teachers()
+    {
+        return $this->belongsToMany('App\Teacher');
+    }
+
+    public function grade()
+    {
+        return $this->belongsTo('App\Grade');
+    }
+
+    // Secondary Relationship
+
+    public function students(){
+
+    	return $this->belongsToMany('App\Student');
     }
 
     public function hasAdviser()

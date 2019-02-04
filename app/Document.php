@@ -8,4 +8,9 @@ class Document extends Model
 {
     public $timestamps = false;
     protected $guarded = [];
+
+    public function student()
+    {
+    	return $this->belongsTo('App\Student');
+    }
 }
