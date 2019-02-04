@@ -12,7 +12,7 @@ $factory->define(Student::class, function (Faker $faker) {
         'home_address' => $faker->address,
         'birth_date' => $faker->date('Y-m-d'),
         'birth_place' => $faker->address,
-        'gender' => $faker->numberBetween(1,2) == 1 ? 'Male' : 'Female',
+        'gender' => $faker->numberBetween(1,2) == 1 ? 'male' : 'female',
         'religion' => $faker->lastName,
         'grade_id' => $faker->numberBetween(1,10),
     ];
