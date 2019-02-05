@@ -1,12 +1,13 @@
-@extends('template')
+@extends('registrar.index')
 
-@section('content')
-@section('column_width')
-<div class="col-md-8">
-@show
-	@include('card')
-	<div class="d-flex mt-3">
-		@yield('pagination')
-	</div>
+@section('registrar_content')
+
+<!-- CARD -->
+@include('card')
+
+<!-- PAGINATION -->
+<div class="d-flex mt-3">
+	@yield('pagination')
 </div>
+
 @endsection

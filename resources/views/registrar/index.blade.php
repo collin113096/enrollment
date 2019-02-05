@@ -97,12 +97,12 @@ a.list-group-item.list-group-item-action{
 	<!-- COLLAPSIBLE DIV -->
 	<div class="list-group-item-action collapse" id="other-collapsible">
 		<!-- TIME -->
-		<a class="list-group-item list-group-item-action" href="">
+		<a class="list-group-item list-group-item-action" href="/times">
 			<i class="fas fa-clock mr-4"></i>Time
 		</a>
 
 		<!-- SUBJECT -->
-		<a class="list-group-item list-group-item-action" href="">
+		<a class="list-group-item list-group-item-action" href="/subjects">
 			<i class="fas fa-book mr-4"></i> Subject
 		</a>
 
@@ -141,6 +141,7 @@ a.list-group-item.list-group-item-action{
 <!-- BODY COLUMN -->
 <div class="col-md-9">
 
+@section('registrar_content')
 <!-- DEFAULT CARD -->
 <div class="card">
 
@@ -156,6 +157,7 @@ a.list-group-item.list-group-item-action{
 
 <!-- END OF CARD BODY -->
 </div>
+@show
 
 <!-- END OF BODY COLUMN -->
 </div>
@@ -165,6 +167,8 @@ a.list-group-item.list-group-item-action{
 
 <!-- END OF MAIN COLUMN -->
 </div>
+
+<!-- SCRIPTS -->
 <script>
 	$('#other-button').click(function(){
 		$('#other-collapsible').slideToggle('slow','swing',function(){
