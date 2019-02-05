@@ -57,8 +57,8 @@ a.list-group-item.list-group-item-action{
 <ul class="list-group font-weight-bold mb-5 collapse navbar-collapse" id="navigation">
 
 	<!-- APPLICATION -->
-	<a class="list-group-item list-group-item-action" href="">
-		<i class="fas fa-file-alt mr-4"></i> Application
+	<a class="list-group-item list-group-item-action" href="/applicants">
+		<i class="fas fa-file-alt mr-4"></i> Applicants
 	</a>
 
 	<!-- ADMISSION -->
@@ -70,22 +70,22 @@ a.list-group-item.list-group-item-action{
 	</a>
 
 	<!-- REGISTRATION -->
-	<a class="list-group-item list-group-item-action" href="">
+	<a class="list-group-item list-group-item-action" href="/registers">
 		<i class="fas fa-school mr-4"></i>Students
 	</a>
 
 	<!-- CLASSES -->
-	<a class="list-group-item list-group-item-action" href="">
+	<a class="list-group-item list-group-item-action" href="/classes">
 		<i class="fas fa-users mr-4"></i>Classes
 	</a>
 
 	<!-- ADVISORY -->
-	<a class="list-group-item list-group-item-action" href="">
+	<a class="list-group-item list-group-item-action" href="/advisory">
 		<i class="fas fa-chalkboard-teacher mr-4"></i>Advisory
 	</a>
 
 	<!-- GRADE -->
-	<a class="list-group-item list-group-item-action" href="">
+	<a class="list-group-item list-group-item-action" href="/grades">
 		<i class="fas fa-clipboard mr-4"></i> Grade
 	</a>
 
@@ -107,17 +107,17 @@ a.list-group-item.list-group-item-action{
 		</a>
 
 		<!-- ROOM -->
-		<a class="list-group-item list-group-item-action" href="">
+		<a class="list-group-item list-group-item-action" href="/rooms">
 			<i class="fas fa-door-open mr-4"></i>Rooms
 		</a>
 
 		<!-- TEACHER -->
-		<a class="list-group-item list-group-item-action" href="">
+		<a class="list-group-item list-group-item-action" href="/teachers">
 			<i class="fas fa-chalkboard-teacher mr-4"></i>Teacher
 		</a>
 
 		<!-- SECTION -->
-		<a class="list-group-item list-group-item-action" href="">
+		<a class="list-group-item list-group-item-action" href="/sections">
 			<i class="fas fa-users mr-4"></i>Section
 		</a>
 
