@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Fee;
+use App\Grade;
 use Illuminate\Http\Request;
 
 class FeeController extends Controller
@@ -14,8 +15,9 @@ class FeeController extends Controller
      */
     public function index()
     {
-        $fees = Fee::paginate(8);
-        return view('fee.index',compact('fees'));
+        $fees = Fee::paginate(5);
+        $grades = Grade::all();
+        return view('fee.index',compact('fees') + compact('grades'));
     }
 
     /**

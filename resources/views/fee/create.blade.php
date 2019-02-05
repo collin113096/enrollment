@@ -14,16 +14,73 @@
 	
 	<!-- CARD BODY -->
 	<div class="card-body">
+
+		<!-- GRADE -->
 		<div class="form-group form-row">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Fee Name</strong></label>
+			<label class="col-md-4 text-md-right col-form-label"><strong>Grade</strong></label>
 			<div class="col-md-6">
-				<input class="form-control" type="text" name="name">
+				<select class="custom-select" name="grade_id">
+					<option value="" hidden>Choose</option>
+					@foreach($grades as $grade)
+					<option value="{{ $grade->id }}">{{ $grade->name }}</option>
+					@endforeach
+				</select>
 			</div>
 		</div>
-		<div class="form-row justify-content-end">
-			<a class="btn btn-light mr-1" href="/fees">Cancel</a>
-			<button class="btn btn-success" type="submit"><i class="fas fa-save"></i> Save</button>
+
+		<!-- PAYMENT MODE -->
+		<div class="form-group form-row">
+			<label class="col-md-4 text-md-right col-form-label"><strong>Payment Mode</strong></label>
+			<div class="col-md-6">
+				<select class="custom-select" name="payment_mode">
+					<option value="" hidden>Choose</option>
+					<option value="cash">Cash</option>
+					<option value="installment">Installment</option>
+				</select>
+			</div>
 		</div>
+
+		<!-- REGISTRATION -->
+		<div class="form-group form-row">
+			<label class="col-md-4 text-md-right col-form-label"><strong>Registration</strong></label>
+			<div class="col-md-6">
+				<input class="form-control" type="number" name="registration">
+			</div>
+		</div>
+
+		<!-- TUITION FEE -->
+		<div class="form-group form-row">
+			<label class="col-md-4 text-md-right col-form-label"><strong>Tuition</strong></label>
+			<div class="col-md-6">
+				<input class="form-control" type="number" name="tuition">
+			</div>
+		</div>
+
+		<!-- MISC -->
+		<div class="form-group form-row">
+			<label class="col-md-4 text-md-right col-form-label"><strong>Misc</strong></label>
+			<div class="col-md-6">
+				<input class="form-control" type="number" name="misc">
+			</div>
+		</div>
+
+		<!-- COMPUTER -->
+		<div class="form-group form-row">
+			<label class="col-md-4 text-md-right col-form-label"><strong>Computer</strong></label>
+			<div class="col-md-6">
+				<input class="form-control" type="number" name="computer">
+			</div>
+		</div>
+
+		<!-- ACTION -->
+		<div class="form-group form-row">
+			<div class="col-md-6 offset-md-4">	
+				<button class="btn btn-primary" type="submit"><i class="fas fa-save mx-2"></i> Save</button>
+				<a class="btn btn-light mr-1" href="/fees">Cancel</a>
+			</div>
+		</div>
+
+	<!-- END OF CARD BODY -->
 	</div>
 
 <!-- END OF CARD -->

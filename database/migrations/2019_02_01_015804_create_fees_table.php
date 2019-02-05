@@ -17,10 +17,10 @@ class CreateFeesTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('grade_id');
             $table->string('payment_mode');
-            $table->smallInteger('registration');
-            $table->smallInteger('tuition');
-            $table->smallInteger('misc');
-            $table->smallInteger('computer');
+            $table->bigInteger('registration');
+            $table->bigInteger('tuition');
+            $table->bigInteger('misc');
+            $table->bigInteger('computer');
 
             $table->foreign('grade_id')->references('id')->on('grades');
         });

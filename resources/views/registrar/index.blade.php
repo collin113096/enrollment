@@ -122,7 +122,7 @@ a.list-group-item.list-group-item-action{
 		</a>
 
 		<!-- FEE -->
-		<a class="list-group-item list-group-item-action" href="">
+		<a class="list-group-item list-group-item-action" href="/fees">
 			<i class="fas fa-money-bill-alt mr-4"></i>Fee
 		</a>
 
