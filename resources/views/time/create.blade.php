@@ -1,44 +1,42 @@
-@extends('template')
+@extends('create_form')
 @section('title','Create Time')
-@section('content')
-<!-- FORM -->
-<form class="col-md-8" method="post" action="/times">
-@csrf
-<!-- CARD -->
-<div class="card">
 	
-	<!-- CARD HEADER -->
-	<div class="card-header">
-		Create Time
-	</div>
-	
-	<!-- CARD BODY -->
-	<div class="card-body">
+<!-- CARD HEADER -->
+@section('card_header')
+	Create Time
+@endsection
+
+<!-- CARD BODY -->
+@section('card_body')
 
 		<!-- TIME IN -->
-		<div class="form-group">
-			<label><strong>Time In</strong></label>
-			<input class="form-control" type="time" name="in">
-		</div>
+		@time
+			@slot('label')
+			Time In
+			@endslot
+			in
+			@slot('value')
+			@endslot
+		@endtime
 
 		<!-- TIME OUT -->
-		<div class="form-group">
-			<label><strong>Time Out</strong></label>
-			<input class="form-control" type="time" name="out">
-		</div>
+		@time
+			@slot('label')
+			Time Out
+			@endslot
+			out
+			@slot('value')
+			@endslot
+		@endtime
 
 		<!-- ACTION -->
-		<div class="form-row justify-content-end">
-			<a class="btn btn-light mr-1" href="/times">Cancel</a>
-			<button class="btn btn-success" type="submit"><i class="fas fa-save"></i> Save</button>
-		</div>
+		@action
+		/times
+		@endaction
 
-	<!-- END OF CARD BODY -->
-	</div>
+<!-- END OF CARD BODY -->
+@endsection
 
-<!-- END OF CARD -->
-</div>
-
-<!-- END OF FORM -->
-</form>
+@section('form')
+/times
 @endsection

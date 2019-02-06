@@ -83,9 +83,9 @@
 	@endnumber
 
 	<!-- ACTION -->
-	@component('action')
+	@action
 	/fees
-	@endcomponent
+	@endaction
 
 <!-- END OF CARD BODY -->
 @endsection

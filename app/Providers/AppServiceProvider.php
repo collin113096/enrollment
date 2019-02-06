@@ -27,6 +27,9 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('component.non_index.number','number');
         Blade::component('component.non_index.select','select');
         Blade::component('component.non_index.text','text');
+        Blade::component('component.non_index.time','time');
+        Blade::component('component.non_index.action','action');
+        Blade::component('component.non_index.textarea','textarea');
     }
 
     /**
