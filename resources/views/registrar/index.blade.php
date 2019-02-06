@@ -70,7 +70,7 @@ a.list-group-item.list-group-item-action{
 
 	<!-- REGISTRATION -->
 	<a class="list-group-item list-group-item-action" href="/registers">
-		<i class="fas fa-school mr-4"></i>Students
+		<i class="fas fa-school mr-4"></i>School Register
 	</a>
 
 	<!-- CLASSES -->
@@ -83,11 +83,6 @@ a.list-group-item.list-group-item-action{
 		<i class="fas fa-chalkboard-teacher mr-4"></i>Advisory
 	</a>
 
-	<!-- GRADE -->
-	<a class="list-group-item list-group-item-action" href="/grades">
-		<i class="fas fa-clipboard mr-4"></i> Grade
-	</a>
-
 	<!-- OTHER -->
 	<a class="list-group-item list-group-item-action" id="other-button">
 		<i class="fas fa-plus mr-4"></i> Other
@@ -95,6 +90,12 @@ a.list-group-item.list-group-item-action{
 	
 	<!-- COLLAPSIBLE DIV -->
 	<div class="list-group-item-action collapse" id="other-collapsible">
+
+		<!-- GRADE -->
+		<a class="list-group-item list-group-item-action" href="/grades">
+			<i class="fas fa-clipboard mr-4"></i> Grade
+		</a>
+
 		<!-- TIME -->
 		<a class="list-group-item list-group-item-action" href="/times">
 			<i class="fas fa-clock mr-4"></i>Time
