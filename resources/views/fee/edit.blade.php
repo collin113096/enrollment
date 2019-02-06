@@ -10,14 +10,14 @@
 @section('card_body')
 
 	<!-- GRADE -->
-	@component('select', ['collection' => $grades, 'fee' => $fee])
+	@select(['collection' => $grades, 'fee' => $fee])
 		@slot('label')
 		Grade
 		@endslot
 		@slot('name')
 		grade_id
 		@endslot
-	@endcomponent
+	@endselect
 
 	@php 
 	$modes = [
@@ -33,17 +33,17 @@
 	@endphp
 
 	<!-- PAYMENT MODE -->
-	@component('select', ['collection' => $modes, 'modes' => $fee])
+	@select(['collection' => $modes, 'modes' => $fee])
 		@slot('label')
 		Payment Mode
 		@endslot
 		@slot('name')
 		payment_mode
 		@endslot
-	@endcomponent
+	@endselect
 	
 	<!-- REGISTRATION -->
-	@component('number')
+	@number
 		@slot('label')
 		Registration
 		@endslot
@@ -51,10 +51,10 @@
 		@slot('value')
 		{{ $fee->registration }}
 		@endslot
-	@endcomponent
+	@endnumber
 
 	<!-- TUITION -->
-	@component('number')
+	@number
 		@slot('label')
 		Tuition 
 		@endslot
@@ -62,10 +62,10 @@
 		@slot('value')
 		{{ $fee->tuition }}
 		@endslot
-	@endcomponent
+	@endnumber
 	
 	<!-- MISC -->
-	@component('number')
+	@number
 		@slot('label')
 		Misc
 		@endslot
@@ -73,10 +73,10 @@
 		@slot('value')
 		{{ $fee->misc }}
 		@endslot
-	@endcomponent
+	@endnumber
 	
 	<!-- COMPUTER -->
-	@component('number')
+	@number
 		@slot('label')
 		Computer
 		@endslot
@@ -84,7 +84,7 @@
 		@slot('value')
 		{{ $fee->registration }}
 		@endslot
-	@endcomponent
+	@endnumber
 
 	<!-- ACTION -->
 	@component('action')
