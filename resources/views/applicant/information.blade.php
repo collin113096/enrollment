@@ -62,9 +62,8 @@ input.form-control.bg-white, select.custom-select.bg-white {
 			<label class="col-md-4 text-md-right col-form-label">Applicant Name</label>			
 			<div class="col-md-6">
 				<input 
-					class="form-control bg-white {{ $errors->has('student.last_name') ? 'is-invalid' : '' }}" 
+					class="form-control bg-white" 
 					type="text" 
-					name="student[last_name]" 
 					value="{{ $student->last_name }}, {{ $student->first_name }} {{ $student->middle_name }}"
 					disabled="" 
 				> 
@@ -76,9 +75,8 @@ input.form-control.bg-white, select.custom-select.bg-white {
 			<label class="col-md-4 text-md-right col-form-label">Home Address</label>			
 			<div class="col-md-6">
 				<input 
-					class="form-control bg-white {{ $errors->has('student.home_address') ? 'is-invalid' : '' }}" 
+					class="form-control bg-white" 
 					type="text" 
-					name="student[home_address]" 
 					value="{{ $student->home_address }}"
 					disabled="" 
 				>
@@ -92,7 +90,6 @@ input.form-control.bg-white, select.custom-select.bg-white {
 				<input 
 					class="form-control bg-white {{ $errors->has('student.birth_date') ? 'is-invalid' : '' }}" 
 					type="date" 
-					name="student[birth_date]" 
 					value="{{ $student->birth_date }}"
 					disabled="" 
 				>
@@ -104,9 +101,8 @@ input.form-control.bg-white, select.custom-select.bg-white {
 			<label class="col-md-4 text-md-right col-form-label">Birth Place</label>			
 			<div class="col-md-6">
 				<input 
-					class="form-control bg-white {{ $errors->has('student.birth_place') ? 'is-invalid' : '' }}" 
-					type="text" 
-					name="student[birth_place]" 
+					class="form-control bg-white" 
+					type="text"  
 					value="{{ $student->birth_place }}"
 					disabled="" 
 				>
@@ -118,9 +114,8 @@ input.form-control.bg-white, select.custom-select.bg-white {
 			<label class="col-md-4 text-md-right col-form-label">Religion</label>			
 			<div class="col-md-6">
 				<input 
-					class="form-control bg-white {{ $errors->has('student.religion') ? 'is-invalid' : '' }}" 
+					class="form-control bg-white" 
 					type="text" 
-					name="student[religion]" 
 					value="{{ $student->religion }}"
 					disabled="" 
 				>
@@ -132,8 +127,7 @@ input.form-control.bg-white, select.custom-select.bg-white {
 			<label class="col-md-4 text-md-right col-form-label">Gender</label>			
 			<div class="col-md-6">
 				<select 
-					class="custom-select bg-white {{ $errors->has('student.gender') ? 'is-invalid' : '' }}" 
-					name="student[gender]"
+					class="custom-select bg-white" 
 					disabled="" 
 				>
 					<option value="" hidden>Choose</option>
@@ -148,8 +142,7 @@ input.form-control.bg-white, select.custom-select.bg-white {
 				<label class="col-md-4 text-md-right col-form-label ">Grade</label>			
 				<div class="col-md-6">
 					<select 
-						class="custom-select bg-white {{ $errors->has('student.grade') ? 'is-invalid' : '' }}" 
-						name="student[grade]"
+						class="custom-select bg-white" 
 						disabled="" 
 					>
 						<option value="" hidden>Choose</option>
@@ -193,9 +186,8 @@ input.form-control.bg-white, select.custom-select.bg-white {
 				<label class="col-md-4 text-md-right col-form-label">Father Name</label>			
 				<div class="col-md-6">
 					<input 
-						class="form-control bg-white {{ $errors->has('father.name') ? 'is-invalid' : '' }}" 
+						class="form-control bg-white" 
 						type="text" 
-						name="father[name]" 
 						value="{{ $student->father->name }}"
 						disabled="" 
 					>
@@ -207,9 +199,8 @@ input.form-control.bg-white, select.custom-select.bg-white {
 				<label class="col-md-4 text-md-right col-form-label">Contact</label>			
 				<div class="col-md-6">
 					<input 
-						class="form-control bg-white {{ $errors->has('father.contact') ? 'is-invalid' : '' }}" 
+						class="form-control bg-white" 
 						type="number" 
-						name="father[contact]" 
 						value="{{ $student->father->contact }}"
 						disabled="" 
 					>
@@ -221,9 +212,8 @@ input.form-control.bg-white, select.custom-select.bg-white {
 				<label class="col-md-4 text-md-right col-form-label">Occupation</label>			
 				<div class="col-md-6">
 					<input 
-						class="form-control bg-white {{ $errors->has('father.occupation') ? 'is-invalid' : '' }}" 
+						class="form-control bg-white" 
 						type="text" 
-						name="father[occupation]" 
 						value="{{ $student->father->occupation }}"
 						disabled="" 
 					>
@@ -235,9 +225,8 @@ input.form-control.bg-white, select.custom-select.bg-white {
 				<label class="col-md-4 text-md-right col-form-label">Mother Name</label>			
 				<div class="col-md-6">
 					<input 
-						class="form-control bg-white {{ $errors->has('mother.name') ? 'is-invalid' : '' }}" 
+						class="form-control bg-white" 
 						type="text" 
-						name="mother[name]" 
 						value="{{ $student->mother->name }}"
 						disabled="" 
 					>
@@ -249,9 +238,8 @@ input.form-control.bg-white, select.custom-select.bg-white {
 				<label class="col-md-4 text-md-right col-form-label">Contact</label>			
 				<div class="col-md-6">
 					<input 
-						class="form-control bg-white {{ $errors->has('mother.contact') ? 'is-invalid' : '' }}" 
+						class="form-control bg-white" 
 						type="number" 
-						name="mother[contact]" 
 						value="{{ $student->mother->contact }}"
 						disabled="" 
 					>
@@ -263,9 +251,8 @@ input.form-control.bg-white, select.custom-select.bg-white {
 				<label class="col-md-4 text-md-right col-form-label">Occupation</label>			
 				<div class="col-md-6">
 					<input 
-						class="form-control bg-white {{ $errors->has('mother.occupation') ? 'is-invalid' : '' }}" 
+						class="form-control bg-white" 
 						type="text" 
-						name="mother[occupation]" 
 						value="{{ $student->mother->occupation }}"
 						disabled="" 
 					>

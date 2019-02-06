@@ -7,6 +7,6 @@ $factory->define(Father::class, function (Faker $faker) {
     return [
         'name' => $faker->name('male'),
         'occupation' => $faker->jobTitle,
-        'contact' => $faker->phoneNumber,
+        'contact' => '09506660888',
     ];
 });
