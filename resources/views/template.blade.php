@@ -7,7 +7,7 @@
 	<script src="{{ asset('js/app.js') }}"></script>
 </head>
 <body>
-	<div class="container">
+	<div class="container-fluid">
 		<div class="row justify-content-center">		
 				@yield('content')
 		</div>

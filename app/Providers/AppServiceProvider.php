@@ -30,6 +30,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('component.non_index.time','time');
         Blade::component('component.non_index.action','action');
         Blade::component('component.non_index.textarea','textarea');
+        Blade::component('component.non_index.date','date');
+        Blade::component('component.non_index.email','email');
     }
 
     /**
