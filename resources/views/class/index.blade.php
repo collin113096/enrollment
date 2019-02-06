@@ -7,11 +7,11 @@
 @endsection
 
 @section('add_button')
-@component('add_button')
+@add
 	@slot('href')
 		href="/classes/create"
 	@endslot
-@endcomponent
+@endadd
 @endsection
 
 @section('table_head')
@@ -32,17 +32,17 @@
 		<td>{{ $class->teacher->last_name }}, {{ $class->teacher->first_name }} {{ $class->teacher->middle_name }}</td>
 		<td>{{ $class->section->name }}</td>
 		<td class="text-center">
-		@component('edit_button')
+		@edit
 			@slot('href')
 				href="/classes/{{ $class->id }}/edit"
 			@endslot
-		@endcomponent
+		@endedit
 
-		@component('delete_button')
+		@delete
 			@slot('action')
 				action="/classes/{{ $class->id }}"
 			@endslot
-		@endcomponent
+		@enddelete
 		</td>
 	</tr>
 	@endforeach

@@ -3,11 +3,11 @@
 @section('card_header','All Teachers')
 
 @section('add_button')
-@component('add_button')
+@add
 	@slot('href')
 		href="/teachers/create"
 	@endslot
-@endcomponent
+@endadd
 @endsection
 
 @section('table_head')
@@ -22,17 +22,17 @@
 		<td>{{ $teacher->last_name }}, {{ $teacher->first_name }} {{ $teacher->middle_name }}</td>
 		<td>{{ $teacher->classification }}</td>
 		<td class="text-center">
-		@component('view_button')
+		@edit
 			@slot('href')
 				href="/teachers/{{ $teacher->id }}"
 			@endslot
-		@endcomponent
+		@endedit
 
-		@component('delete_button')
+		@delete
 			@slot('action')
 				action="/teachers/{{ $teacher->id }}"
 			@endslot
-		@endcomponent
+		@enddelete
 		</td>
 	</tr>
 	@endforeach

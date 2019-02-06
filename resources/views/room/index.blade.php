@@ -3,11 +3,11 @@
 @section('card_header','All Rooms')
 
 @section('add_button')
-@component('add_button')
+@add
 	@slot('href')
 		href="/rooms/create"
 	@endslot
-@endcomponent
+@endadd
 @endsection
 
 @section('table_head')
@@ -20,17 +20,17 @@
 	<tr>
 		<td>{{ $room->name }}</td>
 		<td class="text-center">
-		@component('edit_button')
+		@edit
 			@slot('href')
 				href="/rooms/{{ $room->id }}/edit"
 			@endslot
-		@endcomponent
+		@endedit
 
-		@component('delete_button')
+		@delete
 			@slot('action')
 				action="/rooms/{{ $room->id }}"
 			@endslot
-		@endcomponent
+		@enddelete
 		</td>
 	</tr>
 	@endforeach

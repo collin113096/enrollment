@@ -21,6 +21,7 @@ input.form-control.bg-white, select.custom-select.bg-white {
 
 </style>
 
+<!-- MODAL CREATOR -->
 @foreach($student->documents as $document)
 <div class="modal fade" id="document-{{ $loop->iteration }}">
 	<div class="modal-dialog">
@@ -37,6 +38,8 @@ input.form-control.bg-white, select.custom-select.bg-white {
 	</div>
 </div>
 @endforeach
+
+
 
 <!-- FORM -->
 <form class="col-md-8" method="post" action="/application_form">@csrf
@@ -292,10 +295,16 @@ input.form-control.bg-white, select.custom-select.bg-white {
 		</div>
 	</div>
 </div>
-<form method="post" action="/applicants/{{ $student->id }}">
-	@csrf
-	@method('PATCH')
+
+@component('form_for_edit')
+	@section('form')
+	/applicants/{{ $student->id }}
+	@endsection
+
+	@section('form_body')
 	<button class="btn btn-success">Admit Applicant</button>
-</form>
+	@endsection
+@endcomponent
+
 <script src="{{ asset('js/application_form_next_and_back.js') }}"></script>
 @endsection

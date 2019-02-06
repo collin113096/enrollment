@@ -22,17 +22,17 @@
 		<td>{{ $register->school_year }}</td>
 		<td>{{ $register->section->name }}</td>
 		<td class="text-center">
-		@component('edit_button')
+		@edit
 			@slot('href')
 				href="/registers/{{ $register->id }}/edit"
 			@endslot
-		@endcomponent
+		@endedit
 
-		@component('delete_button')
+		@delete
 			@slot('action')
 				action="/registers/{{ $register->id }}"
 			@endslot
-		@endcomponent
+		@enddelete
 		</td>
 	</tr>
 	@endforeach

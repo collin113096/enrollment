@@ -3,11 +3,11 @@
 @section('card_header','All Subject')
 
 @section('add_button')
-@component('add_button')
+@add
 	@slot('href')
 		href="/subjects/create"
 	@endslot
-@endcomponent
+@endadd
 @endsection
 
 @section('table_head')
@@ -24,17 +24,17 @@
 		<td>{{ $subject->description }}</td>
 		<td>{{ $subject->unit }}</td>
 		<td class="text-center">
-		@component('edit_button')
+		@edit
 			@slot('href')
 				href="/subjects/{{ $subject->id }}/edit"
 			@endslot
-		@endcomponent
+		@endedit
 
-		@component('delete_button')
+		@delete
 			@slot('action')
 				action="/subjects/{{ $subject->id }}"
 			@endslot
-		@endcomponent
+		@enddelete
 		</td>
 	</tr>
 	@endforeach

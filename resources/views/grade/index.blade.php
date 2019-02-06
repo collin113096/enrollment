@@ -3,11 +3,11 @@
 @section('card_header','All Grade')
 
 @section('add_button')
-@component('add_button')
+@add
 	@slot('href')
 		href="/grades/create"
 	@endslot
-@endcomponent
+@endadd
 @endsection
 
 @section('table_head')
@@ -20,17 +20,17 @@
 	<tr>
 		<td>{{ $grade->name }}</td>
 		<td class="text-center">
-		@component('edit_button')
+		@edit
 			@slot('href')
 				href="/grades/{{ $grade->id }}/edit"
 			@endslot
-		@endcomponent
+		@endedit
 
-		@component('delete_button')
+		@delete
 			@slot('action')
 				action="/grades/{{ $grade->id }}"
 			@endslot
-		@endcomponent
+		@enddelete
 		</td>
 	</tr>
 	@endforeach

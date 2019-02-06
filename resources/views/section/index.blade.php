@@ -3,11 +3,11 @@
 @section('card_header','All Sections')
 
 @section('add_button')
-@component('add_button')
+@add
 	@slot('href')
 		href="/sections/create"
 	@endslot
-@endcomponent
+@endadd
 @endsection
 
 @section('table_head')
@@ -22,17 +22,17 @@
 		<td>{{ $section->name }}</td>
 		<td>{{ $section->grade->name }}</td>
 		<td class="text-center">
-		@component('edit_button')
+		@edit
 			@slot('href')
 				href="/sections/{{ $section->id }}/edit"
 			@endslot
-		@endcomponent
+		@endedit
 
-		@component('delete_button')
+		@delete
 			@slot('action')
 				action="/sections/{{ $section->id }}"
 			@endslot
-		@endcomponent
+		@enddelete
 		</td>
 	</tr>
 	@endforeach
