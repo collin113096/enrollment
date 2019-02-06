@@ -33,6 +33,11 @@ class Student extends Model
         return $this->belongsTo('App\Grade');
     }
 
+     public function registers()
+    {
+        return $this->hasMany('App\Register');
+    }
+
     // Non Relationship
 
     public function saveApplicationForm($validatedDataOf) 
