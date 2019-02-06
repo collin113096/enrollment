@@ -34,7 +34,6 @@ a.list-group-item.list-group-item-action{
 	<!-- BANNER -->
 	<div class="col-md-9">
 		<div class="" style="background-image: url({{ asset('images/banner.jpg') }}); background-repeat: no-repeat;min-height:189">
-		
 		</div>
 	</div>
 

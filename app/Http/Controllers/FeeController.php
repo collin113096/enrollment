@@ -17,7 +17,7 @@ class FeeController extends Controller
     {
         $fees = Fee::paginate(5);
         $grades = Grade::all();
-        return view('fee.index',compact('fees') + compact('grades'));
+        return view('fee.index',compact('fees') + compact('grades') + compact('modes'));
     }
 
     /**

@@ -1,91 +1,103 @@
-@extends('template')
-@section('title','Create Fee')
-@section('content')
-<!-- FORM -->
-<form class="col-md-8" method="post" action="/fees">
-@csrf
-<!-- CARD -->
-<div class="card">
-	
-	<!-- CARD HEADER -->
-	<div class="card-header">
-		Create Fee
-	</div>
-	
-	<!-- CARD BODY -->
-	<div class="card-body">
+@extends('edit_form')
+@section('title','Edit Fee')
 
-		<!-- GRADE -->
-		<div class="form-group form-row">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Grade</strong></label>
-			<div class="col-md-6">
-				<select class="custom-select" name="grade_id">
-					<option value="" hidden>Choose</option>
-					@foreach($grades as $grade)
-					<option value="{{ $grade->id }}" {{ $grade->id == $fee->grade_id ? 'selected':'' }}>{{ $grade->name }}</option>
-					@endforeach
-				</select>
-			</div>
-		</div>
-
-		<!-- PAYMENT MODE -->
-		<div class="form-group form-row">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Payment Mode</strong></label>
-			<div class="col-md-6">
-				<select class="custom-select" name="payment_mode">
-					<option value="" hidden>Choose</option>
-					<option value="cash" {{ 'cash' == $fee->payment_mode ? 'selected':'' }}>Cash</option>
-					<option value="installment" {{ 'installment' == $fee->payment_mode ? 'selected':'' }}>Installment</option>
-				</select>
-			</div>
-		</div>
-
-		<!-- REGISTRATION -->
-		<div class="form-group form-row">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Registration</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="number" name="registration" value="{{ $fee->registration }}">
-			</div>
-		</div>
-
-		<!-- TUITION FEE -->
-		<div class="form-group form-row">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Tuition</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="number" name="tuition" value="{{ $fee->tuition }}">
-			</div>
-		</div>
-
-		<!-- MISC -->
-		<div class="form-group form-row">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Misc</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="number" name="misc" value="{{ $fee->misc }}">
-			</div>
-		</div>
-
-		<!-- COMPUTER -->
-		<div class="form-group form-row">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Computer</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="number" name="computer" value="{{ $fee->computer }}">
-			</div>
-		</div>
-
-		<!-- ACTION -->
-		<div class="form-group form-row">
-			<div class="col-md-6 offset-md-4">	
-				<button class="btn btn-primary" type="submit"><i class="fas fa-save mx-2"></i> Save</button>
-				<a class="btn btn-light mr-1" href="/fees">Cancel</a>
-			</div>
-		</div>
-
-	<!-- END OF CARD BODY -->
-	</div>
-
-<!-- END OF CARD -->
-</div>
-
-<!-- END OF FORM -->
-</form>
+<!-- CARD HEADER -->
+@section('card_header')
+	Edit Fee
 @endsection
+
+<!-- CARD BODY -->
+@section('card_body')
+
+	<!-- GRADE -->
+	@component('select', ['collection' => $grades, 'fee' => $fee])
+		@slot('label')
+		Grade
+		@endslot
+		@slot('name')
+		grade_id
+		@endslot
+	@endcomponent
+
+	@php 
+	$modes = [
+		[
+			'id' => 'Cash',
+			'name' => 'Cash',
+		],
+		[
+			'id' => 'Installment',
+			'name' => 'Installment',
+		]
+	];
+	@endphp
+
+	<!-- PAYMENT MODE -->
+	@component('select', ['collection' => $modes, 'modes' => $fee])
+		@slot('label')
+		Payment Mode
+		@endslot
+		@slot('name')
+		payment_mode
+		@endslot
+	@endcomponent
+	
+	<!-- REGISTRATION -->
+	@component('number')
+		@slot('label')
+		Registration
+		@endslot
+		registration
+		@slot('value')
+		{{ $fee->registration }}
+		@endslot
+	@endcomponent
+
+	<!-- TUITION -->
+	@component('number')
+		@slot('label')
+		Tuition 
+		@endslot
+		tuition
+		@slot('value')
+		{{ $fee->tuition }}
+		@endslot
+	@endcomponent
+	
+	<!-- MISC -->
+	@component('number')
+		@slot('label')
+		Misc
+		@endslot
+		misc
+		@slot('value')
+		{{ $fee->misc }}
+		@endslot
+	@endcomponent
+	
+	<!-- COMPUTER -->
+	@component('number')
+		@slot('label')
+		Computer
+		@endslot
+		computer
+		@slot('value')
+		{{ $fee->registration }}
+		@endslot
+	@endcomponent
+
+	<!-- ACTION -->
+	@component('action')
+	/fees
+	@endcomponent
+
+<!-- END OF CARD BODY -->
+@endsection
+
+@section('form')
+/fees/{{ $fee->id }}
+@endsection
+
+
+
+	

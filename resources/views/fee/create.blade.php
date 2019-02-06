@@ -1,91 +1,95 @@
-@extends('template')
+@extends('create_form')
 @section('title','Create Fee')
-@section('content')
-<!-- FORM -->
-<form class="col-md-8" method="post" action="/fees">
-@csrf
-<!-- CARD -->
-<div class="card">
+
+<!-- CARD HEADER -->
+@section('card_header')
+	Create Fee
+@endsection
+
+<!-- CARD BODY -->
+@section('card_body')
+
+	<!-- GRADE -->
+	@component('select', ['collection' => $grades])
+		@slot('label')
+		Grade
+		@endslot
+		@slot('name')
+		grade_id
+		@endslot
+	@endcomponent
+
+	@php 
+	$modes = [
+		[
+			'id' => 'Cash',
+			'name' => 'Cash',
+		],
+		[
+			'id' => 'Installment',
+			'name' => 'Installment',
+		]
+	];
+	@endphp
+
+	<!-- PAYMENT MODE -->
+	@component('select', ['collection' => $modes])
+		@slot('label')
+		Payment Mode
+		@endslot
+		@slot('name')
+		payment_mode
+		@endslot
+	@endcomponent
 	
-	<!-- CARD HEADER -->
-	<div class="card-header">
-		Create Fee
-	</div>
+	<!-- REGISTRATION -->
+	@component('number')
+		@slot('label')
+		Registration
+		@endslot
+		registration
+		@slot('value')
+		@endslot
+	@endcomponent
+
+	<!-- TUITION -->
+	@component('number')
+		@slot('label')
+		Tuition 
+		@endslot
+		tuition
+		@slot('value')
+		@endslot
+	@endcomponent
 	
-	<!-- CARD BODY -->
-	<div class="card-body">
+	<!-- MISC -->
+	@component('number')
+		@slot('label')
+		Misc
+		@endslot
+		misc
+		@slot('value')
+		@endslot
+	@endcomponent
+	
+	<!-- COMPUTER -->
+	@component('number')
+		@slot('label')
+		Computer
+		@endslot
+		computer
+		@slot('value')
+		@endslot
+	@endcomponent
 
-		<!-- GRADE -->
-		<div class="form-group form-row">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Grade</strong></label>
-			<div class="col-md-6">
-				<select class="custom-select" name="grade_id">
-					<option value="" hidden>Choose</option>
-					@foreach($grades as $grade)
-					<option value="{{ $grade->id }}">{{ $grade->name }}</option>
-					@endforeach
-				</select>
-			</div>
-		</div>
+	<!-- ACTION -->
+	@component('action')
+	/fees
+	@endcomponent
 
-		<!-- PAYMENT MODE -->
-		<div class="form-group form-row">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Payment Mode</strong></label>
-			<div class="col-md-6">
-				<select class="custom-select" name="payment_mode">
-					<option value="" hidden>Choose</option>
-					<option value="cash">Cash</option>
-					<option value="installment">Installment</option>
-				</select>
-			</div>
-		</div>
+<!-- END OF CARD BODY -->
+@endsection
 
-		<!-- REGISTRATION -->
-		<div class="form-group form-row">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Registration</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="number" name="registration">
-			</div>
-		</div>
-
-		<!-- TUITION FEE -->
-		<div class="form-group form-row">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Tuition</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="number" name="tuition">
-			</div>
-		</div>
-
-		<!-- MISC -->
-		<div class="form-group form-row">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Misc</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="number" name="misc">
-			</div>
-		</div>
-
-		<!-- COMPUTER -->
-		<div class="form-group form-row">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Computer</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="number" name="computer">
-			</div>
-		</div>
-
-		<!-- ACTION -->
-		<div class="form-group form-row">
-			<div class="col-md-6 offset-md-4">	
-				<button class="btn btn-primary" type="submit"><i class="fas fa-save mx-2"></i> Save</button>
-				<a class="btn btn-light mr-1" href="/fees">Cancel</a>
-			</div>
-		</div>
-
-	<!-- END OF CARD BODY -->
-	</div>
-
-<!-- END OF CARD -->
-</div>
-
-<!-- END OF FORM -->
-</form>
+@section('form')
+/fees
 @endsection
