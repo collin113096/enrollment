@@ -1,100 +1,124 @@
-@extends('template')
+@extends('edit_form')
 @section('title','Edit Teacher')
-@section('content')
-<!-- FORM -->
-<form class="col-md-8" method="post" action="/teachers/{{ $teacher->id }}">
-@csrf
-@method('PATCH')
-<!-- CARD -->
-<div class="card">
+
+@section('card_header')
+	Edit Teacher
+@endsection
+
+@section('card_body')
 	
-	<!-- CARD HEADER -->
-	<div class="card-header">
-		Edit Teacher
-	</div>
-	
-	<!-- CARD BODY -->
-	<div class="card-body">
+	<!-- LAST NAME -->
+	@text
+		@slot('label')
+			Last Name
+		@endslot
+		@slot('name')
+			last_name
+		@endslot
+		@slot('value')
+			{{ $teacher->last_name }}
+		@endslot
+	@endtext
 
-		<!-- LAST NAME -->
-		<div class="form-row form-group">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Last Name</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="text" name="last_name" value="{{ $teacher->last_name }}">
-			</div>
-		</div>
+	<!-- FIRST NAME -->
+	@text
+		@slot('label')
+			First Name
+		@endslot
+		@slot('name')
+			first_name
+		@endslot
+		@slot('value')
+			{{ $teacher->first_name }}
+		@endslot
+	@endtext
 
-		<!-- FIRST NAME -->
-		<div class="form-row form-group">
-			<label class="col-md-4 text-md-right col-form-label"><strong>First Name</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="text" name="first_name" value="{{ $teacher->first_name }}">
-			</div>
-		</div>
+	<!-- MIDDLE NAME -->
+	@text
+		@slot('label')
+			Middle Name
+		@endslot
+		@slot('name')
+			middle_name
+		@endslot
+		@slot('value')
+			{{ $teacher->middle_name }}
+		@endslot
+	@endtext
 
-		<!-- MIDDLE NAME -->
-		<div class="form-row form-group">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Middle Name</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="text" name="middle_name" value="{{ $teacher->middle_name }}">
-			</div>
-		</div>
-		
-		<!-- CLASSIFICATION -->
-		<div class="form-row form-group">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Classification</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="text" name="classification" value="{{ $teacher->classification }}">
-			</div>
-		</div>
-		
-		<!-- BIRTH DATE -->
-		<div class="form-row form-group">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Birth Date</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="date" name="birth_date" value="{{ $teacher->birth_date }}">
-			</div>
-		</div>
+	<!-- CLASSIFICATION -->
+	@text
+		@slot('label')
+			Classification
+		@endslot
+		@slot('name')
+			classification
+		@endslot
+		@slot('value')
+			{{ $teacher->classification }}
+		@endslot
+	@endtext
 
-		
-		<hr>
-		
-		<!-- HOME ADDRESS -->
-		<div class="form-row form-group">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Home Address</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="text" name="home_address" value="{{ $teacher->home_address }}">
-			</div>
-		</div>
+	<!-- BIRTH DATE -->
+	@date
+		@slot('label')
+			Birth Date
+		@endslot
+		@slot('name')
+			birth_date
+		@endslot
+		@slot('value')
+			{{ $teacher->birth_date }}
+		@endslot
+	@enddate
 
-		<!-- EMAIL -->
-		<div class="form-row form-group">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Email</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="email" name="email" value="{{ $teacher->email }}">
-			</div>
-		</div>
-		
-		<!-- CONTACT -->
-		<div class="form-row form-group">
-			<label class="col-md-4 text-md-right col-form-label"><strong>Contact</strong></label>
-			<div class="col-md-6">
-				<input class="form-control" type="number" name="contact" value="{{ $teacher->contact }}">
-			</div>
-		</div>
+	<hr>
 
-	<!-- END OF CARD BODY -->
-	</div>
+	<!-- HOME ADDRESS -->
+	@text
+		@slot('label')
+			Home Address
+		@endslot
+		@slot('name')
+			home_address
+		@endslot
+		@slot('value')
+			{{ $teacher->home_address }}
+		@endslot
+	@endtext
 
-	<!-- CARD FOOTER -->
-	<div class="card-footer d-flex justify-content-end">
-			<a class="btn btn-light mr-1" href="/teachers/{{ $teacher->id }}">Cancel</a>
-			<button class="btn btn-primary" type="submit"><i class="fas fa-save"></i> Save</button>
-	</div>
+	<!-- EMAIL -->
+	@email
+		@slot('label')
+			Email
+		@endslot
+		@slot('name')
+			email
+		@endslot
+		@slot('value')
+			{{ $teacher->email }}
+		@endslot
+	@endemail
 
-<!-- END OF CARD -->
-</div>
+	<!-- CONTACT -->
+	@number
+		@slot('label')
+			Contact
+		@endslot
+		@slot('name')
+			contact
+		@endslot
+		@slot('value')
+			{{ $teacher->contact }}
+		@endslot
+	@endnumber
 
-<!-- END OF FORM -->
-</form>
+	@action
+		/teachers/{{ $teacher->id }}
+	@endaction
+
+@endsection
+
+@section('form')
+	/teachers/{{ $teacher->id }}
 @endsection

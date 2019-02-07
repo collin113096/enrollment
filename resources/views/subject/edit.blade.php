@@ -1,41 +1,57 @@
-@extends('template')
+@extends('edit_form')
 @section('title','Edit Subject')
-@section('content')
-<!-- FORM -->
-<form class="col-md-8" method="post" action="/subjects/{{ $subject->id }}">
-@csrf
-@method('PATCH')
-<!-- CARD -->
-<div class="card">
-	
-	<!-- CARD HEADER -->
-	<div class="card-header">
-		Edit Subject
-	</div>
-	
-	<!-- CARD BODY -->
-	<div class="card-body">
-		<div class="form-group">
-			<label><strong>Subject Name</strong></label>
-			<input class="form-control" type="text" name="name" value="{{ $subject->name }}">
-		</div>
-		<div class="form-group">
-			<label><strong>Description</strong></label>
-			<textarea class="form-control" name="description" cols="30" rows="5">{{ $subject->description }}</textarea>
-		</div>
-		<div class="form-group">
-			<label><strong>Unit(s)</strong></label>
-			<input class="form-control" type="text" name="unit" value="{{ $subject->unit }}">
-		</div>
-		<div class="form-row justify-content-end">
-			<a class="btn btn-light mr-1" href="/subjects">Cancel</a>
-			<button class="btn btn-success" type="submit"><i class="fas fa-save"></i> Save</button>
-		</div>
-	</div>
 
-<!-- END OF CARD -->
-</div>
+@section('card_header')
+	Edit Subject
+@endsection
 
-<!-- END OF FORM -->
-</form>
+@section('card_body')
+	
+	<!-- SUBJECT NAME -->
+	@text
+		@slot('label')
+			Subject Name
+		@endslot
+		@slot('name')
+			name
+		@endslot
+		@slot('value')
+			{{ $subject->name }}
+		@endslot
+	@endtext
+
+	<!-- DESCRIPTION -->
+	@textarea
+		@slot('label')
+			Description
+		@endslot
+		@slot('name')
+			description
+		@endslot
+		@slot('value')
+			{{ $subject->description }}
+		@endslot
+	@endtextarea
+
+	<!-- SUBJECT NAME -->
+	@text
+		@slot('label')
+			Unit(s)
+		@endslot
+		@slot('name')
+			unit
+		@endslot
+		@slot('value')
+			{{ $subject->unit }}
+		@endslot
+	@endtext
+
+	<!-- ACTION -->
+	@action
+		/subjects
+	@endaction
+@endsection
+
+@section('form')
+	/subjects/{{ $subject->id }}
 @endsection
