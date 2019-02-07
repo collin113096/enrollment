@@ -2,10 +2,6 @@
 @section('title','All Advisory')
 @section('card_header','All Advisory')
 
-@section('column_width')
-<div class="col-md-10">
-@endsection
-
 @section('table_head')
 	<th>Section Name</th>
 	<th>Adviser</th>
