@@ -17,7 +17,7 @@
 @section('table_body')
 	@foreach($registers as $register)
 	<tr>
-		<td>{{ $register->student->last_name }}, {{ $register->student->first_name }} {{ $register->student->first_name }}</td>
+		<td>{{ $register->student->last_name }}, {{ $register->student->first_name }} {{ $register->student->middle_name }}</td>
 		<td>{{ $register->student_lrn }}</td>
 		<td>{{ $register->school_year }}</td>
 		<td>{{ $register->section->name }}</td>
