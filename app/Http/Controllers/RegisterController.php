@@ -12,7 +12,7 @@ class RegisterController extends Controller
 
 	public function index()
 	{
-		$registers = Register::paginate(5);
+		$registers = Register::paginate(8);
 		return view('register.index',compact('registers'));
 	}
     

@@ -19,7 +19,7 @@ class ClassController extends Controller
      */
     public function index()
     {
-        $classes = Classes::paginate(5);
+        $classes = Classes::paginate(8);
         return view('class.index',compact('classes'));
     }
 

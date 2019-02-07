@@ -14,7 +14,7 @@ class AdvisoryController extends Controller
      */
     public function index()
     {
-        $sections = Section::paginate(5);
+        $sections = Section::paginate(8);
         return view('advisory.index',compact('sections'));
     }
 
@@ -25,7 +25,7 @@ class AdvisoryController extends Controller
      */
     public function create(Section $section)
     {
-        $teachers = Teacher::where('assigned',0)->paginate(5);
+        $teachers = Teacher::where('assigned',0)->paginate(8);
         return view('advisory.create',compact('section') + compact('teachers'));
     }
 
@@ -62,7 +62,7 @@ class AdvisoryController extends Controller
      */
     public function edit(Section $section)
     {
-        $teachers = Teacher::where('assigned',0)->paginate(5);
+        $teachers = Teacher::where('assigned',0)->paginate(8);
         return view('advisory.edit',compact('section') + compact('teachers'));
     }
 

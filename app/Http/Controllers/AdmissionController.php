@@ -10,7 +10,7 @@ class AdmissionController extends Controller
 {
     
     public function index(){
-    	$students = Student::where('admitted',0)->latest()->paginate(5);
+    	$students = Student::where('admitted',0)->latest()->paginate(8);
     	return view('applicant.index',compact('students'));
     }	
 
