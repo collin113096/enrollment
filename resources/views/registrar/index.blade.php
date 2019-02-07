@@ -61,51 +61,40 @@
 		<i class="fas fa-chalkboard-teacher mr-4"></i>Advisory
 	</a>
 
-	<!-- OTHER -->
-	<a class="list-group-item list-group-item-action" id="other-button">
-		<i class="fas fa-plus mr-4"></i> Other
+	<!-- GRADE -->
+	<a class="list-group-item list-group-item-action" href="/grades">
+		<i class="fas fa-clipboard mr-4"></i> Grade
 	</a>
-	
-	<!-- COLLAPSIBLE DIV -->
-	<div class="list-group-item-action collapse" id="other-collapsible">
 
-		<!-- GRADE -->
-		<a class="list-group-item list-group-item-action" href="/grades">
-			<i class="fas fa-clipboard mr-4"></i> Grade
-		</a>
+	<!-- TIME -->
+	<a class="list-group-item list-group-item-action" href="/times">
+		<i class="fas fa-clock mr-4"></i>Time
+	</a>
 
-		<!-- TIME -->
-		<a class="list-group-item list-group-item-action" href="/times">
-			<i class="fas fa-clock mr-4"></i>Time
-		</a>
+	<!-- SUBJECT -->
+	<a class="list-group-item list-group-item-action" href="/subjects">
+		<i class="fas fa-book mr-4"></i> Subject
+	</a>
 
-		<!-- SUBJECT -->
-		<a class="list-group-item list-group-item-action" href="/subjects">
-			<i class="fas fa-book mr-4"></i> Subject
-		</a>
+	<!-- ROOM -->
+	<a class="list-group-item list-group-item-action" href="/rooms">
+		<i class="fas fa-door-open mr-4"></i>Rooms
+	</a>
 
-		<!-- ROOM -->
-		<a class="list-group-item list-group-item-action" href="/rooms">
-			<i class="fas fa-door-open mr-4"></i>Rooms
-		</a>
+	<!-- TEACHER -->
+	<a class="list-group-item list-group-item-action" href="/teachers">
+		<i class="fas fa-chalkboard-teacher mr-4"></i>Teacher
+	</a>
 
-		<!-- TEACHER -->
-		<a class="list-group-item list-group-item-action" href="/teachers">
-			<i class="fas fa-chalkboard-teacher mr-4"></i>Teacher
-		</a>
+	<!-- SECTION -->
+	<a class="list-group-item list-group-item-action" href="/sections">
+		<i class="fas fa-users mr-4"></i>Section
+	</a>
 
-		<!-- SECTION -->
-		<a class="list-group-item list-group-item-action" href="/sections">
-			<i class="fas fa-users mr-4"></i>Section
-		</a>
-
-		<!-- FEE -->
-		<a class="list-group-item list-group-item-action" href="/fees">
-			<i class="fas fa-money-bill-alt mr-4"></i>Fee
-		</a>
-
-	<!-- END OF COLLAPSIBLE DIV -->
-	</div>
+	<!-- FEE -->
+	<a class="list-group-item list-group-item-action" href="/fees">
+		<i class="fas fa-money-bill-alt mr-4"></i>Fee
+	</a>
 
 <!-- END OF NAVIGATION -->
 </ul>
@@ -146,12 +135,4 @@
 <!-- END OF MAIN COLUMN -->
 </div>
 
-<!-- SCRIPTS -->
-<script>
-	$('#other-button').click(function(){
-		$('#other-collapsible').slideToggle('slow','swing',function(){
-			$('#other-button > i').toggleClass('fa-plus').toggleClass('fa-minus');
-		});
-	});
-</script>
 @endsection
