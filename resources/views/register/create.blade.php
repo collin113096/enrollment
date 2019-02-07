@@ -1,9 +1,7 @@
 @extends('create_form')
 @section('title','Register Student')
+@section('card_header','Register Student')
 
-	@section('card_header')
-		Register
-	@endsection
 
 	@section('card_body')
 		@text

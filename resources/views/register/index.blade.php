@@ -1,6 +1,6 @@
 @extends('main')
-@section('title','School Register')
-@section('card_header','School Register')
+@section('title','Registered Students')
+@section('card_header','Registered Students')
 
 @section('column_width')
 <div class="col-md-10">

@@ -39,16 +39,16 @@
 <ul class="list-group list-group-flush font-weight-bold mb-5 collapse navbar-collapse" id="navigation">
 
 	<!-- ADMISSION -->
-	<a class="list-group-item list-group-item-action" href="/applicants"><i class="fas fa-user-check mr-4"></i>Admission</a>
+	<a class="list-group-item list-group-item-action" href="/applicants"><i class="fas fa-user mr-4"></i>Applicants</a>
 
 	<!-- REGISTER -->
 	<a class="list-group-item list-group-item-action" href="/admitted/applicants">
-		<i class="fas fa-user-plus mr-4"></i>Register
+		<i class="fas fa-user-check mr-4"></i>Admitted
 	</a>
 
 	<!-- REGISTRATION -->
 	<a class="list-group-item list-group-item-action" href="/registers">
-		<i class="fas fa-school mr-4"></i>School Register
+		<i class="fas fa-school mr-4"></i>Registered
 	</a>
 
 	<!-- CLASSES -->

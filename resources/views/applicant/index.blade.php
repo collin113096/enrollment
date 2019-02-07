@@ -1,6 +1,6 @@
 @extends('main')
-@section('title','All Applicants')
-@section('card_header','All Applicants')
+@section('title','Applicants')
+@section('card_header','Applicants')
 
 @section('table_head')
 	<th>Applicant Name</th>

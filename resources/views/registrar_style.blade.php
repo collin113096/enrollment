@@ -4,11 +4,5 @@ div#main {
     background: white;
 }
 
-#other-collapsible i{
-	padding-left:1.5rem;
-}
 
-.navbar-collapse {
-    align-items: start; 
-}
 </style>
