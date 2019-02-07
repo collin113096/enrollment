@@ -29,7 +29,7 @@ Create Class
 			time_id
 		@endslot
 		@foreach($times as $time)
-			<option value="{{ $time->id }}">{{ $time->in }} - {{ $time->out }}</option>
+			<option value="{{ $time->id }}">{{ date('h:i A', strtotime($time->in)) }} - {{ date('h:i A', strtotime($time->out)) }}</option>
 		@endforeach
 	@endselect
 	
