@@ -10,13 +10,16 @@
 @section('card_body')
 
 	<!-- GRADE -->
-	@select(['collection' => $grades, 'fee' => $fee])
+	@select
 		@slot('label')
-		Grade
+			Grade
 		@endslot
 		@slot('name')
-		grade_id
+			grade_id
 		@endslot
+		@foreach($grades as $grade)
+			<option value="{{ $grade->id }}" {{ $grade->id == $fee->grade_id ? 'selected':'' }}>{{ $grade->name }}</option>
+		@endforeach
 	@endselect
 
 	@php 
@@ -33,69 +36,80 @@
 	@endphp
 
 	<!-- PAYMENT MODE -->
-	@select(['collection' => $modes, 'modes' => $fee])
+	@select
 		@slot('label')
-		Payment Mode
+			Payment Mode
 		@endslot
 		@slot('name')
-		payment_mode
+			payment_mode
 		@endslot
+		@foreach($modes as $mode)
+			<option value="{{ $mode['id'] }}" {{ $mode['id'] == $fee->payment_mode ? 'selected':'' }}>{{ $mode['name'] }}</option>
+		@endforeach
 	@endselect
 	
 	<!-- REGISTRATION -->
 	@number
 		@slot('label')
-		Registration
+			Registration
 		@endslot
-		registration
+		@slot('name')
+			registration
+		@endslot
 		@slot('value')
-		{{ $fee->registration }}
+			{{ $fee->registration }}
 		@endslot
 	@endnumber
 
 	<!-- TUITION -->
 	@number
 		@slot('label')
-		Tuition 
+			Tuition
 		@endslot
-		tuition
+		@slot('name')
+			tuition
+		@endslot
 		@slot('value')
-		{{ $fee->tuition }}
+			{{ $fee->tuition }}
 		@endslot
 	@endnumber
 	
 	<!-- MISC -->
 	@number
 		@slot('label')
-		Misc
+			Misc
 		@endslot
-		misc
+		@slot('name')
+			misc
+		@endslot
 		@slot('value')
-		{{ $fee->misc }}
+			{{ $fee->misc }}
 		@endslot
 	@endnumber
 	
 	<!-- COMPUTER -->
 	@number
 		@slot('label')
-		Computer
+			Computer
 		@endslot
-		computer
+		@slot('name')
+			computer
+		@endslot
 		@slot('value')
-		{{ $fee->registration }}
+			{{ $fee->registration }}
 		@endslot
 	@endnumber
 
 	<!-- ACTION -->
-	@component('action')
-	/fees
-	@endcomponent
+	@action
+		/fees
+	@endaction
 
 <!-- END OF CARD BODY -->
 @endsection
 
 @section('form')
-/fees/{{ $fee->id }}
+	/fees/{{ $fee->id }}
 @endsection
 
 

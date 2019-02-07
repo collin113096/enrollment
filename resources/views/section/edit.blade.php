@@ -1,47 +1,44 @@
-@extends('template')
+@extends('edit_form')
 @section('title','Edit Section')
-@section('content')
-<!-- FORM -->
-<form class="col-md-8" method="post" action="/sections/{{ $section->id }}">
-@csrf
-@method('PATCH')
-<!-- CARD -->
-<div class="card">
-	
-	<!-- CARD HEADER -->
-	<div class="card-header">
-		Edit Section
-	</div>
-	
-	<!-- CARD BODY -->
-	<div class="card-body">
 
-		<!-- SECTION NAME -->
-		<div class="form-group">
-			<label><strong>Section Name</strong></label>
-			<input class="form-control" type="text" name="name" value="{{ $section->name }}">
-		</div>
+@section('card_header')
+	Edit Section
+@endsection
 
-		<!-- GRADE -->
-		<div class="form-group">
-			<label><strong>Grade</strong></label>
-			<select class="custom-select" name="grade_id">
-				@foreach($grades as $grade)
-					<option value="{{ $grade->id }}" {{ $grade->id == $section->grade_id ? 'selected':'' }}>{{ $grade->name }}</option>
-				@endforeach
-			</select>
-		</div>
+@section('card_body')
+
+	<!-- SECTION NAME -->
+	@text
+		@slot('label')
+			Section Name
+		@endslot
+		@slot('name')
+			name
+		@endslot
+		@slot('value')
+			{{ $section->name }}
+		@endslot
+	@endtext
+
+	<!-- GRADE -->
+	@select
+		@slot('label')
+			Grade
+		@endslot
+		@slot('name')
+			grade_id
+		@endslot
+		@foreach($grades as $grade)
+			<option value="{{ $grade->id }}" {{ $grade->id == $section->grade_id ? 'selected':'' }}>{{ $grade->name }}</option>
+		@endforeach
+	@endselect
 		
-		<!-- ACTION -->
-		<div class="form-row justify-content-end">
-			<a class="btn btn-light mr-1" href="/sections">Cancel</a>
-			<button class="btn btn-success" type="submit"><i class="fas fa-save"></i> Save</button>
-		</div>
-	</div>
+	@action
+		/sections
+	@endaction
 
-<!-- END OF CARD -->
-</div>
+@endsection
 
-<!-- END OF FORM -->
-</form>
+@section('form')
+	/sections/{{ $section->id }}
 @endsection
