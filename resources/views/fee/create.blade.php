@@ -10,13 +10,16 @@
 @section('card_body')
 
 	<!-- GRADE -->
-	@select(['collection' => $grades])
+	@select
 		@slot('label')
-		Grade
+			Grade
 		@endslot
 		@slot('name')
-		grade_id
+			grade_id
 		@endslot
+		@foreach($grades as $grade)
+			<option value="{{ $grade->id }}">{{ $grade->name }}</option>
+		@endforeach
 	@endselect
 
 	@php 
@@ -33,21 +36,26 @@
 	@endphp
 
 	<!-- PAYMENT MODE -->
-	@select(['collection' => $modes])
+	@select
 		@slot('label')
-		Payment Mode
+			Payment Mode
 		@endslot
 		@slot('name')
-		payment_mode
+			payment_mode
 		@endslot
+		@foreach($modes as $mode)
+			<option value="{{ $mode['id'] }}">{{ $mode['name'] }}</option>
+		@endforeach
 	@endselect
 	
 	<!-- REGISTRATION -->
 	@number
 		@slot('label')
-		Registration
+			Registration
 		@endslot
-		registration
+		@slot('name')
+			registration
+		@endslot
 		@slot('value')
 		@endslot
 	@endnumber
@@ -57,7 +65,9 @@
 		@slot('label')
 		Tuition 
 		@endslot
-		tuition
+		@slot('name')
+			tuition
+		@endslot
 		@slot('value')
 		@endslot
 	@endnumber
@@ -67,7 +77,9 @@
 		@slot('label')
 		Misc
 		@endslot
-		misc
+		@slot('name')
+			misc
+		@endslot
 		@slot('value')
 		@endslot
 	@endnumber
@@ -77,7 +89,9 @@
 		@slot('label')
 		Computer
 		@endslot
-		computer
+		@slot('name')
+			computer
+		@endslot
 		@slot('value')
 		@endslot
 	@endnumber

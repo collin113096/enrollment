@@ -8,9 +8,11 @@ Create Room
 @section('card_body')
 	@text
 		@slot('label')
-		Room Name
+			Room Name
 		@endslot
-		name
+		@slot('name')
+			name
+		@endslot
 		@slot('value')
 		@endslot
 	@endtext

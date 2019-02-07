@@ -11,9 +11,11 @@
 	<!-- SUBJECT NAME -->
 	@text
 		@slot('label')
-		Subject Name
+			Subject Name
 		@endslot
-		name
+		@slot('name')
+			name
+		@endslot
 		@slot('value')
 		@endslot
 	@endtext
@@ -21,9 +23,11 @@
 	<!-- DESCRIPTION -->
 	@textarea
 		@slot('label')
-		Description
+			Description
 		@endslot
-		description
+		@slot('name')
+			description
+		@endslot
 		@slot('value')
 		@endslot
 	@endtextarea
@@ -31,9 +35,11 @@
 	<!-- UNIT -->
 	@number
 		@slot('label')
-		Unit(s)
+			Unit(s)
 		@endslot
-		unit
+		@slot('name')
+			unit
+		@endslot
 		@slot('value')
 		@endslot
 	@endnumber

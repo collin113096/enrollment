@@ -13,9 +13,11 @@
 	<!-- GRADE NAME -->
 	@text
 		@slot('label')
-		Grade Name
+			Grade Name
 		@endslot
-		name
+		@slot('name')
+			name
+		@endslot
 		@slot('value')
 		@endslot
 	@endtext

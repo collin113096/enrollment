@@ -10,9 +10,11 @@ Create Teacher
 	<!-- LAST NAME -->
 	@text
 		@slot('label')
-		Last Name
+			Last Name
 		@endslot
-		last_name
+		@slot('name')
+			last_name
+		@endslot
 		@slot('value')
 		@endslot
 	@endtext
@@ -20,9 +22,11 @@ Create Teacher
 	<!-- FIRST NAME -->
 	@text
 		@slot('label')
-		First Name
+			First Name
 		@endslot
-		first_name
+		@slot('name')
+			first_name
+		@endslot
 		@slot('value')
 		@endslot
 	@endtext
@@ -30,9 +34,11 @@ Create Teacher
 	<!-- MIDDLE NAME -->
 	@text
 		@slot('label')
-		Middle Name
+			Middle Name
 		@endslot
-		middle_name
+		@slot('name')
+			middle_name
+		@endslot
 		@slot('value')
 		@endslot
 	@endtext
@@ -40,18 +46,22 @@ Create Teacher
 	<!-- CLASSIFICATION -->
 	@text
 		@slot('label')
-		Classification
+			Classification
 		@endslot
-		classification
+		@slot('name')
+			classification
+		@endslot
 		@slot('value')
 		@endslot
 	@endtext
 
 	@date
 		@slot('label')
-		Birth Date
+			Birth Date
 		@endslot
-		birth_date
+		@slot('name')
+			birth_date
+		@endslot
 		@slot('value')
 		@endslot
 	@enddate
@@ -60,27 +70,33 @@ Create Teacher
 
 	@text
 		@slot('label')
-		Home Address
+			Home Address
 		@endslot
-		home_address
+		@slot('name')
+			home_address
+		@endslot
 		@slot('value')
 		@endslot
 	@endtext
 
 	@email
 		@slot('label')
-		Email
+			Email
 		@endslot
-		email
+		@slot('name')
+			email
+		@endslot
 		@slot('value')
 		@endslot
 	@endemail
 
 	@number
 		@slot('label')
-		Contact
+			Contact
 		@endslot
-		contact
+		@slot('name')
+			contact
+		@endslot
 		@slot('value')
 		@endslot
 	@endnumber

@@ -11,31 +11,36 @@ Create Section
 	<!-- SECTION NAME -->
 	@text
 		@slot('label')
-		Section Name
+			Section Name
 		@endslot
-		name
+		@slot('name')
+			name
+		@endslot
 		@slot('value')
 		@endslot
 	@endtext
 
 	<!-- GRADE -->
-	@select(['collection' => $grades])
+	@select
 		@slot('label')
-		Grade
+			Grade
 		@endslot
 		@slot('name')
-		grade_id
+			grade_id
 		@endslot
+		@foreach($grades as $grade)
+			<option value="{{ $grade->id }}">{{ $grade->name }}</option>
+		@endforeach
 	@endselect
 
 	<!-- ACTION -->
 	@action
-	/sections
+		/sections
 	@endaction
 
 @endsection
 
 @section('form')
-/sections
+	/sections
 @endsection
 

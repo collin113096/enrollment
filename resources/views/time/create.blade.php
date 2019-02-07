@@ -12,9 +12,11 @@
 		<!-- TIME IN -->
 		@time
 			@slot('label')
-			Time In
+				Time In
 			@endslot
-			in
+			@slot('name')
+				in
+			@endslot
 			@slot('value')
 			@endslot
 		@endtime
@@ -24,7 +26,9 @@
 			@slot('label')
 			Time Out
 			@endslot
-			out
+			@slot('name')
+				out
+			@endslot
 			@slot('value')
 			@endslot
 		@endtime
