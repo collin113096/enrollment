@@ -1,4 +1,4 @@
-<form method="post" action="@yield('form')">
+<form class="m-0" method="post" action="@yield('form')">
 @csrf
 @method('PATCH')
 @section('form_body')

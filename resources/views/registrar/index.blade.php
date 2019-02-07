@@ -1,25 +1,8 @@
 @extends('template')
 @section('title','Registrar')
 @section('content')
-<style>
-div#main {
-    border-top: 10px solid #252a62;
-    background: white;
-}
+@include('registrar_style')
 
-a.list-group-item.list-group-item-action{
-	border-left:2px solid transparent;
-  	border-right:2px solid transparent;
-}
-
-#other-collapsible i{
-	padding-left:1.5rem;
-}
-
-.navbar-collapse {
-    align-items: start; 
-}
-</style>
 <!-- MAIN COLUMN -->
 <div class="col-md-12" id="main">
 
@@ -53,18 +36,13 @@ a.list-group-item.list-group-item-action{
 </button>
 
 <!-- NAVIGATION -->
-<ul class="list-group font-weight-bold mb-5 collapse navbar-collapse" id="navigation">
-
-	<!-- APPLICATION -->
-	<a class="list-group-item list-group-item-action" href="/applicants">
-		<i class="fas fa-file-alt mr-4"></i> Applicants
-	</a>
+<ul class="list-group list-group-flush font-weight-bold mb-5 collapse navbar-collapse" id="navigation">
 
 	<!-- ADMISSION -->
-	<a class="list-group-item list-group-item-action" href=""><i class="fas fa-user-check mr-4"></i>Admission</a>
+	<a class="list-group-item list-group-item-action" href="/applicants"><i class="fas fa-user-check mr-4"></i>Admission</a>
 
 	<!-- REGISTER -->
-	<a class="list-group-item list-group-item-action" href="">
+	<a class="list-group-item list-group-item-action" href="/admitted/applicants">
 		<i class="fas fa-user-plus mr-4"></i>Register
 	</a>
 

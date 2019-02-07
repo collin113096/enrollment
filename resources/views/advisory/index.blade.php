@@ -33,18 +33,18 @@
 
 			<!-- ASSIGN ADVISER -->
 			@if($section->hasAdviser() || $teacher->areAllAssigned())
-			<a class="btn btn-warning disabled" disabled>
+			<a class="btn btn-warning btn-sm disabled" disabled>
 			@else
-			<a class="btn btn-warning" href="/advisory/{{ $section->id }}/create">
+			<a class="btn btn-warning btn-sm" href="/advisory/{{ $section->id }}/create">
 			@endif
 			<i class="fas fa-pen"></i> Assign Adviser
 			</a>
 			
 			<!-- EDIT ADVISER -->
 			@if($section->hasAdviser() && !$teachers->first()->areAllAssigned())
-			<a class="btn btn-primary" href="/advisory/{{ $section->id }}/edit">									
+			<a class="btn btn-primary btn-sm" href="/advisory/{{ $section->id }}/edit">									
 			@else
-			<a class="btn btn-primary disabled" disabled>
+			<a class="btn btn-primary btn-sm disabled" disabled>
 			@endif
 			<i class="fas fa-pen"></i> Change Adviser
 			</a>	
@@ -54,9 +54,9 @@
 			<form class="d-inline m-0" method="post" action="/advisory/{{ $section->id }}">
 				@csrf
 				@method('DELETE')
-				<button class="btn btn-danger">
+				<button class="btn btn-danger btn-sm">
 			@else
-				<button class="btn btn-danger disabled" disabled="">
+				<button class="btn btn-danger btn-sm disabled" disabled="">
 			@endif
 					<i class="fas fa-trash"></i> Delete Adviser
 				</button>

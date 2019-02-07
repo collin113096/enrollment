@@ -1,2 +1,2 @@
-<a class="btn btn-primary" {{ $href }}>
+<a class="btn btn-primary btn-sm" {{ $href }}>
 <i class="fas fa-pen"></i> Edit</a>

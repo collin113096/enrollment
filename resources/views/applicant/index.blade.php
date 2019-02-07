@@ -14,12 +14,12 @@
 			{{ $student->last_name }}, {{ $student->first_name }} {{ $student->middle_name }}
 		</td>
 		<td class="text-center">
-		@component('view_button')
+		@view
 			@slot('href')
-				href="/applicant/{{ $student->id }}/information"
+				/applicant/{{ $student->id }}/information
 			@endslot
-			Information
-		@endcomponent
+			Form and Documents
+		@endview
 		</td>
 	</tr>
 	@endforeach
