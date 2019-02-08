@@ -22,7 +22,7 @@ class CreateFeesTable extends Migration
             $table->bigInteger('misc');
             $table->bigInteger('computer');
 
-            $table->foreign('grade_id')->references('id')->on('grades');
+            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade');
         });
     }
 

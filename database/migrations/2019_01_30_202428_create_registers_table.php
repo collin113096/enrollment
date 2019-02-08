@@ -20,8 +20,8 @@ class CreateRegistersTable extends Migration
             $table->string('school_year');
             $table->unsignedInteger('section_id');
 
-            $table->foreign('student_id')->references('id')->on('students');
-            $table->foreign('section_id')->references('id')->on('sections');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
+            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
         });
     }
 

@@ -18,8 +18,8 @@ class CreateClassSectionTable extends Migration
             $table->unsignedInteger('class_id');
             $table->unsignedInteger('section_id');
 
-            $table->foreign('class_id')->references('id')->on('classes');
-            $table->foreign('section_id')->references('id')->on('sections');
+            $table->foreign('class_id')->references('id')->on('classes')->onDelete('cascade');
+            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
         });
     }
 
