@@ -3,12 +3,9 @@
 @section('registrar_content')
 @include('information_style')
 <div class="row">
-	<div class="col-md-8">
+	<div class="col-md-12">
 		@include('student_information')
 		@include('parent_information')
-	</div>
-
-	<div class="col-md-4">
 		@include('student_document')
 	</div>
 

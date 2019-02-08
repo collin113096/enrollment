@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" id="card3">
 	<div class="card-header">
 		Documents
 	</div>
@@ -12,5 +12,19 @@
 				</div>
 			@endforelse
 		</ul>
+	</div>
+
+	<!-- CARD FOOTER -->
+	<div class="card-footer d-flex justify-content-between">
+		<div class="btn btn-light" id="card3-button"><i class="fas fa-arrow-left mx-2"></i> Back</div>
+		@component('form_for_edit')
+			@section('form')
+			/applicants/{{ $student->id }}
+			@endsection
+
+			@section('form_body')
+			<button class="btn btn-success">Admit Applicant</button>
+			@endsection
+		@endcomponent			
 	</div>
 </div>

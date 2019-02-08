@@ -66,16 +66,8 @@
 
 	<!-- CARD FOOTER -->
 	<div class="card-footer d-flex justify-content-between">
-		<div class="btn btn-light" id="card2-button"><i class="fas fa-arrow-left mx-2"></i> Back to Form 1</div>
-		@component('form_for_edit')
-			@section('form')
-			/applicants/{{ $student->id }}
-			@endsection
-
-			@section('form_body')
-			<button class="btn btn-success">Admit Applicant</button>
-			@endsection
-		@endcomponent			
+		<div class="btn btn-light" id="card2-button-back"><i class="fas fa-arrow-left mx-2"></i> Back</div>
+		<div class="btn btn-light" id="card2-button-next"><i class="fas fa-arrow-right mx-2"></i> Next Document</div>
 	</div>
 
 <!-- END OF CARD -->
