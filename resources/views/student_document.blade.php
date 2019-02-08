@@ -1,4 +1,4 @@
-<div class="card" id="card3">
+<div class="card collapse" id="card3">
 	<div class="card-header">
 		Documents
 	</div>
