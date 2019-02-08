@@ -60,6 +60,8 @@
 	<a class="list-group-item list-group-item-action" href="/advisory">
 		<i class="fas fa-chalkboard-teacher mr-4"></i>Advisory
 	</a>
+	
+	<hr>
 
 	<!-- GRADE -->
 	<a class="list-group-item list-group-item-action" href="/grades">
