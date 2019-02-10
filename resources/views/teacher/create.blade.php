@@ -50,7 +50,14 @@ Create Teacher
 	@endslot
 @endtext
 
-@text
+@php
+$options = [
+	['name' => 'Elementary Teacher'],
+	['name' => 'Junior High School Teacher']
+];
+@endphp
+
+@list(compact('options'))
 	@slot('label')
 	Classification
 	@endslot
@@ -61,7 +68,7 @@ Create Teacher
 
 	@slot('value')
 	@endslot
-@endtext
+@endlist
 
 @date
 	@slot('label')

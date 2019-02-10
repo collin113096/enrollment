@@ -31,6 +31,9 @@ All Teachers
 			@slot('href')
 				href="/teachers/{{ $teacher->id }}"
 			@endslot
+			@section('name')
+				<i class="fas fa-eye"></i> View
+			@endsection
 		@endedit
 
 		@delete

@@ -46,7 +46,7 @@ Register Student
 @endselect
 
 @action
-	/sections
+	/admitted/applicants
 @endaction
 
 @endcomponent
