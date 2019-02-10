@@ -1,19 +1,21 @@
-@extends('main')
+@extends('registrar.template')
 @section('title','Assign Adviser')
+@section('body')
+@component('component.card')
 
-<!-- CARD HEADER -->
-@section('card_header')
+@slot('title')
 	Assign adviser for <strong>{{ $section->name }}</strong> section
-@endsection
+@endslot
 
-<!-- TABLE HEAD -->
-@section('table_head')
+@slot('add_button')
+@endslot
+
+@slot('head')
 	<th>Teacher</th>
 	<th class="text-center">Action</th>
-@endsection
+@endslot
 
-<!-- TABLE BODY -->
-@section('table_body')
+@slot('body')
 	@foreach($teachers as $teacher)
 		<tr>
 			<td>
@@ -22,13 +24,16 @@
 			<td class="text-center">
 				<form class="d-inline m-0" method="post" action="/advisory/{{ $section->id }}/assign/{{ $teacher->id }}">
 					@csrf
-					<button class="btn btn-success" type="submit">Assign Adviser</button>
+					<button class="btn btn-success btn-sm badge-pill" type="submit">Assign Adviser</button>
 				</form>
 			</td>
 		</tr>
 	@endforeach
-@endsection
+@endslot
 	
-@section('pagination')
+@slot('pagination')
 	{{ $teachers->links() }}
+@endslot
+
+@endcomponent
 @endsection

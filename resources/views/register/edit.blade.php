@@ -1,53 +1,58 @@
-@extends('edit_form')
+@extends('registrar.template')
 @section('title','Edit Student Registration')
-@section('card_header', 'Edit Student Registration')
+@section('body')
+@component('component.edit.form')
 
-@section('card_body')
+@slot('url')
+/registers/{{ $register->id }}
+@endslot
 
-	<!-- STUDENT LRN -->
-	@text
-		@slot('label')
-			Student LRN
-		@endslot
-		@slot('name')
-			student_lrn
-		@endslot
-		@slot('value')
-			{{ $register->student_lrn }}
-		@endslot
-	@endtext
+@slot('title')
+Edit Student Registration
+@endslot
 
-	<!-- SCHOOL YEAR -->
-	@text
-		@slot('label')
-			School Year
-		@endslot
-		@slot('name')
-			school_year
-		@endslot
-		@slot('value')
-			{{ $register->school_year }}
-		@endslot
-	@endtext
+@text
+	@slot('label')
+		Student LRN
+	@endslot
+	@slot('name')
+		student_lrn
+	@endslot
+	@slot('value')
+		{{ $register->student_lrn }}
+	@endslot
+@endtext
 
-	<!-- SECTION -->
-	@select
-		@slot('label')
-			Section
-		@endslot
-		@slot('name')
-			section_id
-		@endslot
-		@foreach($sections as $section)
-			<option value="{{ $section->id }}" {{ $section->id == $register->section_id ? 'selected':'' }}>{{ $section->name }}</option>
-		@endforeach		
-	@endselect
+<!-- SCHOOL YEAR -->
+@text
+	@slot('label')
+		School Year
+	@endslot
+	@slot('name')
+		school_year
+	@endslot
+	@slot('value')
+		{{ $register->school_year }}
+	@endslot
+@endtext
 
-	@action
-		/registers
-	@endaction
+<!-- SECTION -->
+@select
+	@slot('label')
+		Section
+	@endslot
+	@slot('name')
+		section_id
+	@endslot
+	@foreach($sections as $section)
+		<option value="{{ $section->id }}" {{ $section->id == $register->section_id ? 'selected':'' }}>{{ $section->name }}</option>
+	@endforeach		
+@endselect
+
+@action
+	/registers
+@endaction
+
+@endcomponent
 @endsection
 
-@section('form')
-	/registers/{{ $register->id }}
-@endsection

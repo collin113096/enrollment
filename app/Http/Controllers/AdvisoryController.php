@@ -62,7 +62,7 @@ class AdvisoryController extends Controller
      */
     public function edit(Section $section)
     {
-        $teachers = Teacher::where('assigned',0)->paginate(8);
+        $teachers = Teacher::paginate(8);
         return view('advisory.edit',compact('section') + compact('teachers'));
     }
 

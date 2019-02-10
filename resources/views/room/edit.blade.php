@@ -1,29 +1,31 @@
-@extends('edit_form')
+@extends('registrar.template')
 @section('title','Edit Room')
+@section('body')
+@component('component.edit.form')
 
-@section('card_header')
+@slot('url')
+	/rooms/{{ $room->id }}
+@endslot
+
+@slot('title')
 	Edit Room
-@endsection
+@endslot
 
-@section('card_body')
+@text
+	@slot('label')
+		Room Name
+	@endslot
+	@slot('name')
+		name
+	@endslot
+	@slot('value')
+		{{ $room->name }}
+	@endslot
+@endtext
+@action
+	/rooms
+@endaction
 
-	<!-- ROOM NAME -->
-	@text
-		@slot('label')
-			Room Name
-		@endslot
-		@slot('name')
-			name
-		@endslot
-		@slot('value')
-			{{ $room->name }}
-		@endslot
-	@endtext
-	@action
-		/rooms
-	@endaction
+@endcomponent
 @endsection
 	
-@section('form')
-	/rooms/{{ $room->id }}
-@endsection

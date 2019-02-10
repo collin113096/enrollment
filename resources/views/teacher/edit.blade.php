@@ -1,124 +1,118 @@
-@extends('edit_form')
+@extends('registrar.template')
 @section('title','Edit Teacher')
+@section('body')
+@component('component.edit.form')
 
-@section('card_header')
-	Edit Teacher
-@endsection
+@slot('url')
+/teachers/{{ $teacher->id }}
+@endslot
 
-@section('card_body')
-	
-	<!-- LAST NAME -->
-	@text
-		@slot('label')
-			Last Name
-		@endslot
-		@slot('name')
-			last_name
-		@endslot
-		@slot('value')
-			{{ $teacher->last_name }}
-		@endslot
-	@endtext
+@slot('title')
+Edit Teacher
+@endslot
 
-	<!-- FIRST NAME -->
-	@text
-		@slot('label')
-			First Name
-		@endslot
-		@slot('name')
-			first_name
-		@endslot
-		@slot('value')
-			{{ $teacher->first_name }}
-		@endslot
-	@endtext
+@text
+	@slot('label')
+		Last Name
+	@endslot
+	@slot('name')
+		last_name
+	@endslot
+	@slot('value')
+		{{ $teacher->last_name }}
+	@endslot
+@endtext
 
-	<!-- MIDDLE NAME -->
-	@text
-		@slot('label')
-			Middle Name
-		@endslot
-		@slot('name')
-			middle_name
-		@endslot
-		@slot('value')
-			{{ $teacher->middle_name }}
-		@endslot
-	@endtext
+@text
+	@slot('label')
+		First Name
+	@endslot
+	@slot('name')
+		first_name
+	@endslot
+	@slot('value')
+		{{ $teacher->first_name }}
+	@endslot
+@endtext
 
-	<!-- CLASSIFICATION -->
-	@text
-		@slot('label')
-			Classification
-		@endslot
-		@slot('name')
-			classification
-		@endslot
-		@slot('value')
-			{{ $teacher->classification }}
-		@endslot
-	@endtext
+@text
+	@slot('label')
+		Middle Name
+	@endslot
+	@slot('name')
+		middle_name
+	@endslot
+	@slot('value')
+		{{ $teacher->middle_name }}
+	@endslot
+@endtext
 
-	<!-- BIRTH DATE -->
-	@date
-		@slot('label')
-			Birth Date
-		@endslot
-		@slot('name')
-			birth_date
-		@endslot
-		@slot('value')
-			{{ $teacher->birth_date }}
-		@endslot
-	@enddate
+@text
+	@slot('label')
+		Classification
+	@endslot
+	@slot('name')
+		classification
+	@endslot
+	@slot('value')
+		{{ $teacher->classification }}
+	@endslot
+@endtext
 
-	<hr>
+@date
+	@slot('label')
+		Birth Date
+	@endslot
+	@slot('name')
+		birth_date
+	@endslot
+	@slot('value')
+		{{ $teacher->birth_date }}
+	@endslot
+@enddate
 
-	<!-- HOME ADDRESS -->
-	@text
-		@slot('label')
-			Home Address
-		@endslot
-		@slot('name')
-			home_address
-		@endslot
-		@slot('value')
-			{{ $teacher->home_address }}
-		@endslot
-	@endtext
+<hr>
 
-	<!-- EMAIL -->
-	@email
-		@slot('label')
-			Email
-		@endslot
-		@slot('name')
-			email
-		@endslot
-		@slot('value')
-			{{ $teacher->email }}
-		@endslot
-	@endemail
+@text
+	@slot('label')
+		Home Address
+	@endslot
+	@slot('name')
+		home_address
+	@endslot
+	@slot('value')
+		{{ $teacher->home_address }}
+	@endslot
+@endtext
 
-	<!-- CONTACT -->
-	@number
-		@slot('label')
-			Contact
-		@endslot
-		@slot('name')
-			contact
-		@endslot
-		@slot('value')
-			{{ $teacher->contact }}
-		@endslot
-	@endnumber
+@email
+	@slot('label')
+		Email
+	@endslot
+	@slot('name')
+		email
+	@endslot
+	@slot('value')
+		{{ $teacher->email }}
+	@endslot
+@endemail
 
-	@action
-		/teachers/{{ $teacher->id }}
-	@endaction
+@number
+	@slot('label')
+		Contact
+	@endslot
+	@slot('name')
+		contact
+	@endslot
+	@slot('value')
+		{{ $teacher->contact }}
+	@endslot
+@endnumber
 
-@endsection
-
-@section('form')
+@action
 	/teachers/{{ $teacher->id }}
+@endaction
+
+@endcomponent
 @endsection
+

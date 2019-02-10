@@ -1,43 +1,47 @@
-@extends('edit_form')
+@extends('registrar.template')
 @section('title','Edit Time')
+@section('body')
+@component('component.edit.form')
 
-@section('card_header')
-	Edit Time
-@endsection
+@slot('url')
+/times/{{ $time->id }}
+@endslot
 
-@section('card_body')
+@slot('title')
+Edit Time
+@endslot
 
-	<!-- TIME IN -->
-	@time
-		@slot('label')
-			Time In
-		@endslot
-		@slot('name')
-			in
-		@endslot
-		@slot('value')
-			{{ $time->in }}
-		@endslot
-	@endtime
+@time
+	@slot('label')
+	Time In
+	@endslot
 
-	<!-- TIME OUT -->
-	@time
-		@slot('label')
-			Time Out
-		@endslot
-		@slot('name')
-			out
-		@endslot
-		@slot('value')
-			{{ $time->out }}
-		@endslot
-	@endtime
+	@slot('name')
+	in
+	@endslot
 
-	@action
-		/times
-	@endaction
-@endsection
-	
-@section('form')
-	/times/{{ $time->id }}
+	@slot('value')
+	{{ $time->in }}
+	@endslot
+@endtime
+
+@time
+	@slot('label')
+	Time Out
+	@endslot
+
+	@slot('name')
+	out
+	@endslot
+
+	@slot('value')
+	{{ $time->out }}
+	@endslot
+@endtime
+
+@action
+	/times
+@endaction
+
+@endcomponent
 @endsection

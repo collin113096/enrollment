@@ -7,7 +7,9 @@
 		@section('column_width')
 		<div class="col-md-8">
 		@show
-			@yield('body')
+			@section('body')
+				@include('registrar.default')
+			@show
 		</div>
 		
 	</div>

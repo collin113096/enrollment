@@ -1,80 +1,92 @@
-@extends('edit_form')
+@extends('registrar.template')
 @section('title','Edit Class')
-@section('card_header', 'Edit Class')
+@section('body')
+@component('component.edit.form')
 
-@section('card_body')
+@slot('url')
+/classes/{{ $class->id }}
+@endslot
+
+@slot('title')
+Edit Class
+@endslot
+
+@select
+	@slot('label')
+	Subject
+	@endslot
+
+	@slot('name')
+	subject_id
+	@endslot
 	
-	<!-- SUBJECT -->
-	@select
-		@slot('label')
-			Subject
-		@endslot
-		@slot('name')
-			subject_id
-		@endslot
-		@foreach($subjects as $subject)
-			<option value="{{ $subject->id }}" {{ $subject->id == $class->subject->id ? 'selected':'' }}>{{ $subject->name }}</option>
-		@endforeach	
-	@endselect
+	@foreach($subjects as $subject)
+		<option value="{{ $subject->id }}" {{ $subject->id == $class->subject->id ? 'selected':'' }}>{{ $subject->name }}</option>
+	@endforeach	
+@endselect
 
-	<!--TIME -->
-	@select
-		@slot('label')
-			Time
-		@endslot
-		@slot('name')
-			time_id
-		@endslot
-		@foreach($times as $time)
-			<option value="{{ $time->id }}" {{ $time->id == $class->time->id ? 'selected':'' }}>{{ date('h:i A', strtotime($class->time->in)) }} - {{ date('h:i A', strtotime($class->time->out)) }}</option>
-		@endforeach
-	@endselect
+@select
+	@slot('label')
+	Time
+	@endslot
+
+	@slot('name')
+	time_id
+	@endslot
+
+	@foreach($times as $time)
+		<option value="{{ $time->id }}" {{ $time->id == $class->time->id ? 'selected':'' }}>{{ date('h:i A', strtotime($class->time->in)) }} - {{ date('h:i A', strtotime($class->time->out)) }}</option>
+	@endforeach
+@endselect
+
+@select
+	@slot('label')
+	Room
+	@endslot
+
+	@slot('name')
+	room_id
+	@endslot
+
+	@foreach($rooms as $room)
+		<option value="{{ $room->id }}" {{ $room->id == $class->room->id ? 'selected':'' }}>{{ $room->name }}</option>
+	@endforeach
+@endselect
 
 
-	<!--ROOM -->
-	@select
-		@slot('label')
-			Room
-		@endslot
-		@slot('name')
-			room_id
-		@endslot
-		@foreach($rooms as $room)
-			<option value="{{ $room->id }}" {{ $room->id == $class->room->id ? 'selected':'' }}>{{ $room->name }}</option>
-		@endforeach
-	@endselect
+@select
+	@slot('label')
+	Teacher
+	@endslot
 
-	<!--TEACHER -->
-	@select
-		@slot('label')
-			Teacher
-		@endslot
-		@slot('name')
-			teacher_id
-		@endslot
-		@foreach($teachers as $teacher)
-			<option value="{{ $teacher->id }}" {{ $teacher->id == $class->teacher->id ? 'selected':'' }}>{{ $teacher->last_name }}, {{ $teacher->first_name }} {{ $teacher->middle_name }}</option>
-		@endforeach
-	@endselect
+	@slot('name')
+	teacher_id
+	@endslot
 
-	<!--SECTION -->
-	@select
-		@slot('label')
-			Section
-		@endslot
-		@slot('name')
-			section_id
-		@endslot
-		@foreach($sections as $section)
-			<option value="{{ $section->id }}" {{ $section->id == $class->section->id ? 'selected':'' }}>{{ $section->name }}</option>
-		@endforeach
-	@endselect
+	@foreach($teachers as $teacher)
+		<option value="{{ $teacher->id }}" {{ $teacher->id == $class->teacher->id ? 'selected':'' }}>{{ $teacher->last_name }}, {{ $teacher->first_name }} {{ $teacher->middle_name }}</option>
+	@endforeach
+@endselect
 
-	@action
-		/classes
-	@endaction
+@select
+	@slot('label')
+	Section
+	@endslot
+
+	@slot('name')
+	section_id
+	@endslot
+
+	@foreach($sections as $section)
+		<option value="{{ $section->id }}" {{ $section->id == $class->section->id ? 'selected':'' }}>{{ $section->name }}</option>
+	@endforeach
+@endselect
+
+@action
+	/classes
+@endaction
+
+@endcomponent
 @endsection
 
-@section('form')
-	/classes/{{ $class->id }}
-@endsection
+
