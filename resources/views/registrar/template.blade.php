@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('title','Registrar')
-
+<style>
+	.dropdown-menu a {
+    color: #777;
+}
+</style>
 @section('content')
 <div class="container">
 	<div class="row justify-content-center">
@@ -10,8 +14,7 @@
 			@section('body')
 				@include('registrar.default')
 			@show
-		</div>
-		
+		</div>	
 	</div>
 </div>
 @endsection
