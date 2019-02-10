@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Register;
+use Illuminate\Support\Facades\DB;
 
 class Student extends Model
 {
@@ -91,5 +93,25 @@ class Student extends Model
               return new \App\Document\OldStudent;
         }
     }
+
+    public function countApplicants()
+    {
+        return $this->where('admitted',0)->count();
+    }
+
+    public function countAdmitted()
+    {
+         return self::allAdmitted()->count();
+    }
+
+    public static function allAdmitted()
+    {
+        $registers = DB::table('registers')->pluck('student_id');
+    
+        return DB::table('students')
+        ->whereNotIn('id',$registers->toArray())
+        ->where('admitted',1);
+    }
+
 
 }

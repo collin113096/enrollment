@@ -12,13 +12,8 @@ class AdmittedController extends Controller
     
     public function index()
     {
-    	$registers = DB::table('registers')->pluck('student_id');
-    
-    	$admittedApplicants = DB::table('students')
-    	->whereNotIn('id',$registers->toArray())
-    	->where('admitted',1)
-    	->paginate(8);
-    	
-    	return view('admitted.index')->with(compact('admittedApplicants'));
+    	return view('admitted.index',[
+            'admittedApplicants' => Student::allAdmitted()->paginate(8)
+        ]);
     }
 }

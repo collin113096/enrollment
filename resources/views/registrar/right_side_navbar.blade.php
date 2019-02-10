@@ -1,9 +1,15 @@
 @section('right_side_navbar')
 <!-- 1ST LIST ITEM -->
+
+@inject('student','App\Student')
+@inject('register','App\Register')
+
 <li class="nav-item">
 	<a href="/applicants" class="nav-link">
 		Applicants
-		<span class="badge badge-primary">1</span>
+		<span class="badge badge-primary">
+			{{ $student->countApplicants() }}
+		</span>
 	</a>
 </li>
 
@@ -11,7 +17,9 @@
 <li class="nav-item">
 	<a href="/admitted/applicants" class="nav-link">
 		Admitted
-		<span class="badge badge-primary">11</span>
+		<span class="badge badge-primary">
+			{{ $student->countAdmitted() }}
+		</span>
 	</a>
 </li>
 
@@ -19,7 +27,9 @@
 <li class="nav-item">
 	<a href="/registers" class="nav-link">
 		Registered
-		<span class="badge badge-primary">21</span>
+		<span class="badge badge-primary">
+			{{ $register->count() }}
+		</span>
 	</a>
 </li>
 

@@ -18,4 +18,9 @@ class Register extends Model
     {
     	return $this->belongsTo('App\Student');
     }
+
+    public function count()
+    {
+        return $this->all()->count();
+    }
 }
