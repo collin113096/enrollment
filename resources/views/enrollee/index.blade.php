@@ -1,1 +1,0 @@
-<h1>Enrollee Index</h1>

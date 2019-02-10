@@ -36,6 +36,11 @@ class AppServiceProvider extends ServiceProvider
         Blade::component('component.non_index.list','list');
         Blade::component('modal','modal');
 
+        Blade::component('application.component.text','appText');
+        Blade::component('application.component.date','appDate');
+        Blade::component('application.component.select','appSelect');
+        Blade::component('application.component.number','appNumber');
+
     }
 
     /**
