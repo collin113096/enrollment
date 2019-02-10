@@ -3,7 +3,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
-				<i class="fas fa-file-image"></i> {{ $document->document_type }}
+				{{ $document->document_type }}
 			</div>
 			<div class="modal-body">
 				<div class="py-md-1">

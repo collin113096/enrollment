@@ -17,7 +17,7 @@ Registered Students
 @slot('head')
 	<th>Student Name</th>
 	<th>Student LRN</th>
-	<th>School Year Enrolled</th>
+	<th>School Year</th>
 	<th>Section</th>
 	<th class="text-center">Action</th>
 @endslot

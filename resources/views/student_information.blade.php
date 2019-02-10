@@ -2,19 +2,14 @@
 
 	<!-- CARD HEADER -->
 	<div class="card-header">
-		Application Form for Enrollment
+		Student Information
 	</div>
 
 	<!-- CARD BODY -->
 	<div class="card-body">	
 
-		<!-- STUDENT INFORMATION HEADER -->
-		<div class="form-group">			
-			<div class="col-md-6 offset-md-4 text-center font-weight-bold">Student Information</div>
-		</div>
-
 		<!-- LAST NAME -->
-		<div class="form-group form-row">			
+		<div class="form-group form-row mt-5">			
 			<label class="col-md-4 text-md-right"><strong>Applicant Name</strong></label>			
 			<div class="col-md-6">
 				{{ $student->last_name }}, {{ $student->first_name }} {{ $student->middle_name }}
@@ -68,13 +63,12 @@
 					{{ $student->grade->name }}
 				</div>
 		</div>
+
+		<div class="mt-5 d-flex justify-content-end">				
+			<div class="btn btn-primary" id="card1-button">Parent Information <i class="fas fa-arrow-right mx-2"></i></div>
+		</div>
 	
 	<!-- END OF CARD BODY -->
-	</div>
-
-	<!-- CARD FOOTER -->
-	<div class="card-footer d-flex justify-content-end">				
-		<div class="btn btn-light" id="card1-button">Next Form <i class="fas fa-arrow-right mx-2"></i></div>
 	</div>
 
 <!-- END OF CARD -->

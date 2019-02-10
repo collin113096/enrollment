@@ -2,19 +2,14 @@
 
 	<!-- CARD HEADER -->
 	<div class="card-header">
-		Application Form for Enrollment
+		Parent Information
 	</div>
 
 	<!-- CARD BODY -->
 	<div class="card-body">	
 
-		<!-- FATHER INFORMATION HEADER -->
-		<div class="form-group">			
-			<div class="col-md-6 offset-md-4 text-center font-weight-bold">Parent Information</div>
-		</div>
-
 		<!-- FATHER NAME -->
-		<div class="form-group form-row">			
+		<div class="form-group form-row mt-5">			
 				<label class="col-md-4 text-md-right"><strong>Father Name</strong></label>			
 				<div class="col-md-6">
 					{{ $student->father->name }}
@@ -36,9 +31,9 @@
 					{{ $student->father->occupation }}
 				</div>
 		</div>
-		<hr>
+
 		<!-- MOTHER NAME -->
-		<div class="form-group form-row">			
+		<div class="form-group form-row mt-5">			
 				<label class="col-md-4 text-md-right"><strong>Mother Name</strong></label>			
 				<div class="col-md-6">
 					{{ $student->mother->name }}
@@ -61,14 +56,14 @@
 				</div>
 		</div>
 
+		<div class="mt-5 d-flex justify-content-between">
+			<div class="btn btn-light" id="card2-button-back"><i class="fas fa-arrow-left mx-2"></i>Back</div>
+			<div class="btn btn-primary" id="card2-button-next">Documents <i class="fas fa-arrow-right mx-2"></i></div>
+		</div>
+
 	<!-- END OF CARD BODY -->
 	</div>
-
-	<!-- CARD FOOTER -->
-	<div class="card-footer d-flex justify-content-between">
-		<div class="btn btn-light" id="card2-button-back"><i class="fas fa-arrow-left mx-2"></i> Back</div>
-		<div class="btn btn-light" id="card2-button-next"><i class="fas fa-arrow-right mx-2"></i> Next Document</div>
-	</div>
+	
 
 <!-- END OF CARD -->
 </div>

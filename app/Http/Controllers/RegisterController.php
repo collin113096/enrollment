@@ -43,5 +43,6 @@ class RegisterController extends Controller
     public function destroy(Register $register)
     {
     	$register->delete();
+        return redirect('/registers');
     }
 }

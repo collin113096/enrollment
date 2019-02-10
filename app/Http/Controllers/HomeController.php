@@ -23,6 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return auth()->id() != 1 ? view('enrollee.index') : view('registrar.index');
+        return auth()->id() != 1 ? view('enrollee.index') : view('registrar.template');
     }
 }
