@@ -1,46 +1,47 @@
-@extends('create_form')
+@extends('registrar.template')
 @section('title','Create Section')
-@section('content')
+@section('body')
+@component('component.create.form')
 
-@section('card_header')
-Create Section
-@endsection
-
-@section('card_body')
-	
-	<!-- SECTION NAME -->
-	@text
-		@slot('label')
-			Section Name
-		@endslot
-		@slot('name')
-			name
-		@endslot
-		@slot('value')
-		@endslot
-	@endtext
-
-	<!-- GRADE -->
-	@select
-		@slot('label')
-			Grade
-		@endslot
-		@slot('name')
-			grade_id
-		@endslot
-		@foreach($grades as $grade)
-			<option value="{{ $grade->id }}">{{ $grade->name }}</option>
-		@endforeach
-	@endselect
-
-	<!-- ACTION -->
-	@action
-		/sections
-	@endaction
-
-@endsection
-
-@section('form')
+@slot('url')
 	/sections
-@endsection
+@endslot
 
+@slot('title')
+Create Section
+@endslot
+
+@text
+	@slot('label')
+	Section Name
+	@endslot
+
+	@slot('name')
+	name
+	@endslot
+
+	@slot('value')
+	@endslot
+@endtext
+
+<!-- GRADE -->
+@select
+	@slot('label')
+	Grade
+	@endslot
+
+	@slot('name')
+	grade_id
+	@endslot
+
+	@foreach($grades as $grade)
+		<option value="{{ $grade->id }}">{{ $grade->name }}</option>
+	@endforeach
+@endselect
+
+@action
+/sections
+@endaction
+
+@endcomponent
+@endsection

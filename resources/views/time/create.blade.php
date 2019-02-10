@@ -1,46 +1,45 @@
-@extends('create_form')
+@extends('registrar.template')
 @section('title','Create Time')
-	
-<!-- CARD HEADER -->
-@section('card_header')
-	Create Time
-@endsection
+@section('body')
+@component('component.create.form')
 
-<!-- CARD BODY -->
-@section('card_body')
-
-		<!-- TIME IN -->
-		@time
-			@slot('label')
-				Time In
-			@endslot
-			@slot('name')
-				in
-			@endslot
-			@slot('value')
-			@endslot
-		@endtime
-
-		<!-- TIME OUT -->
-		@time
-			@slot('label')
-			Time Out
-			@endslot
-			@slot('name')
-				out
-			@endslot
-			@slot('value')
-			@endslot
-		@endtime
-
-		<!-- ACTION -->
-		@action
-		/times
-		@endaction
-
-<!-- END OF CARD BODY -->
-@endsection
-
-@section('form')
+@slot('url')
 /times
+@endslot
+
+@slot('title')
+Create Time
+@endslot
+
+@time
+	@slot('label')
+	Time In
+	@endslot
+
+	@slot('name')
+	in
+	@endslot
+
+	@slot('value')
+	@endslot
+@endtime
+
+@time
+	@slot('label')
+	Time Out
+	@endslot
+
+	@slot('name')
+	out
+	@endslot
+
+	@slot('value')
+	@endslot
+@endtime
+
+@action
+/times
+@endaction
+
+@endcomponent
 @endsection

@@ -1,4 +1,9 @@
-<form method="post" action="@yield('form')">
+<form method="post" action="{{ url }}">
 @csrf
-@include('card_for_non_index')
+	<div class="card">
+		<h3>{{ title }}</h3>
+		<div class="card-body">
+			{{ slot }}
+		</div>
+	</div>
 </form>
