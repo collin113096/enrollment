@@ -1,29 +1,34 @@
-@extends('main')
+@extends('registrar.template')
 @section('title','All Classes')
-@section('card_header','All Classes')
+@section('body')
+@component('component.card')
 
-@section('column_width')
-<div class="col-md-12">
-@endsection
+@slot('title')
+All Classes
+@endslot
 
-@section('add_button')
+@slot('add_button')
 @add
 	@slot('href')
 		href="/classes/create"
 	@endslot
 @endadd
+@endslot
+
+@section('column_width')
+<div class="col-md-11">
 @endsection
 
-@section('table_head')
+@slot('head')
 	<th>Subject</th>
 	<th>Time</th>
 	<th>Room</th>
 	<th>Teacher</th>
 	<th>Section</th>
 	<th class="text-center">Action</th>
-@endsection
+@endslot
 
-@section('table_body')
+@slot('body')
 	@foreach($classes as $class)
 	<tr>
 		<td>{{ $class->subject->name }}</td>
@@ -46,8 +51,11 @@
 		</td>
 	</tr>
 	@endforeach
-@endsection
+@endslot
 
-@section('pagination')
+@slot('pagination')
 {{ $classes->links() }}
+@endslot
+
+@endcomponent
 @endsection

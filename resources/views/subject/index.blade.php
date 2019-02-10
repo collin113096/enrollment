@@ -1,23 +1,28 @@
-@extends('main')
+@extends('registrar.template')
 @section('title','All Subject')
-@section('card_header','All Subject')
+@section('body')
+@component('component.card')
 
-@section('add_button')
+@slot('title')
+All Subject
+@endslot
+
+@slot('add_button')
 @add
 	@slot('href')
 		href="/subjects/create"
 	@endslot
 @endadd
-@endsection
+@endslot
 
-@section('table_head')
+@slot('head')
 	<th>Subject Name</th>
 	<th>Description</th>
 	<th>Unit(s)</th>
 	<th class="text-center">Action</th>
-@endsection
+@endslot
 
-@section('table_body')
+@slot('body')
 	@foreach($subjects as $subject)
 	<tr>
 		<td>{{ $subject->name }}</td>
@@ -38,8 +43,12 @@
 		</td>
 	</tr>
 	@endforeach
+@endslot
+
+@slot('pagination')
+{{ $subjects->links() }}
+@endslot
+
+@endcomponent
 @endsection
 
-@section('pagination')
-{{ $subjects->links() }}
-@endsection

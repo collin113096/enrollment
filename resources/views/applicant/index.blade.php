@@ -1,13 +1,21 @@
-@extends('main')
+@extends('registrar.template')
 @section('title','Applicants')
-@section('card_header','Applicants')
+@section('body')
+@component('component.card')
 
-@section('table_head')
+@slot('title')
+Applicants
+@endslot
+
+@slot('add_button')
+@endslot
+
+@slot('head')
 	<th>Applicant Name</th>
 	<th class="text-center">Action</th>
-@endsection
+@endslot
 
-@section('table_body')
+@slot('body')
 	@foreach($students as $student)
 	<tr>
 		<td>
@@ -23,9 +31,11 @@
 		</td>
 	</tr>
 	@endforeach
-@endsection
+@endslot
 
-@section('pagination')
+@slot('pagination')
 {{ $students->links() }}
-@endsection
+@endslot
 
+@endcomponent
+@endsection

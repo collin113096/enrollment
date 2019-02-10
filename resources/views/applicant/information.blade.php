@@ -1,6 +1,6 @@
-@extends('registrar.index')
+@extends('registrar.template')
 @section('title','Applicant Documents')
-@section('registrar_content')
+@section('body')
 @include('information_style')
 <div class="row">
 	<div class="col-md-12">

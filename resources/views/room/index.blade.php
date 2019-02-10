@@ -1,21 +1,26 @@
-@extends('main')
+@extends('registrar.template')
 @section('title','All Rooms')
-@section('card_header','All Rooms')
+@section('body')
+@component('component.card')
 
-@section('add_button')
+@slot('title')
+All Rooms
+@endslot
+
+@slot('add_button')
 @add
 	@slot('href')
 		href="/rooms/create"
 	@endslot
 @endadd
-@endsection
+@endslot
 
-@section('table_head')
+@slot('head')
 	<th>Room Name</th>
 	<th class="text-center">Action</th>
-@endsection
+@endslot
 
-@section('table_body')
+@slot('body')
 	@foreach($rooms as $room)
 	<tr>
 		<td>{{ $room->name }}</td>
@@ -34,9 +39,11 @@
 		</td>
 	</tr>
 	@endforeach
-@endsection
+@endslot
 
-@section('pagination')
+@slot('pagination')
 {{ $rooms->links() }}
-@endsection
+@endslot
 
+@endcomponent
+@endsection

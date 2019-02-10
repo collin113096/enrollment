@@ -1,22 +1,27 @@
-@extends('main')
+@extends('registrar.template')
 @section('title','All Teachers')
-@section('card_header','All Teachers')
+@section('body')
+@component('component.card')
 
-@section('add_button')
+@slot('title')
+All Teachers
+@endslot
+
+@slot('add_button')
 @add
 	@slot('href')
 		href="/teachers/create"
 	@endslot
 @endadd
-@endsection
+@endslot
 
-@section('table_head')
+@slot('head')
 	<th>Teacher Name</th>
 	<th>Classification</th>
 	<th class="text-center">Action</th>
-@endsection
+@endslot
 
-@section('table_body')
+@slot('body')
 	@foreach($teachers as $teacher)
 	<tr>
 		<td>{{ $teacher->last_name }}, {{ $teacher->first_name }} {{ $teacher->middle_name }}</td>
@@ -36,9 +41,12 @@
 		</td>
 	</tr>
 	@endforeach
-@endsection
+@endslot
 
-@section('pagination')
+@slot('pagination')
 {{ $teachers->links() }}
+@endslot
+
+@endcomponent
 @endsection
 

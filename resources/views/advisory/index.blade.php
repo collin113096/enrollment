@@ -1,15 +1,26 @@
-@extends('main')
+@extends('registrar.template')
 @section('title','All Advisory')
-@section('card_header','All Advisory')
+@section('body')
+@component('component.card')
 
-@section('table_head')
+@slot('title')
+All Times
+@endslot
+
+@slot('add_button')
+@endslot
+
+@section('column_width')
+<div class="col-md-10">
+@endsection
+
+@slot('head')
 	<th>Section Name</th>
 	<th>Adviser</th>
 	<th class="text-center">Action</th>
-@endsection
+@endslot
 
-
-@section('table_body')
+@slot('body')
 	@foreach($sections as $section)
 	<tr>
 		<td>{{ $section->name }}</td>
@@ -65,9 +76,11 @@
 		</td>
 	</tr>
 	@endforeach
-@endsection
+@endslot
 
-@section('pagination')
+@slot('pagination')
 {{ $sections->links() }}
-@endsection
+@endslot
 
+@endcomponent
+@endsection

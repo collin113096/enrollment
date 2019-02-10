@@ -1,20 +1,28 @@
-@extends('main')
+@extends('registrar.template')
 @section('title','Registered Students')
-@section('card_header','Registered Students')
+@section('body')
+@component('component.card')
+
+@slot('title')
+Registered Students
+@endslot
+
+@slot('add_button')
+@endslot
 
 @section('column_width')
 <div class="col-md-10">
 @endsection
 
-@section('table_head')
+@slot('head')
 	<th>Student Name</th>
 	<th>Student LRN</th>
 	<th>School Year Enrolled</th>
 	<th>Section</th>
 	<th class="text-center">Action</th>
-@endsection
+@endslot
 
-@section('table_body')
+@slot('body')
 	@foreach($registers as $register)
 	<tr>
 		<td>{{ $register->student->last_name }}, {{ $register->student->first_name }} {{ $register->student->middle_name }}</td>
@@ -36,9 +44,11 @@
 		</td>
 	</tr>
 	@endforeach
-@endsection
+@endslot
 
-@section('pagination')
+@slot('pagination')
 {{ $registers->links() }}
-@endsection
+@endslot
 
+@endcomponent
+@endsection

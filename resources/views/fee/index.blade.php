@@ -1,16 +1,25 @@
-@extends('main')
+@extends('registrar.template')
 @section('title','All Fees')
-@section('card_header','All Fees')
+@section('body')
+@component('component.card')
 
-@section('add_button')
+@slot('title')
+All Fees
+@endslot
+
+@slot('add_button')
 @add
 	@slot('href')
 		href="/fees/create"
 	@endslot
 @endadd
+@endslot
+
+@section('column_width')
+<div class="col-md-10">
 @endsection
 
-@section('table_head')
+@slot('head')
 	<th>Grade</th>
 	<th>Payment Mode</th>
 	<th>Registration</th>
@@ -18,9 +27,9 @@
 	<th>Misc</th>
 	<th>Computer</th>
 	<th class="text-center">Action</th>
-@endsection
+@endslot
 
-@section('table_body')
+@slot('body')
 	@foreach($fees as $fee)
 	<tr>
 		<td>{{ $fee->grade->name }}</td>
@@ -44,8 +53,11 @@
 		</td>
 	</tr>
 	@endforeach
-@endsection
+@endslot
 
-@section('pagination')
+@slot('pagination')
 {{ $fees->links() }}
+@endslot
+
+@endcomponent
 @endsection
