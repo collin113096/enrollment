@@ -1,34 +1,33 @@
-@extends('create_form')
+@extends('registrar.template')
 @section('title','Create Grade')
-@section('content')
+@section('body')
+@component('component.create.form')
 
-<!-- CARD HEADER -->
-@section('card_header')
-	Create Grade
-@endsection
-
-<!-- CARD BODY -->
-@section('card_body')
-	
-	<!-- GRADE NAME -->
-	@text
-		@slot('label')
-			Grade Name
-		@endslot
-		@slot('name')
-			name
-		@endslot
-		@slot('value')
-		@endslot
-	@endtext
-	
-	<!-- ACTION -->
-	@action
-	/grades
-	@endaction
-
-@endsection
-
-@section('form')
+@slot('url')
 /grades
+@endslot
+
+@slot('title')
+Create Grade
+@endslot
+
+@text
+	@slot('label')
+	Grade Name
+	@endslot
+
+	@slot('name')
+	name
+	@endslot
+
+	@slot('value')
+	@endslot
+@endtext
+
+@action
+/grades
+@endaction
+
+@endcomponent
 @endsection
+

@@ -1,22 +1,27 @@
-@extends('main')
+@extends('registrar.template')
 @section('title','All Times')
-@section('card_header','All Times')
+@section('body')
+@component('component.card')
 
-@section('add_button')
+@slot('title')
+All Times
+@endslot
+
+@slot('add_button')
 @add
 	@slot('href')
-		href="/times/create"
+	href="/times/create"
 	@endslot
 @endadd
-@endsection
+@endslot
 
-@section('table_head')
+@slot('head')
 	<th>Time In</th>
 	<th>Time Out</th>
 	<th class="text-center">Action</th>
-@endsection
+@endslot
 
-@section('table_body')
+@slot('body')
 	@foreach($times as $time)
 	<tr>
 		<td>{{ date('h:i A', strtotime($time->in)) }}</td>
@@ -36,8 +41,11 @@
 		</td>
 	</tr>
 	@endforeach
-@endsection
+@endslot
 
-@section('pagination')
+@slot('pagination')
 {{ $times->links() }}
+@endslot
+
+@endcomponent
 @endsection
