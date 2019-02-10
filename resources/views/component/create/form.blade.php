@@ -1,7 +1,11 @@
-<form method="post" action="{{ $url }}">
+@section('enctype')
+<form method="post" action="{{ $url }}" >
+@show
 @csrf
 	<div class="card">
-		<div class="card-header font-weight-bold py-4 h5 text-center">
+		@section('card_header')
+		<div class="card-header font-weight-bold">
+		@show
 			{{ $title }}
 		</div>
 		<div class="card-body">

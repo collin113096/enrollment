@@ -3,6 +3,10 @@
 @section('body')
 @component('component.create.form')
 
+@section('card_header')
+<div class="card-header font-weight-bold py-4 text-center h5">
+@endsection
+
 @slot('url')
 /application_form
 @endslot

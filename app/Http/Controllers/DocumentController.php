@@ -16,6 +16,7 @@ class DocumentController extends Controller
     public function store(Student $student){
 
         $student->saveDocument();
+        return redirect('/home');
     }
 
 }
