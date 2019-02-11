@@ -16,7 +16,7 @@ All Classes
 @endslot
 
 @section('column_width')
-<div class="col-md-11">
+<div class="col-md-12">
 @endsection
 
 @slot('head')

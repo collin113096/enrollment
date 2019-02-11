@@ -13,11 +13,9 @@ class FeeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Fee $fee)
     {
-        $fees = Fee::paginate(8);
-        $grades = Grade::all();
-        return view('fee.index',compact('fees') + compact('grades') + compact('modes'));
+        return $fee->forRegistrar();
     }
 
     /**
@@ -87,5 +85,10 @@ class FeeController extends Controller
     {
         $fee->delete();
         return redirect('/fees');
+    }
+
+    public function grade(Fee $fee, $id)
+    {
+        return $fee->forStudent($id);
     }
 }

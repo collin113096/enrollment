@@ -6,10 +6,15 @@
 	</a>
 </li>
 
-<li class="nav-item">
-	<a href="/applicants" class="nav-link">
+<li class="nav-item dropdown">
+	<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
 		Tuition Fee
 	</a>
+	<div class="dropdown-menu">
+		@foreach($grades as $grade)
+		<a class="dropdown-item" href="/fees/grade/{{ $grade->id }}">{{ $grade->name }}</a>
+		@endforeach
+	</div>
 </li>
 
 <!-- 2ND LIST ITEM -->

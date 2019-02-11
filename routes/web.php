@@ -14,14 +14,13 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/application_form','ApplicationFormController@create');
-Route::post('/application_form','ApplicationFormController@store');
-
-Route::get('/documents/{student}','DocumentController@create');
-Route::post('/documents/{student}','DocumentController@store');
-
 Route::group(['middleware' => 'auth'], function(){
+	Route::get('/application_form','ApplicationFormController@create');
+	Route::post('/application_form','ApplicationFormController@store');
+
+	Route::get('/documents/{student}','DocumentController@create');
+	Route::post('/documents/{student}','DocumentController@store');
+
 	Route::get('/applicants','AdmissionController@index');
 	Route::get('/applicant/{student}/information','AdmissionController@show');
 	Route::patch('/applicants/{student}','AdmissionController@update');
@@ -41,7 +40,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::resource('/sections','SectionController');
 	Route::resource('/grades','GradeController');
 	Route::resource('/fees','FeeController');
-
+	Route::get('/fees/grade/{grade}','FeeController@grade');
 
 	Route::get('/advisory','AdvisoryController@index');
 	Route::get('/advisory/{section}/create','AdvisoryController@create');
