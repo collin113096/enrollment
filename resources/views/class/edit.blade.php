@@ -70,15 +70,15 @@ Edit Class
 
 @select
 	@slot('label')
-	Section
+	Grade
 	@endslot
 
 	@slot('name')
-	section_id
+	grade_id
 	@endslot
 
-	@foreach($sections as $section)
-		<option value="{{ $section->id }}" {{ $section->id == $class->section->id ? 'selected':'' }}>{{ $section->name }}</option>
+	@foreach($grades as $grade)
+		<option value="{{ $grade->id }}" {{ $grade->id == $class->grade->id ? 'selected':'' }}>{{ $grade->name }}</option>
 	@endforeach
 @endselect
 

@@ -24,7 +24,7 @@ All Classes
 	<th>Time</th>
 	<th>Room</th>
 	<th>Teacher</th>
-	<th>Section</th>
+	<th>Grade</th>
 	<th class="text-center">Action</th>
 @endslot
 
@@ -35,7 +35,7 @@ All Classes
 		<td>{{ date('h:i A', strtotime($class->time->in)) }} - {{ date('h:i A', strtotime($class->time->out)) }}</td>
 		<td>{{ $class->room->name }}</td>
 		<td>{{ $class->teacher->last_name }}, {{ $class->teacher->first_name }} {{ $class->teacher->middle_name }}</td>
-		<td>{{ $class->section->name }}</td>
+		<td>{{ $class->grade->name }}</td>
 		<td class="text-center">
 		@edit
 			@slot('href')

@@ -69,15 +69,15 @@ Create Class
 
 @select
 	@slot('label')
-	Section
+	Grade
 	@endslot
 
 	@slot('name')
-	section_id
+	grade_id
 	@endslot
 
-	@foreach($sections as $section)
-		<option value="{{ $section->id }}">{{ $section->name }}</option>
+	@foreach($grades as $grade)
+		<option value="{{ $grade->id }}">{{ $grade->name }}</option>
 	@endforeach
 @endselect
 

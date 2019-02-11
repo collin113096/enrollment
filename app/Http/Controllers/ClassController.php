@@ -6,7 +6,7 @@ use App\Subject;
 use App\Time;
 use App\Room;
 use App\Teacher;
-use App\Section;
+use App\Grade;
 use App\Classes;
 use Illuminate\Http\Request;
 
@@ -35,7 +35,7 @@ class ClassController extends Controller
             'times' => Time::orderBy('in')->get(),
             'rooms' => Room::orderBy('name')->get(),
             'teachers' => Teacher::orderBy('last_name')->get(),
-            'sections' => Section::orderBy('name')->get(),
+            'grades' => Grade::orderBy('name')->get(),
         ]);
     }
 
@@ -75,7 +75,7 @@ class ClassController extends Controller
             'times' => Time::orderBy('in')->get(),
             'rooms' => Room::orderBy('name')->get(),
             'teachers' => Teacher::orderBy('last_name')->get(),
-            'sections' => Section::orderBy('name')->get(),
+            'grades' => Grade::orderBy('name')->get(),
             'class' => $class,
         ]);
     }
