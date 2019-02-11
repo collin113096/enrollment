@@ -20,6 +20,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <style>
+        nav.navbar.navbar-expand-md.navbar-light.navbar-laravel 
+        {
+            border-top: 5px solid #252a62;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
