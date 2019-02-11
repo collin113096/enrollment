@@ -1,6 +1,6 @@
-@extends('template')
+@extends('registrar.template')
 @section('title','Show Teacher')
-@section('content')
+@section('body')
 <style>
 
 input.form-control, select.custom-select {
@@ -10,10 +10,7 @@ input.form-control, select.custom-select {
 }
 
 </style>
-<!-- FORM -->
-<form class="col-md-8" method="post" action="/teachers/{{ $teacher->id }}">
-@csrf
-@method('PATCH')
+
 <!-- CARD -->
 <div class="card">
 	
@@ -91,7 +88,4 @@ input.form-control, select.custom-select {
 
 <!-- END OF CARD -->
 </div>
-
-<!-- END OF FORM -->
-</form>
 @endsection

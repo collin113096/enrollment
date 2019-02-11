@@ -2,7 +2,7 @@
 @csrf
 @method('PATCH')
 	<div class="card">
-		<div class="card-header bg-white font-weight-bold">
+		<div class="card-header font-weight-bold">
 			{{ $title }}
 		</div>
 		<div class="card-body">
