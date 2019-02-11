@@ -19,13 +19,13 @@ class CreateClassesTable extends Migration
             $table->unsignedInteger('time_id');
             $table->unsignedInteger('room_id');
             $table->unsignedInteger('teacher_id');
-            $table->unsignedInteger('section_id');
+            $table->unsignedInteger('grade_id');
 
             $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
             $table->foreign('time_id')->references('id')->on('times')->onDelete('cascade');
             $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
             $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
-            $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');
+            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade');
         });
     }
 

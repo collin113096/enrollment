@@ -30,8 +30,8 @@ class Classes extends Model
     	return $this->belongsTo('App\Teacher');
     }
 
-    public function section()
+    public function grade()
     {
-        return $this->belongsTo('App\Section');
+        return $this->belongsTo('App\Grade');
     }
 }

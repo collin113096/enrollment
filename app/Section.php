@@ -14,11 +14,6 @@ class Section extends Model
         return $this->hasMany('App\Register');
     }
 
-    public function classes()
-    {
-        return $this->hasMany('App\Class');
-    }
-
     public function teachers()
     {
         return $this->belongsToMany('App\Teacher');
