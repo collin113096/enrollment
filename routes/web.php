@@ -48,9 +48,8 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/advisory/{section}/edit','AdvisoryController@edit');
 	Route::patch('/advisory/{section}/assign/{teacher}','AdvisoryController@update');
 	Route::delete('/advisory/{section}','AdvisoryController@destroy');
+	Route::resource('/classes','ClassController');
 });
-
-Route::resource('/classes','ClassController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
