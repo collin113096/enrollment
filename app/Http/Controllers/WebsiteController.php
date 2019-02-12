@@ -11,4 +11,9 @@ class WebsiteController extends Controller
     {
     	return view('website.index');
     }
+
+    public function facebook()
+    {
+    	return redirect()->away('https://www.facebook.com/PagsanjanAcademyOfficial/');
+    }
 }

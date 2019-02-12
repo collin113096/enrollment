@@ -12,6 +12,7 @@
 */
 
 Route::get('/','WebsiteController@index');
+Route::get('/facebook','WebsiteController@facebook');
 
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('/application_form','ApplicationFormController@create');
