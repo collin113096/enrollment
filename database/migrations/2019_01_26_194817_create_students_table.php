@@ -15,6 +15,7 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
             $table->string('last_name');
             $table->string('first_name');
             $table->string('middle_name');
@@ -26,6 +27,8 @@ class CreateStudentsTable extends Migration
             $table->unsignedInteger('grade_id');
             $table->boolean('admitted')->default(false);
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('grade_id')->references('id')->on('grades');
         });
     }
