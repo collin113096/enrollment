@@ -11,9 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','WebsiteController@index');
+
 Route::group(['middleware' => 'auth'], function(){
 	Route::get('/application_form','ApplicationFormController@create');
 	Route::post('/application_form','ApplicationFormController@store');

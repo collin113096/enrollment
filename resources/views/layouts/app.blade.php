@@ -48,6 +48,7 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
+                            @yield('right_side_navbar')
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
@@ -80,8 +81,10 @@
                 </div>
             </div>
         </nav>
-
+        
+        @section('main')
         <main class="py-4">
+        @show
             @yield('content')
         </main>
     </div>
