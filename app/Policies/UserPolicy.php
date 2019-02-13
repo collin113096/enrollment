@@ -23,4 +23,9 @@ class UserPolicy
     {
         return !auth()->user()->status->hasForm() || !auth()->user()->status->hasDocument();
     }
+
+    public function viewSubjects(User $user)
+    {
+        return $user->student->registers->count() ? true : false;
+    }
 }

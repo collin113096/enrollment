@@ -50,7 +50,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::delete('/advisory/{section}','AdvisoryController@destroy');
 	Route::resource('/classes','ClassController');
 
-	Route::get('/users/{user}/subjects','StudentController@subject');
+	Route::get('/users/{user}/subjects','StudentController@subject')->middleware('can:view,App\User');
 });
 Auth::routes();
 
