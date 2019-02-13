@@ -18,7 +18,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/application_form','ApplicationFormController@create');
 	Route::post('/application_form','ApplicationFormController@store');
 
-	Route::get('/documents/{student}','DocumentController@create');
+	Route::get('/documents','DocumentController@create');
 	Route::post('/documents/{student}','DocumentController@store');
 
 	Route::get('/applicants','AdmissionController@index');

@@ -15,10 +15,13 @@
 
 		<div class="d-flex justify-content-between mt-5">
 			<div class="btn btn-light" id="card3-button"><i class="fas fa-arrow-left mx-2"></i> Back</div>
-			@component('form_for_edit')
-				@section('form')
+			@component('component.edit.form')
+				@slot('url')
 				/applicants/{{ $student->id }}
-				@endsection
+				@endslot
+
+				@slot('title')
+				@endslot
 
 				@section('form_body')
 				<button class="btn btn-primary">Admit Applicant</button>

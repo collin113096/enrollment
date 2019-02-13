@@ -39,6 +39,13 @@
 <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Management</a>
 
 <div class="dropdown-menu">
+	<a href="/classes" class="dropdown-item">
+		<i class="fas fa-users mr-4"></i>Classes
+	</a>
+	<a href="/advisory" class="dropdown-item">
+		<i class="fas fa-chalkboard-teacher mr-4"></i>Advisory
+	</a>
+	<div class="dropdown-divider"></div>
 	<a href="/grades" class="dropdown-item">
 		<i class="fas fa-clipboard mr-4"></i>Grade
 	</a>
@@ -59,12 +66,6 @@
 	</a>
 	<a href="/fees" class="dropdown-item">
 		<i class="fas fa-money-bill-alt mr-4"></i>Fee
-	</a>
-	<a href="/classes" class="dropdown-item">
-		<i class="fas fa-users mr-4"></i>Classes
-	</a>
-	<a href="/advisory" class="dropdown-item">
-		<i class="fas fa-chalkboard-teacher mr-4"></i>Advisory
 	</a>
 </div>
 
