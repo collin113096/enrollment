@@ -20,9 +20,12 @@
 	</div>
 </li>
 
+@php
+$id = auth()->id();
+@endphp
 <!-- 2ND LIST ITEM -->
 <li class="nav-item">
-	<a href="/admitted/applicants" class="nav-link">
+	<a href="/users/{{ $id }}/subjects" class="nav-link">
 		My Subjects
 	</a>
 </li>

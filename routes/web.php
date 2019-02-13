@@ -49,6 +49,8 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::patch('/advisory/{section}/assign/{teacher}','AdvisoryController@update');
 	Route::delete('/advisory/{section}','AdvisoryController@destroy');
 	Route::resource('/classes','ClassController');
+
+	Route::get('/users/{user}/subjects','StudentController@subject');
 });
 Auth::routes();
 
