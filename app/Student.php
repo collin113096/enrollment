@@ -40,11 +40,18 @@ class Student extends Model
         return $this->hasMany('App\Register');
     }
 
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
     // Non Relationship
 
     public function saveApplicationForm($validatedDataOf) 
     {
-        $student = $this->create($validatedDataOf['student']);
+        $user = User::find(auth()->id());
+        $user->status->update(['form' => true]);
+        $student = $user->student()->create($validatedDataOf['student']);
         $student->father()->create($validatedDataOf['father']);
         $student->mother()->create($validatedDataOf['mother']);
         return $student;
@@ -60,6 +67,12 @@ class Student extends Model
                 $this->documents()->create($documentDetails);
             }
         }
+    }
+
+    public function updateDocumentStatus()
+    {
+        $user = User::find(auth()->id());
+        $user->status->update(['document' => true]);
     }
 
     public function admitted(){
@@ -112,6 +125,4 @@ class Student extends Model
         ->whereNotIn('id',$registers->toArray())
         ->where('admitted',1);
     }
-
-
 }
