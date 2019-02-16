@@ -21,7 +21,12 @@ class Grade extends Model
 
     public function students()
     {
-    	return $this->hasMany('App\Student');
+    	return $this->hasManyThrough('App\Register','App\Section');
+    }
+
+    public function countStudent()
+    {
+        return $this->students->count();
     }
     
 }
