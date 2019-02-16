@@ -33,9 +33,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::delete('/registers/{register}','RegisterController@destroy');
 	Route::patch('/registers/{register}','RegisterController@update');
 
-	Route::resource('/times','TimeController');
 	Route::resource('/subjects','SubjectController');
-	Route::resource('/rooms','RoomController');
 	Route::resource('/teachers','TeacherController');
 	Route::resource('/sections','SectionController');
 	Route::resource('/grades','GradeController');
@@ -48,7 +46,6 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/advisory/{section}/edit','AdvisoryController@edit');
 	Route::patch('/advisory/{section}/assign/{teacher}','AdvisoryController@update');
 	Route::delete('/advisory/{section}','AdvisoryController@destroy');
-	Route::resource('/classes','ClassController');
 
 	Route::get('/users/{user}/subjects','StudentController@subject')->middleware('can:view,App\User');
 });
