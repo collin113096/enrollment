@@ -48,6 +48,8 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::delete('/advisory/{section}','AdvisoryController@destroy');
 
 	Route::get('/users/{user}/subjects','StudentController@subject')->middleware('can:view,App\User');
+
+	Route::get('/grade/{grade}/sections','GradeSectionController@displaySections');
 });
 Auth::routes();
 
