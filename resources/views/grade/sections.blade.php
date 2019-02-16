@@ -30,7 +30,7 @@
 							</a></h6>
 						</div>
 						<div>
-							<h3><a href="">30 Students</a></h3>
+							<h3><a href="">{{ $section->registers->count() }} Students</a></h3>
 						</div>
 					</div>
 				</div>
