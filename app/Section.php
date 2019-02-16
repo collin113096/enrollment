@@ -28,7 +28,7 @@ class Section extends Model
 
     public function students(){
 
-    	return $this->belongsToMany('App\Student');
+    	return $this->belongsToMany('App\Student','registers');
     }
 
     public function hasAdviser()

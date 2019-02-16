@@ -44,6 +44,7 @@
 			@show
 		</div>	
 		<div class="col-md-3">
+			@section('students')
 			<div class="card">
 				<div class="card-header h5 d-flex justify-content-between text-primary">
 					<strong>STUDENTS</strong>
@@ -144,6 +145,7 @@
 					<!-- END -->
 				</div>
 			</div>
+			@show
 		</div>
 	</div>
 </div>

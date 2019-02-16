@@ -50,6 +50,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/users/{user}/subjects','StudentController@subject')->middleware('can:view,App\User');
 
 	Route::get('/grade/{grade}/sections','GradeSectionController@displaySections');
+	Route::get('/section/{section}/students','SectionStudentController@displayStudents');
 });
 Auth::routes();
 
