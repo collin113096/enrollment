@@ -23,9 +23,5 @@ class Grade extends Model
     {
     	return $this->hasMany('App\Student');
     }
-
-    public function classes()
-    {
-        return $this->hasMany('App\Classes');
-    }
+    
 }
