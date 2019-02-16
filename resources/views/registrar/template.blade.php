@@ -38,12 +38,12 @@
 			</div>
 		</div>
 
-		<div class="col-md-8">
+		<div class="col-md-7">
 			@section('body')
 				@include('registrar.default')
 			@show
 		</div>	
-		<div class="col-md-2">
+		<div class="col-md-3">
 			<div class="card">
 				<div class="card-header h5 d-flex justify-content-between text-primary">
 					<strong>STUDENTS</strong>
@@ -57,16 +57,60 @@
 						</div>
 						<div class="mb-4" style="height:320px;overflow-y: scroll;">						
 							<div class="list-group-flush">
-								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
-								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
-								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
-								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
-								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
-								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
-								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
-								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
-								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
-								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
+								<div class="list-group-item list-group-item-action">
+									<span class="mx-3">
+										<img class="rounded-circle" src="{{ asset('images/student_picture.jpg') }}" width="30px" height="30px">
+									</span>
+									<span>Jiyo Collin Pagtananan</span>
+								</div>
+								<div class="list-group-item list-group-item-action">
+									<span class="mx-3">
+										<img class="rounded-circle" src="{{ asset('images/student_picture.jpg') }}" width="30px" height="30px">
+									</span>
+									<span>Jiyo Collin Pagtananan</span>
+								</div>
+								<div class="list-group-item list-group-item-action">
+									<span class="mx-3">
+										<img class="rounded-circle" src="{{ asset('images/student_picture.jpg') }}" width="30px" height="30px">
+									</span>
+									<span>Jiyo Collin Pagtananan</span>
+								</div>
+								<div class="list-group-item list-group-item-action">
+									<span class="mx-3">
+										<img class="rounded-circle" src="{{ asset('images/student_picture.jpg') }}" width="30px" height="30px">
+									</span>
+									<span>Jiyo Collin Pagtananan</span>
+								</div>
+								<div class="list-group-item list-group-item-action">
+									<span class="mx-3">
+										<img class="rounded-circle" src="{{ asset('images/student_picture.jpg') }}" width="30px" height="30px">
+									</span>
+									<span>Jiyo Collin Pagtananan</span>
+								</div>
+								<div class="list-group-item list-group-item-action">
+									<span class="mx-3">
+										<img class="rounded-circle" src="{{ asset('images/student_picture.jpg') }}" width="30px" height="30px">
+									</span>
+									<span>Jiyo Collin Pagtananan</span>
+								</div>
+								<div class="list-group-item list-group-item-action">
+									<span class="mx-3">
+										<img class="rounded-circle" src="{{ asset('images/student_picture.jpg') }}" width="30px" height="30px">
+									</span>
+									<span>Jiyo Collin Pagtananan</span>
+								</div>
+								<div class="list-group-item list-group-item-action">
+									<span class="mx-3">
+										<img class="rounded-circle" src="{{ asset('images/student_picture.jpg') }}" width="30px" height="30px">
+									</span>
+									<span>Jiyo Collin Pagtananan</span>
+								</div>
+								<div class="list-group-item list-group-item-action">
+									<span class="mx-3">
+										<img class="rounded-circle" src="{{ asset('images/student_picture.jpg') }}" width="30px" height="30px">
+									</span>
+									<span>Jiyo Collin Pagtananan</span>
+								</div>
 							</div>
 						</div>
 
@@ -76,16 +120,24 @@
 						</div>
 						<div style="height:320px;overflow-y: scroll;">
 							<div class="list-group-flush">
-								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
-								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
-								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
-								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
-								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
-								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
-								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
-								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
-								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
-								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
+								<div class="list-group-item list-group-item-action">
+									<span class="mx-3">
+										<img class="rounded-circle" src="{{ asset('images/student_picture.jpg') }}" width="30px" height="30px">
+									</span>
+									<span>Jiyo Collin Pagtananan</span>
+								</div>
+								<div class="list-group-item list-group-item-action">
+									<span class="mx-3">
+										<img class="rounded-circle" src="{{ asset('images/student_picture.jpg') }}" width="30px" height="30px">
+									</span>
+									<span>Jiyo Collin Pagtananan</span>
+								</div>
+								<div class="list-group-item list-group-item-action">
+									<span class="mx-3">
+										<img class="rounded-circle" src="{{ asset('images/student_picture.jpg') }}" width="30px" height="30px">
+									</span>
+									<span>Jiyo Collin Pagtananan</span>
+								</div>
 							</div>
 						</div>
 					</div>
