@@ -20,9 +20,13 @@
 						<div class="mb-3">
 							<label for="">Section Adviser:</label>
 							<h6><a href="">
+								@if($section->teachers->count())
 								{{ $section->teachers->first()->last_name }}, 
 								{{ $section->teachers->first()->first_name }}
 								{{ $section->teachers->first()->middle_name }}
+								@else
+									No Adviser
+								@endif
 							</a></h6>
 						</div>
 						<div>
