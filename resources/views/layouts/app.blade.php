@@ -22,15 +22,18 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
-        nav.navbar.navbar-expand-md.navbar-light.navbar-laravel 
-        {
-            border-top: 5px solid #252a62;
+        .navbar a.nav-link {
+            color: white !important;
+        }
+
+        .navbar a.navbar-brand {
+            color: white !important;
         }
     </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-laravel" style="background:#252a62">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
