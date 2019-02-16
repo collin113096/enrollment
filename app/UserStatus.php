@@ -13,7 +13,7 @@ class UserStatus extends Model
 	{
 		$user = \App\User::find(auth()->id());
     	$this->student = $user->student;
-    	$this->status = Status::where('user_id', auth()->id())->first();
+    	$this->status = $user->status;
 	}
 
 	public function student()
@@ -28,11 +28,11 @@ class UserStatus extends Model
 
 	public function redirectToAppropriatePage()
 	{
-		if($this->status()->hasForm() && !$this->status()->hasDocument())
+		if($this->status()->form && !$this->status()->document)
     	{
     		return view('document.create',['student' => $this->student()]);
     	}
-    	elseif($this->status()->hasForm() && $this->status()->hasDocument())
+    	elseif($this->status()->form && $this->status()->document)
     	{
     		return redirect('/home');
     	}else{

@@ -10,26 +10,89 @@
 	<div class="row">
 		<div class="col-md-2">
 			<div class="card">
-				<div class="card-header text-center h4 p-4">
-					<strong>Grade</strong>
-				</div>
 				<div class="card-body">
+					<div class="form-group text-center py-3">
+						<label class=""><strong>School Year</strong></label>
+						<select class="custom-select" name="" id="">
+							<option value="">2019</option>
+						</select>
+						<a href=""><u>Statistics</u></a>
+					</div>
+					<div class="h5 pt-3 text-center text-primary">
+						<strong>GRADES</strong>
+					</div>
 					<div class="list-group list-group-flush">
 						@foreach($grades as $grade)
 						<a href="" class="list-group-item list-group-item-action d-flex justify-content-between">
-						<span>{{ $grade->name }}</span>
-						<span class="">{{ $grade->countStudent() }}</span>
+							<span>{{ $grade->name }}</span>
+							<span class="font-weight-bold">{{ $grade->countStudent() }}</span>
 						</a>
 						@endforeach
+						@inject('registers','App\Register')
+						<div class="text-center pt-4">	
+							<h1>{{ $registers->count() }}</h1>
+							<h5>Student(s)</h5>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-10">
+
+		<div class="col-md-8">
 			@section('body')
 				@include('registrar.default')
 			@show
 		</div>	
+		<div class="col-md-2">
+			<div class="card">
+				<div class="card-header h5 d-flex justify-content-between text-primary">
+					<strong>STUDENTS</strong>
+					<span class="font-weight-bold">11</span>
+				</div>
+				<div class="card-body">
+					<div style="font-size:11px">
+						<div class="d-flex text-secondary">
+							<strong>Male</strong> - 
+							<span class="font-weight-bold">6</span>
+						</div>
+						<div class="mb-4" style="height:320px;overflow-y: scroll;">						
+							<div class="list-group-flush">
+								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
+								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
+								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
+								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
+								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
+								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
+								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
+								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
+								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
+								<div class="list-group-item list-group-item-action">Jiyo Collin Pagtananan</div>
+							</div>
+						</div>
+
+						<div class="d-flex text-danger">
+							<strong>Female</strong> - 
+							<span class="font-weight-bold">6</span>
+						</div>
+						<div style="height:320px;overflow-y: scroll;">
+							<div class="list-group-flush">
+								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
+								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
+								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
+								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
+								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
+								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
+								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
+								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
+								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
+								<div class="list-group-item list-group-item-action">Rozette Dingco</div>
+							</div>
+						</div>
+					</div>
+					<!-- END -->
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
 @endsection

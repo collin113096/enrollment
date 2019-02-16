@@ -13,14 +13,4 @@ class Status extends Model
     {
     	return $this->belongsTo('App\User');
     }
-
-     public function hasForm()
-    {
-        return $this->where('form',1)->count() ? true : false;
-    }
-
-    public function hasDocument()
-    {
-        return $this->where('document',1)->count() ? true : false;
-    }
 }

@@ -1,14 +1,6 @@
 @section('right_side_navbar')
 <!-- 1ST LIST ITEM -->
 
-@can('enroll','App\User')
-<li class="nav-item">
-	<a class="btn btn-primary" href="/application_form" class="nav-link">
-		Enroll Now
-	</a>
-</li>
-@endcan
-
 <li class="nav-item dropdown">
 	<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
 		Tuition Fee
