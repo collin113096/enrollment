@@ -25,13 +25,12 @@ $id = auth()->id();
 @endphp
 
 <!-- 2ND LIST ITEM -->
-@can('viewSubjects','App\User')
 <li class="nav-item">
 	<a href="/users/{{ $id }}/subjects" class="nav-link">
 		My Subjects
 	</a>
 </li>
-@endcan
+
 
 <li class="nav-item">
 	<a href="/admitted/applicants" class="nav-link">

@@ -9,7 +9,7 @@
 	<div class="carousel-inner">
 		
 		<div class="carousel-item active">
-			<img class="w-100" src="{{ asset('images/facility/slide1.JPG') }}">
+			<img class="w-100" src="{{ asset('images/facility/banner.JPG') }}">
 		</div>
 		
 	</div>
