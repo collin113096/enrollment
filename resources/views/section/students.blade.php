@@ -57,7 +57,8 @@
 					@forelse($section->students->where('gender','male') as $student)
 					<div class="list-group-item list-group-item-action">
 						<span class="mx-3">
-							<img class="rounded-circle" src="{{ asset('images/student_picture.jpg') }}" width="30px" height="30px">
+							@php $url = $student->documents->where('document_type','Picture')->first()->url @endphp
+							<img class="rounded-circle" src='{{ asset("storage/$url") }}'' width="30px" height="30px">
 						</span>
 						<span>
 							{{ $student->last_name }}, 
