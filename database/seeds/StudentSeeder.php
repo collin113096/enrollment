@@ -14,11 +14,8 @@ class StudentSeeder extends Seeder
      */
     public function run()
     {
-     	$student = factory(Student::class,20)->create();
-
-        $student->each(function($student){
-            $student->father()->save(factory(Father::class)->make());
-            $student->mother()->save(factory(Mother::class)->make());
-        });
+        factory(App\User::class, 50)->create()->each(function ($user) {
+        $user->student()->save(factory(Student::class)->make());
+    });
     }
 }

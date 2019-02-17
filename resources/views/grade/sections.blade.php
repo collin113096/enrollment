@@ -54,7 +54,7 @@
 			</div>
 			<div class="mb-4" style="height:320px;overflow-y: scroll;">						
 				<div class="list-group-flush">
-					No Records Found
+					<div class="alert alert-warning">No Records Found</div>
 				</div>
 			</div>
 
@@ -64,7 +64,7 @@
 			</div>
 			<div style="height:320px;overflow-y: scroll;">
 				<div class="list-group-flush">
-					No Records Found
+					<div class="alert alert-warning">No Records Found</div>
 			</div>
 		</div>
 		<!-- END -->
