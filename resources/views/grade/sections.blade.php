@@ -2,7 +2,7 @@
 @section('title','All Grade')
 @section('body')
 <div class="card">
-	<div class="card-header h5 text-primary">
+	<div class="card-header h5 text-primary p-4">
 		<strong>SECTION</strong>
 	</div>
 	<div class="card-body">
@@ -42,7 +42,7 @@
 @endsection
 @section('students')
 <div class="card">
-	<div class="card-header h5 d-flex justify-content-between text-primary">
+	<div class="card-header h5 d-flex justify-content-between text-primary py-4">
 		<strong>STUDENTS</strong>
 		<span class="font-weight-bold">0</span>
 	</div>

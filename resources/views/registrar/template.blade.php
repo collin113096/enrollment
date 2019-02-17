@@ -4,12 +4,38 @@
 	.dropdown-menu a {
     color: #777;
 }
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background:#fafafa;
+  border-radius: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
 </style>
 @section('content')
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-2">
+		<div class="col-md-3">
 			<div class="card">
+				<div class="card-header h5 pt-3 text-center text-primary py-4">
+					<strong>GRADES</strong>
+				</div>
 				<div class="card-body">
 					<div class="form-group text-center py-3">
 						<label class=""><strong>School Year</strong></label>
@@ -17,9 +43,6 @@
 							<option value="2019">2019</option>
 						</select>
 						<a href=""><u>Statistics</u></a>
-					</div>
-					<div class="h5 pt-3 text-center text-primary">
-						<strong>GRADES</strong>
 					</div>
 					<div class="list-group list-group-flush">
 						@foreach($grades as $grade)
@@ -38,7 +61,7 @@
 			</div>
 		</div>
 
-		<div class="col-md-7">
+		<div class="col-md-6">
 			@section('body')
 				@include('registrar.default')
 			@show
@@ -46,7 +69,7 @@
 		<div class="col-md-3">
 			@section('students')
 			<div class="card">
-				<div class="card-header h5 d-flex justify-content-between text-primary">
+				<div class="card-header h5 d-flex justify-content-between text-primary py-4">
 					<strong>STUDENTS</strong>
 					<span class="font-weight-bold">0</span>
 				</div>
@@ -54,7 +77,7 @@
 					<div style="font-size:11px">
 						<div class="d-flex text-secondary">
 							<strong>Male</strong> - 
-							<span class="font-weight-bold">6</span>
+							<span class="font-weight-bold">0</span>
 						</div>
 						<div class="mb-4" style="height:320px;overflow-y: scroll;">						
 							<div class="list-group-flush">
@@ -64,7 +87,7 @@
 
 						<div class="d-flex text-danger">
 							<strong>Female</strong> - 
-							<span class="font-weight-bold">6</span>
+							<span class="font-weight-bold">0</span>
 						</div>
 						<div style="height:320px;overflow-y: scroll;">
 							<div class="list-group-flush">
