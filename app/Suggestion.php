@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Suggestion extends Model
 {
-    public $fillable = ['name','contact','suggestion'];
+    public $fillable = ['name','contact','suggestion','seen'];
 
     public function count()
     {

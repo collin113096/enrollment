@@ -68,9 +68,9 @@ class SuggestionController extends Controller
      * @param  \App\Suggestion  $suggestion
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Suggestion $suggestion)
+    public function update(Suggestion $suggestion)
     {
-        //
+        $suggestion->update(request()->all());
     }
 
     /**

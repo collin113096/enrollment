@@ -43,7 +43,7 @@
 	</a>
 	<div class="dropdown-menu" style="height:400px;overflow-y:scroll">
 		@foreach($suggestion->all() as $suggestion)
-			<a class="dropdown-item" style="{{ $suggestion->seen ? '':'background:#e5eaf2;' }}" href="" data-toggle="modal" data-target="#modal{{ $suggestion->id }}"">
+			<a class="dropdown-item" style="{{ $suggestion->seen ? '':'background:#e5eaf2;' }}" href="#" data-toggle="modal" data-target="#modal{{ $suggestion->id }}" onclick="seenSuggestion({{ $suggestion->id }})">
 			<div class="" style="font-size:1.2em;"><strong>{{ $suggestion->name }}</strong> make a suggestion</div>
 			<div>Submitted on <span class="text-dark font-sw">{{ date('M d,Y',strtotime($suggestion->created_at)) }}</span></div>
 			</a>
@@ -129,4 +129,19 @@
 </div>
 
 </li>
+<script>
+	function seenSuggestion(id)
+	{
+		$.ajax({
+			url:"/suggestions/" + id,
+			type:'POST',
+			data:{seen:1, _method:'PATCH',_token:"{{ csrf_token() }}"},
+			success: function(data)
+			{
+				
+			}
+		})
+	}
+
+</script>
 @endsection
