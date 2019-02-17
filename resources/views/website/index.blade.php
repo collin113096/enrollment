@@ -146,20 +146,21 @@
 		</div>
 		<div class="col-md-5">
 			<h1 class="text-center">Suggestion Box</h1>
-			<form action="">
+			<form method="post" action="/suggestions">
+				@csrf
 				<div class="form-group">
 					<label>Name</label>
 					<input class="form-control" type="text" name="name">
 				</div>
 				<div class="form-group">
 					<label>Contact</label>
-					<input class="form-control" type="number" name="name">
+					<input class="form-control" type="number" name="contact">
 				</div>
 				<div class="form-group">
 					<label>Suggestion or Concern</label>
-					<textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+					<textarea class="form-control" name="suggestion" id="" cols="30" rows="10"></textarea>
 				</div>
-				<button class="btn btn-primary">Submit</button>
+				<button class="btn btn-primary" type="submit">Submit</button>
 			</form>
 		</div>
 	</div>
