@@ -70,7 +70,8 @@ class SuggestionController extends Controller
      */
     public function update(Suggestion $suggestion)
     {
-        $suggestion->update(request()->all());
+        $suggestion->update(['seen' => request('seen')]);
+        return response()->json($suggestion->where('seen','0')->count());
     }
 
     /**

@@ -37,13 +37,13 @@
 <li class="nav-item dropdown">
 	<a href="/applicants" class="nav-link dropdown-toggle" data-toggle="dropdown">
 		Suggestion
-		<span class="badge badge-primary">
+		<span class="badge badge-primary" id="suggestion_count">
 			{{ $suggestion->where('seen',0)->count() }}
 		</span>
 	</a>
 	<div class="dropdown-menu" style="height:400px;overflow-y:scroll">
 		@foreach($suggestion->latest()->get() as $suggestion)
-			<a class="dropdown-item" style="{{ $suggestion->seen ? '':'background:#e5eaf2;' }}" href="#" data-toggle="modal" data-target="#modal{{ $suggestion->id }}" onclick="seenSuggestion({{ $suggestion->id }})">
+			<a class="dropdown-item" style="{{ $suggestion->seen ? '':'background:#e5eaf2;' }}" href="#" data-toggle="modal" data-target="#modal{{ $suggestion->id }}" onclick="seenSuggestion(this,{{ $suggestion->id }})">
 			<div class="" style="font-size:1.2em;"><strong>{{ $suggestion->name }}</strong> make a suggestion</div>
 			<div>Submitted on <span class="text-dark font-sw">{{ date('M d,Y',strtotime($suggestion->created_at)) }}</span></div>
 			</a>
@@ -130,17 +130,23 @@
 
 </li>
 <script>
-	function seenSuggestion(id)
+	function seenSuggestion(element, id)
 	{
 		$.ajax({
 			url:"/suggestions/" + id,
 			type:'POST',
 			data:{seen:1, _method:'PATCH',_token:"{{ csrf_token() }}"},
-			success: function(data)
+			success: function(count)
 			{
-				
+				updateSuggestion(element,count);
 			}
 		})
+	}
+
+	function updateSuggestion(element, count)
+	{
+		element.style.backgroundColor = "";
+		$('#suggestion_count').text(count);
 	}
 
 </script>
