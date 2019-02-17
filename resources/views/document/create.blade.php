@@ -94,7 +94,7 @@ Pagsanjan Academy Required Documents For Enrollment
 </div>
 
 <div class="d-flex justify-content-end mt-lg-5">				
-	<button class="btn btn-primary" type="submit"><i class="fas fa-file-upload mx-2"></i> Upload Documents</button>
+	<button id="btn_upload_document" class="btn btn-primary" type="submit" disabled><i class="fas fa-file-upload mx-2"></i> Upload Documents</button>
 </div>
 
 

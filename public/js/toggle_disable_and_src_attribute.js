@@ -43,6 +43,8 @@ function enableAll(id){
     for(var i=0;i<id.length;i++){
         $('#' + id[i]).removeAttr('disabled');
         $('#' + id[i] + "_tag").attr('src', asset_url + '/enable_document.png');  
+        $('#' + id[i]).attr('required','required'); 
+        $('#btn_upload_document').removeAttr('disabled');
     }
 }
 
@@ -62,10 +64,14 @@ function enableOnly(id){
     if(Array.isArray(id)){
         for(var i=0;i<id.length;i++){
             $('#' + id[i]).removeAttr('disabled');
-            $('#' + id[i] + "_tag").attr('src', asset_url + '/enable_document.png');  
+            $('#' + id[i] + "_tag").attr('src', asset_url + '/enable_document.png'); 
+            $('#' + id[i]).attr('required','required'); 
+            $('#btn_upload_document').removeAttr('disabled'); 
         }
     }else{
             $('#' + id).removeAttr('disabled');
-            $('#' + id + "_tag").attr('src', asset_url + '/enable_document.png');  
+            $('#' + id + "_tag").attr('src', asset_url + '/enable_document.png');
+            $('#' + id[i]).attr('required','required'); 
+            $('#btn_upload_document').removeAttr('disabled');  
     }
 }
