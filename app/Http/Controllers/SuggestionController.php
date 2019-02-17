@@ -14,7 +14,7 @@ class SuggestionController extends Controller
      */
     public function index()
     {
-        //
+        return redirect('/');
     }
 
     /**
