@@ -32,9 +32,9 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-3">
-			<div class="card mb-3">
-				<div class="card-header h5 pt-3 text-center text-primary py-4">
-					<strong>GRADES</strong>
+			<div class="card mb-3 shadow">
+				<div class="card-header h5 pt-3 text-center">
+					Grades
 				</div>
 				<div class="card-body">
 					<div class="form-group text-center py-3">
@@ -60,45 +60,20 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="col-md-6">
-			@section('body')
-				@include('registrar.default')
-			@show
+		
+		@section('body_width')
+		<div class="col-md-9">
+		@show
+		@section('body')
+			@include('registrar.default')
+		@show
 		</div>	
-		<div class="col-md-3">
-			@section('students')
-			<div class="card">
-				<div class="card-header h5 d-flex justify-content-between text-primary py-4">
-					<strong>STUDENTS</strong>
-					<span class="font-weight-bold">0</span>
-				</div>
-				<div class="card-body">
-					<div style="font-size:11px">
-						<div class="d-flex text-secondary">
-							<strong>Male</strong> - 
-							<span class="font-weight-bold">0</span>
-						</div>
-						<div class="mb-4" style="height:320px;overflow-y: scroll;">						
-							<div class="list-group-flush">
-								<div class="alert alert-warning mt-3">No Record Found</div>
-							</div>
-						</div>
 
-						<div class="d-flex text-danger">
-							<strong>Female</strong> - 
-							<span class="font-weight-bold">0</span>
-						</div>
-						<div style="height:320px;overflow-y: scroll;">
-							<div class="list-group-flush">
-								<div class="alert alert-warning mt-3">No Record Found</div>
-							</div>
-						</div>
-					</div>
-					<!-- END -->
-				</div>
-			</div>
-			@show
+		@section('students_width')
+		<div class="col-md-3">
+		@show
+		@section('students')
+		@show
 		</div>
 	</div>
 </div>

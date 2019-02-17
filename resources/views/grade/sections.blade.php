@@ -1,5 +1,8 @@
 @extends('registrar.template')
 @section('title','All Grade')
+@section('body_width')
+<div class="col-md-6">
+@endsection
 @section('body')
 <div class="card mb-3">
 	<div class="card-header h5 text-primary p-4">
@@ -39,6 +42,9 @@
 		</div>
 	</div>
 </div>
+@endsection
+@section('students_width')
+<div class="col-md-3">
 @endsection
 @section('students')
 <div class="card">
