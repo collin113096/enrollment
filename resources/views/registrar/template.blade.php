@@ -32,7 +32,7 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-3">
-			<div class="card">
+			<div class="card mb-3">
 				<div class="card-header h5 pt-3 text-center text-primary py-4">
 					<strong>GRADES</strong>
 				</div>

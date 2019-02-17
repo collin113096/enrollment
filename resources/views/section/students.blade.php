@@ -1,7 +1,7 @@
 @extends('registrar.template')
 @section('body')
-<div class="card">
-	<div class="card-header h5 text-primary">
+<div class="card mb-3">
+	<div class="card-header h5 text-primary py-4">
 		<strong>SECTION</strong>
 	</div>
 	<div class="card-body">
@@ -40,8 +40,8 @@
 </div>
 @endsection
 @section('students')
-<div class="card">
-	<div class="card-header h5 d-flex justify-content-between text-primary">
+<div class="card mb-3">
+	<div class="card-header h5 d-flex justify-content-between text-primary py-4">
 		<strong>STUDENTS</strong>
 		<span class="font-weight-bold">{{ $section->students->count() }}</span>
 	</div>
