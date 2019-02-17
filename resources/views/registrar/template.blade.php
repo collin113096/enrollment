@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title','Registrar')
 <style>
-	.dropdown-menu a {
+	#management .dropdown-menu a {
     color: #777;
 }
 

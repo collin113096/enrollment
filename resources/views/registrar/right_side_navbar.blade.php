@@ -41,11 +41,11 @@
 			{{ $suggestion->count() }}
 		</span>
 	</a>
-	<div class="dropdown-menu">
+	<div class="dropdown-menu" style="height:400px;overflow-y:scroll">
 		@foreach($suggestion->all() as $suggestion)
-			<a class="dropdown-item" href="" data-toggle="modal" data-target="#modal{{ $suggestion->id }}"">
-			<div style="font-size:1.2em;"><strong class="text-dark">{{ $suggestion->name }}</strong> make a suggestion</div>
-			<div>Date submitted: {{ date('M d,Y',strtotime($suggestion->created_at)) }}</div>
+			<a class="dropdown-item" style="{{ $suggestion->seen ? '':'background:#e5eaf2;' }}" href="" data-toggle="modal" data-target="#modal{{ $suggestion->id }}"">
+			<div class="" style="font-size:1.2em;"><strong>{{ $suggestion->name }}</strong> make a suggestion</div>
+			<div>Submitted on <span class="text-dark font-sw">{{ date('M d,Y',strtotime($suggestion->created_at)) }}</span></div>
 			</a>
 		@endforeach
 	</div>
@@ -76,7 +76,7 @@
 @endforeach
 
 <!-- 4TH LIST ITEM -->
-<li class="nav-item dropdown">
+<li class="nav-item dropdown" id="management">
 
 <a href="" class="nav-link dropdown-toggle" data-toggle="dropdown">Management</a>
 

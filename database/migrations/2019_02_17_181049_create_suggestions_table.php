@@ -18,6 +18,7 @@ class CreateSuggestionsTable extends Migration
             $table->string('name');
             $table->string('contact');
             $table->text('suggestion');
+            $table->boolean('seen')->default(false);
             $table->timestamps();
         });
     }
