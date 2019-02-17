@@ -30,7 +30,7 @@
 							</a></h6>
 						</div>
 						<div>
-							<h3><a href="/section/{{ $section->id }}/students">{{ $section->registers->count() }} Students</a></h3>
+							<h3><a href="/grade/{{ $section->grade->id }}/section/{{ $section->id }}/students">{{ $section->registers->count() }} Students</a></h3>
 						</div>
 					</div>
 				</div>
@@ -54,7 +54,7 @@
 			</div>
 			<div class="mb-4" style="height:320px;overflow-y: scroll;">						
 				<div class="list-group-flush">
-					<div class="alert alert-warning">No Records Found</div>
+					<div class="alert alert-warning mt-3">No Records Found</div>
 				</div>
 			</div>
 
@@ -64,7 +64,7 @@
 			</div>
 			<div style="height:320px;overflow-y: scroll;">
 				<div class="list-group-flush">
-					<div class="alert alert-warning">No Records Found</div>
+					<div class="alert alert-warning mt-3">No Records Found</div>
 			</div>
 		</div>
 		<!-- END -->

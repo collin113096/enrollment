@@ -6,7 +6,7 @@
 	</div>
 	<div class="card-body">
 		<div class="row">
-			@foreach($section->grade->sections as $section)
+			@foreach($grade->sections as $item)
 			<div class="col-md-6 mb-4">
 				<div class="card bg-dark text-white">
 					<div class="card-img-top">
@@ -14,22 +14,22 @@
 					</div>
 					<div class="card-body text-center">
 						<div class="py-4">
-							<h1 class="text-uppercase"><strong>{{ $section->name }}</strong></h1>
+							<h1 class="text-uppercase"><strong>{{ $item->name }}</strong></h1>
 						</div>
 						<div class="mb-3">
 							<label for="">Section Adviser:</label>
 							<h6><a href="">
-								@if($section->teachers->count())
-								{{ $section->teachers->first()->last_name }}, 
-								{{ $section->teachers->first()->first_name }}
-								{{ $section->teachers->first()->middle_name }}
+								@if($item->teachers->count())
+								{{ $item->teachers->first()->last_name }}, 
+								{{ $item->teachers->first()->first_name }}
+								{{ $item->teachers->first()->middle_name }}
 								@else
 									No Adviser
 								@endif
 							</a></h6>
 						</div>
 						<div>
-							<h3><a href="/section/{{ $section->id }}/students">{{ $section->registers->count() }} Students</a></h3>
+							<h3><a href="/grade/{{ $grade->id }}/section/{{ $item->id }}/students">{{ $item->registers->count() }} Students</a></h3>
 						</div>
 					</div>
 				</div>
