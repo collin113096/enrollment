@@ -3,6 +3,7 @@
 
 @inject('student','App\Student')
 @inject('register','App\Register')
+@inject('suggestion', 'App\Suggestion');
 
 <li class="nav-item">
 	<a href="/applicants" class="nav-link">
@@ -33,14 +34,46 @@
 	</a>
 </li>
 
-<li class="nav-item">
-	<a href="/applicants" class="nav-link">
+<li class="nav-item dropdown">
+	<a href="/applicants" class="nav-link dropdown-toggle" data-toggle="dropdown">
 		Suggestion
 		<span class="badge badge-primary">
-			{{ $student->countApplicants() }}
+			{{ $suggestion->count() }}
 		</span>
 	</a>
+	<div class="dropdown-menu">
+		@foreach($suggestion->all() as $suggestion)
+			<a class="dropdown-item" href="" data-toggle="modal" data-target="#modal{{ $suggestion->id }}"">
+			<div style="font-size:1.2em;"><strong class="text-dark">{{ $suggestion->name }}</strong> make a suggestion</div>
+			<div>Date submitted: {{ date('M d,Y',strtotime($suggestion->created_at)) }}</div>
+			</a>
+		@endforeach
+	</div>
 </li>
+
+@foreach($suggestion->all() as $suggestion)
+<div class="modal fade" id="modal{{ $suggestion->id }}">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3>Suggestion</h3>
+			</div>
+			<div class="modal-body">
+				<div class="">From: <strong>{{ $suggestion->name }}</strong></div>
+				<hr>
+				<div clas="">Date Submitted: {{ date('M d,Y',strtotime($suggestion->created_at)) }}</div>
+				<hr>
+				<div class="">Contact: {{ $suggestion->contact }}</div>
+				<hr>
+				<p class="p-5">{{ $suggestion->suggestion }}</p>
+			</div>
+			<div class="modal-footer">
+				<button class="btn btn-secondary" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+@endforeach
 
 <!-- 4TH LIST ITEM -->
 <li class="nav-item dropdown">
