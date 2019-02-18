@@ -43,7 +43,7 @@
 	</a>
 	<div class="dropdown-menu" style="height:400px;overflow-y:scroll">
 		@foreach($suggestion->latest()->get() as $suggestion)
-			<a class="dropdown-item" style="{{ $suggestion->seen ? '':'background:#e5eaf2;' }}" href="#" data-toggle="modal" data-target="#modal{{ $suggestion->id }}" onclick="seenSuggestion(this,{{ $suggestion->id }})">
+			<a class="dropdown-item py-3" style="{{ $suggestion->seen ? '':'background:#e5eaf2;' }}" href="#" data-toggle="modal" data-target="#modal{{ $suggestion->id }}" onclick="seenSuggestion(this,{{ $suggestion->id }})">
 			<div><strong>{{ $suggestion->name }}</strong> make a suggestion</div>
 			<div>Submitted on <span class="text-dark font-sw">{{ date('M d,Y',strtotime($suggestion->created_at)) }}</span></div>
 			</a>
@@ -65,7 +65,7 @@
 				<hr>
 				<div class="">Contact: {{ $suggestion->contact }}</div>
 				<hr>
-				<p class="p-5">{{ $suggestion->suggestion }}</p>
+				<p class="p-3">{{ $suggestion->suggestion }}</p>
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-secondary" data-dismiss="modal">Close</button>
