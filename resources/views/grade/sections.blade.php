@@ -6,11 +6,11 @@
 @section('body')
 <div class="card mb-3">
 	<div class="card-header h5 text-white p-4 bg-dark">
-		<strong>SECTION</strong>
+		<strong class="text-uppercase">{{ $grade->name }} - Section List</strong>
 	</div>
 	<div class="card-body">
 		<div class="row">
-			@foreach($sections as $section)
+			@foreach($grade->sections as $section)
 			<div class="col-md-4 mb-4">
 				<div class="card text-center border border-primary">
 					<div class="card-body">

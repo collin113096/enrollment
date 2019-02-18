@@ -13,7 +13,7 @@
 </style>
 <div class="card mb-3">
 	<div class="card-header h5 text-white p-4 bg-dark">
-		<strong>SECTION - {{ $section->name }}</strong>
+		<strong class="text-uppercase">{{ $section->name }} - Student List</strong>
 	</div>
 	<div class="card-body">
 		<div class="row justify-content-center">

@@ -8,7 +8,6 @@ class GradeSectionController extends Controller
 {
     public function displaySections(\App\Grade $grade)
     {
-		$sections = $grade->sections;
-		return view('grade.sections', compact('sections'));
+		return view('grade.sections', compact('grade'));
     }
 }
