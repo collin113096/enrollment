@@ -1,6 +1,10 @@
 @extends('layouts.app')
 @section('title','Registrar')
 <style>
+	nav.navbar.navbar-expand-lg.navbar-light.navbar-laravel {
+	    padding-top: 50px;
+	}
+
 	#management .dropdown-menu a {
     color: #777;
 }
