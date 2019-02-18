@@ -1,26 +1,28 @@
 @extends('registrar.template')
 @section('title','All Grade')
 @section('body_width')
-<div class="col-md-6">
+<div class="col-md-9">
 @endsection
 @section('body')
 <div class="card mb-3">
-	<div class="card-header h5 text-primary p-4">
+	<div class="card-header h5 text-white p-4 bg-dark">
 		<strong>SECTION</strong>
 	</div>
 	<div class="card-body">
 		<div class="row">
 			@foreach($sections as $section)
-			<div class="col-md-6 mb-4">
-				<div class="card bg-dark text-white">
-					<div class="card-img-top">
-						<img class="w-100" src="{{ asset('images/facility/arch.jpg') }}" alt="">
-					</div>
-					<div class="card-body text-center">
-						<div class="py-4">
-							<h1 class="text-uppercase"><strong>{{ $section->name }}</strong></h1>
+			<div class="col-md-4 mb-4">
+				<div class="card text-center border border-primary">
+					<div class="card-body">
+						<div class="py-3">
+							<h3 class="text-uppercase"><strong>{{ $section->name }}</strong></h3>
 						</div>
-						<div class="mb-3">
+						<div>
+							<h3><a href="/grade/{{ $section->grade->id }}/section/{{ $section->id }}/students">{{ $section->registers->count() }} Students</a></h3>
+						</div>
+					<!-- END OF CARD BODY -->
+					</div>
+					<div class="card-footer">
 							<label for="">Section Adviser:</label>
 							<h6><a href="">
 								@if($section->teachers->count())
@@ -32,10 +34,6 @@
 								@endif
 							</a></h6>
 						</div>
-						<div>
-							<h3><a href="/grade/{{ $section->grade->id }}/section/{{ $section->id }}/students">{{ $section->registers->count() }} Students</a></h3>
-						</div>
-					</div>
 				</div>
 			</div>
 			@endforeach
@@ -43,38 +41,3 @@
 	</div>
 </div>
 @endsection
-@section('students_width')
-<div class="col-md-3">
-@endsection
-@section('students')
-<div class="card">
-	<div class="card-header h5 d-flex justify-content-between text-primary py-4">
-		<strong>STUDENTS</strong>
-		<span class="font-weight-bold">0</span>
-	</div>
-	<div class="card-body">
-		<div style="font-size:11px">
-			<div class="d-flex text-secondary">
-				<strong>Male</strong> - 
-				<span class="font-weight-bold">6</span>
-			</div>
-			<div class="mb-4" style="height:320px;overflow-y: scroll;">						
-				<div class="list-group-flush">
-					<div class="alert alert-warning mt-3">No Records Found</div>
-				</div>
-			</div>
-
-			<div class="d-flex text-danger">
-				<strong>Female</strong> - 
-				<span class="font-weight-bold">6</span>
-			</div>
-			<div style="height:320px;overflow-y: scroll;">
-				<div class="list-group-flush">
-					<div class="alert alert-warning mt-3">No Records Found</div>
-			</div>
-		</div>
-		<!-- END -->
-	</div>
-</div>
-@endsection
-
