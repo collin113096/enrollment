@@ -7,11 +7,10 @@ use Illuminate\Http\Request;
 
 class AdvisoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
+    private $section;
+    private $teacher;
+    
     public function index()
     {
         session(['my_url' => 'advisory']);
@@ -19,90 +18,78 @@ class AdvisoryController extends Controller
         return view('advisory.index',compact('sections'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create(Section $section)
     {
         $teachers = Teacher::where('assigned',0)->paginate(8);
         return view('advisory.create',compact('section') + compact('teachers'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Section $section, Teacher $teacher)
     {
-        $teacher->update(['assigned' => 1]);
-        $section->teachers()->attach($teacher->id);
-        if(session('my_url') == 'grade')
-        {
-             return redirect("/grade/{$section->grade->id}/sections");
-        }
-        
-        return redirect('/advisory');
+        $this->section = $section;
+        $this->teacher = $teacher;
+
+        $this->assignedCurrentTeacher();
+        $this->createLinkBetweenTeacherAndSection();
+        return $this->redirectToAppropriatePage();
        
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Section $section)
     {
         $teachers = Teacher::paginate(8);
         return view('advisory.edit',compact('section') + compact('teachers'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Section $section, Teacher $teacher)
     {
-        $section->teachers()->first()->update(['assigned' => 0]);
-        $teacher->update(['assigned' => 1]);
-        $section->teachers()->first()->pivot->update(['teacher_id' => $teacher->id]);
+        $this->section = $section;
+        $this->teacher = $teacher;
 
-         if(session('my_url') == 'grade')
-        {
-             return redirect("/grade/{$section->grade->id}/sections");
-        }
-        
-        return redirect('/advisory');
+       $this->unAssignedPreviousTeacher();
+       $this->assignedCurrentTeacher();
+       $this->changeLinkBetweenTeacherAndSection();
+       return $this->redirectToAppropriatePage();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Section $section)
     {
         $section->teachers()->first()->update(['assigned' => false]);
         $section->teachers()->first()->pivot->delete();
         return redirect('/advisory');
     }
+
+
+    private function unAssignedPreviousTeacher()
+    {
+         $this->section->teachers()->first()->update(['assigned' => 0]);
+    }
+
+    private function assignedCurrentTeacher()
+    {
+         $this->teacher->update(['assigned' => 1]);
+    }
+
+    private function createLinkBetweenTeacherAndSection()
+    {
+         $this->section->teachers()->attach($this->teacher->id);
+    }
+
+    public function changeLinkBetweenTeacherAndSection()
+    {
+        $this->section->teachers()->first()->pivot->update([
+            'teacher_id' => $this->teacher->id
+        ]);
+    }
+
+    private function redirectToAppropriatePage()
+    {
+        if(session('my_url') == 'grade')
+        {
+            $gradeId = $this->section->grade->id;
+             return redirect("/grade/$gradeId/sections");
+        }
+        return redirect('/advisory');
+    }
+
 }
