@@ -59,11 +59,11 @@ $options = [
 
 @list(compact('options'))
 	@slot('label')
-	Classification
+	Job Type
 	@endslot
 
 	@slot('name')
-	classification
+	job_type
 	@endslot
 
 	@slot('value')
@@ -123,6 +123,20 @@ $options = [
 	@slot('value')
 	@endslot
 @endnumber
+
+@date
+	@slot('label')
+	Date Registered
+	@endslot
+
+	@slot('name')
+	date_registered
+	@endslot
+
+	@slot('value')
+	@endslot
+@enddate
+
 
 @action
 /teachers

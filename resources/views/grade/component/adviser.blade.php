@@ -28,6 +28,31 @@
 					</div>
 				</div>
 
+				<div class="form-group">
+					<strong>Home Address</strong>
+					<div class="border-bottom">
+					{{ $adviser['home_address'] }}
+					</div>
+				</div>
+
+				<div class="form-group">
+					<strong>Email</strong>
+					<div class="border-bottom">
+					{{ $adviser['email'] }}
+					</div>
+				</div>
+
+				<div class="form-group">
+					<strong>Contact</strong>
+					<div class="border-bottom">
+					{{ $adviser['contact'] }}
+					</div>
+				</div>
+
+			</div>
+
+			<div class="modal-footer">
+				<button class="btn btn-secondary" data-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>

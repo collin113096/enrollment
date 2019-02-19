@@ -22,7 +22,9 @@ class CreateTeachersTable extends Migration
             $table->date('birth_date');
             $table->string('email');
             $table->string('contact');
-            $table->string('classification');
+            $table->string('job_type');
+            $table->string('date_registered');
+            $table->string('photo');
             $table->boolean('assigned')->default(false);
         });
     }
