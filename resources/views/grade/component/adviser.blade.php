@@ -5,6 +5,9 @@
 				<h3>Adviser Information</h3>
 			</div>
 			<div class="modal-body">
+				<div>
+					
+				</div>
 				<div class="form-group">
 					<strong>Adviser Name</strong>
 					<div class="border-bottom">
@@ -15,9 +18,9 @@
 				</div>
 
 				<div class="form-group">
-					<strong>Classification</strong>
+					<strong>Job Type</strong>
 					<div class="border-bottom">
-					{{ $adviser['classification'] }}
+					{{ $adviser['job_type'] }}
 					</div>
 				</div>
 
@@ -25,6 +28,13 @@
 					<strong>Birth Date</strong>
 					<div class="border-bottom">
 					{{ date('M j,Y', strtotime($adviser['birth_date'])) }}
+					</div>
+				</div>
+
+				<div class="form-group">
+					<strong>Date Registered</strong>
+					<div class="border-bottom">
+					{{ date('M j,Y', strtotime($adviser['date_registered'])) }}
 					</div>
 				</div>
 

@@ -3,13 +3,30 @@
 @section('body')
 @component('component.create.form')
 
+@section('enctype')
+<form method="post" action="/teachers" enctype="multipart/form-data">
+@endsection
+
 @slot('url')
-/teachers
 @endslot
 
 @slot('title')
 Create Teacher
 @endslot
+
+@file
+	@slot('label')
+	Upload Photo
+	@endslot
+
+	@slot('name')
+	photo
+	@endslot
+
+	@slot('for')
+	photo
+	@endslot
+@endfile
 
 @text
 	@slot('label')
@@ -83,6 +100,19 @@ $options = [
 	@endslot
 @enddate
 
+@date
+	@slot('label')
+	Date Registered
+	@endslot
+
+	@slot('name')
+	date_registered
+	@endslot
+
+	@slot('value')
+	@endslot
+@enddate
+
 <hr>
 
 @text
@@ -123,20 +153,6 @@ $options = [
 	@slot('value')
 	@endslot
 @endnumber
-
-@date
-	@slot('label')
-	Date Registered
-	@endslot
-
-	@slot('name')
-	date_registered
-	@endslot
-
-	@slot('value')
-	@endslot
-@enddate
-
 
 @action
 /teachers

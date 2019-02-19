@@ -36,7 +36,8 @@ class TeacherController extends Controller
      */
     public function store()
     {
-        Teacher::create(request()->all());
+        $photo = request('photo')->store('/');
+        Teacher::create(request()->except('photo') + compact('photo'));
         return redirect('/teachers');
     }
 
