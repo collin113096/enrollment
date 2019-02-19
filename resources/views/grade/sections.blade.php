@@ -18,7 +18,7 @@
 				@component('grade.component.section',['section' => $section, 'loop' => $loop])
 				@endcomponent
 
-				@component('grade.component.adviser',['adviser' => $section->teachers->first(), 'loop' => $loop])
+				@component('grade.component.adviser',['adviser' => $section->teachers->first(), 'loop' => $loop, 'section' => $section])
 				@endcomponent
 
 			

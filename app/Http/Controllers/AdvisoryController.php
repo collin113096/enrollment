@@ -84,6 +84,12 @@ class AdvisoryController extends Controller
         $section->teachers()->first()->update(['assigned' => 0]);
         $teacher->update(['assigned' => 1]);
         $section->teachers()->first()->pivot->update(['teacher_id' => $teacher->id]);
+
+         if(session('my_url') == 'grade')
+        {
+             return redirect("/grade/{$section->grade->id}/sections");
+        }
+        
         return redirect('/advisory');
     }
 

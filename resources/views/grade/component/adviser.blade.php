@@ -73,6 +73,7 @@
 			</div>
 
 			<div class="modal-footer">
+				<a class="btn btn-secondary" href="/advisory/{{ $section->id }}/edit">Change Adviser</a>
 				<button class="btn btn-secondary" data-dismiss="modal">Close</button>
 			</div>
 		</div>
