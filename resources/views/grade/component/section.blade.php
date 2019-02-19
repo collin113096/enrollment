@@ -10,7 +10,7 @@
 			<div class="card-footer">
 				<label>Section Adviser:</label>
 				<h6>
-					<a href="">
+					<a href="#adviser-{{ $loop->iteration }}" data-toggle="modal">
 					@if($section->teachers->count())
 						{{ $section->teachers->first()->last_name }}, 
 						{{ $section->teachers->first()->first_name }}

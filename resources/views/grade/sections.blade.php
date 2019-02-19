@@ -14,8 +14,14 @@
 	<div class="card-body">
 		<div class="row">
 			@foreach($grade->sections as $section)
-				@component('grade.component.section',['section' => $section])
+
+				@component('grade.component.section',['section' => $section, 'loop' => $loop])
 				@endcomponent
+
+				@component('grade.component.adviser',['adviser' => $section->teachers->first(), 'loop' => $loop])
+				@endcomponent
+
+			
 			@endforeach
 		</div>
 	</div>
