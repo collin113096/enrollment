@@ -14,6 +14,7 @@ class AdvisoryController extends Controller
      */
     public function index()
     {
+        session(['my_url' => 'advisory']);
         $sections = Section::paginate(8);
         return view('advisory.index',compact('sections'));
     }
@@ -39,8 +40,13 @@ class AdvisoryController extends Controller
     {
         $teacher->update(['assigned' => 1]);
         $section->teachers()->attach($teacher->id);
+        if(session('my_url') == 'grade')
+        {
+             return redirect("/grade/{$section->grade->id}/sections");
+        }
         
         return redirect('/advisory');
+       
     }
 
     /**
