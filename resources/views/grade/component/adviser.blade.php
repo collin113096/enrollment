@@ -1,61 +1,72 @@
 <div class="modal fade" id="adviser-{{ $loop->iteration }}">
 	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
+		<div class="modal-content bg-dark text-white">
+			<div class="modal-header bg-dark text-white">
 				<h3>Adviser Information</h3>
 			</div>
 			<div class="modal-body">
-				<div>
-					
-				</div>
-				<div class="form-group">
-					<strong>Adviser Name</strong>
-					<div class="border-bottom">
-					{{ $adviser['last_name'] }},
-					{{ $adviser['first_name'] }}
-					{{ $adviser['middle_name'] }}
+				@php
+					$url = $adviser['photo'];
+				@endphp
+				<div class="form-group py-5">
+					<div class="text-center">
+						<img class="w-50 rounded-circle" src='{{ asset("storage/$url") }}'>
 					</div>
 				</div>
 
-				<div class="form-group">
-					<strong>Job Type</strong>
-					<div class="border-bottom">
-					{{ $adviser['job_type'] }}
+				<!-- ADVISER NAME -->
+				<div class="form-row form-group">
+					<label class="col-md-4 text-md-right col-form-label"><strong>Adviser Name</strong></label>
+					<div class="col-md-6">
+						<input class="bg-white form-control" type="text" name="last_name" value="{{ $adviser['last_name'] }}, {{ $adviser['first_name'] }} {{ $adviser['middle_name'] }}" disabled="">
 					</div>
 				</div>
 
-				<div class="form-group">
-					<strong>Birth Date</strong>
-					<div class="border-bottom">
-					{{ date('M j,Y', strtotime($adviser['birth_date'])) }}
+				<!-- JOB TYPE -->
+				<div class="form-row form-group">
+					<label class="col-md-4 text-md-right col-form-label"><strong>Job Type</strong></label>
+					<div class="col-md-6">
+						<input class="bg-white form-control" type="text" name="job_type" value="{{ $adviser['job_type'] }}" disabled="">
 					</div>
 				</div>
 
-				<div class="form-group">
-					<strong>Date Registered</strong>
-					<div class="border-bottom">
-					{{ date('M j,Y', strtotime($adviser['date_registered'])) }}
+				<!-- BIRTH DATE-->
+				<div class="form-row form-group">
+					<label class="col-md-4 text-md-right col-form-label"><strong>Birth Date</strong></label>
+					<div class="col-md-6">
+						<input class="bg-white form-control" type="date" name="birth_date" value="{{ $adviser['birth_date'] }}" disabled="">
 					</div>
 				</div>
 
-				<div class="form-group">
-					<strong>Home Address</strong>
-					<div class="border-bottom">
-					{{ $adviser['home_address'] }}
+				<!-- Date Registered-->
+				<div class="form-row form-group">
+					<label class="col-md-4 text-md-right col-form-label"><strong>Date Registered</strong></label>
+					<div class="col-md-6">
+						<input class="bg-white form-control" type="date" name="date_registered" value="{{ $adviser['date_registered'] }}" disabled="">
 					</div>
 				</div>
 
-				<div class="form-group">
-					<strong>Email</strong>
-					<div class="border-bottom">
-					{{ $adviser['email'] }}
+				<!-- Home Address-->
+				<div class="form-row form-group">
+					<label class="col-md-4 text-md-right col-form-label"><strong>Home Address</strong></label>
+					<div class="col-md-6">
+						<input class="bg-white form-control" type="text" name="home_address" value="{{ $adviser['home_address'] }}" disabled="">
 					</div>
 				</div>
 
-				<div class="form-group">
-					<strong>Contact</strong>
-					<div class="border-bottom">
-					{{ $adviser['contact'] }}
+				<!-- Email-->
+				<div class="form-row form-group">
+					<label class="col-md-4 text-md-right col-form-label"><strong>Email</strong></label>
+					<div class="col-md-6">
+						<input class="bg-white form-control" type="text" name="email" value="{{ $adviser['email'] }}" disabled="">
+					</div>
+				</div>
+
+				<!-- Contact -->
+				<div class="form-row form-group">
+					<label class="col-md-4 text-md-right col-form-label"><strong>Contact</strong></label>
+					<div class="col-md-6">
+						<input class="bg-white form-control" type="number" name="contact" value="{{ $adviser['contact'] }}" disabled="">
 					</div>
 				</div>
 
