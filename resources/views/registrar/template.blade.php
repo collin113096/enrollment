@@ -31,6 +31,12 @@
   background: #555; 
 }
 
+@media screen and (max-width:425px){
+	.text-sm-center-custom{
+		text-align: center;
+	}
+}
+
 </style>
 @section('content')
 <div class="container">
@@ -65,20 +71,12 @@
 			</div>
 		</div>
 		
-		@section('body_width')
 		<div class="col-md-9">
-		@show
-		@section('body')
+			@section('body')
 			@include('registrar.default')
-		@show
+			@show
 		</div>	
 
-		@section('students_width')
-		<div class="col-md-3">
-		@show
-		@section('students')
-		@show
-		</div>
 	</div>
 </div>
 @endsection
