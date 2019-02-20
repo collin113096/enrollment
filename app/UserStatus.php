@@ -34,7 +34,7 @@ class UserStatus extends Model
     	}
     	elseif($this->status()->form && $this->status()->document)
     	{
-    		return redirect('/home');
+    		return view('student.waiting_page',['student' => $this->student]);
     	}else{
     		return view('application.form');
     	}

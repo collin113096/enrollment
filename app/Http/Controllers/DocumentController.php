@@ -14,7 +14,7 @@ class DocumentController extends Controller
     	return $user->redirectToAppropriatePage();
     }
 
-    public function store(Student $student){
+    public function store(Student $student, Sms $sms){
 
         $student->saveDocument();
         $student->updateDocumentStatus();

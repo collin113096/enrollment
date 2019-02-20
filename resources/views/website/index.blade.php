@@ -1,8 +1,11 @@
 @extends('website.template')
+
 @section('main')
 <main>
 @endsection
+
 @include('website.style')
+
 @section('body')
 <!-- CAROUSEL -->
 <div id="carouselSample" class="carousel slide" data-ride="carousel">
