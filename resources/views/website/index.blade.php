@@ -94,55 +94,72 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div id="faculty" class="carousel slide" data-ride="carousel">
-		<div class="carousel-inner">
-				@inject('teacher','App\Teacher')
+				<div class="carousel-inner">
+						@inject('teacher','App\Teacher')
 
-				@foreach($teacher->all() as $teacher)
+						@foreach($teacher->all() as $teacher)
 
-				@if($loop->iteration == 1)
-					<div class="carousel-item active">
-					<div class="row">
-				@else
-					@if($loop->iteration == 4 || $loop->iteration == 7 || 
-					$loop->iteration == 10 ||
-					$loop->iteration == 13 || $loop->iteration == 16 || $loop->iteration == 19 || $loop->iteration == 22
-					)
-					<div class="carousel-item">
-					<div class="row">
-					@endif
-				@endif			
-						@component('website.teacher')
-							@slot('photo')
-							{{ asset("storage/$teacher->photo") }}
-							@endslot
+						@if($loop->iteration == 1)
+							<div class="carousel-item active">
+							<div class="row">
+						@else
+							@if($loop->iteration == 4 || $loop->iteration == 7 || 
+							$loop->iteration == 10 ||
+							$loop->iteration == 13 || $loop->iteration == 16 || $loop->iteration == 19 || $loop->iteration == 22
+							)
+							<div class="carousel-item">
+							<div class="row">
+							@endif
+						@endif			
+								@component('website.teacher')
+									@slot('photo')
+									{{ asset("storage/$teacher->photo") }}
+									@endslot
 
-							@slot('name')
-							{{ $teacher->last_name }}, {{ $teacher->first_name }} {{$teacher->middle_name }}
-							@endslot
+									@slot('name')
+									{{ $teacher->last_name }}, {{ $teacher->first_name }} {{$teacher->middle_name }}
+									@endslot
 
-							@slot('job_type')
-							{{ $teacher->job_type }}
-							@endslot
-						@endcomponent				
-				@if($loop->iteration % 3 == 0)
+									@slot('job_type')
+									{{ $teacher->job_type }}
+									@endslot
+								@endcomponent				
+						@if($loop->iteration % 3 == 0)
+						</div>
+						</div>
+						@endif
+
+						@endforeach
+				<!-- CAROUSEL INNER -->
 				</div>
-				</div>
-				@endif
 
-				@endforeach
+			<a class="carousel-control-prev text-dark" href="#faculty" data-slide="prev">
+				<i class="fa fa-chevron-left"></i>
+			</a>
+			<a class="carousel-control-next text-dark" href="#faculty" data-slide="next">
+				<i class="fa fa-chevron-right"></i>
+			</a>
+
+		<!-- CAROUSEL -->
 		</div>
 
-	<a class="carousel-control-prev text-dark" href="#faculty" data-slide="prev">
-		<i class="fa fa-chevron-left"></i>
-	</a>
-	<a class="carousel-control-next text-dark" href="#faculty" data-slide="next">
-		<i class="fa fa-chevron-right"></i>
-	</a>
-</div>	
+		<!-- CAROUSEL INNER -->
 		</div>
+
+	<!-- FACULTY CAROUSEL -->
 	</div>
+
+<!-- COLUMN 12 -->
 </div>
+
+
+<!-- ROW 2 -->
 </div>
+
+<!-- CONTAINER -->
+</div>
+
+<!-- WRAPPER -->
 </div>
 
 <!-- FOOTER -->
