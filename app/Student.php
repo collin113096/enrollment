@@ -125,4 +125,9 @@ class Student extends Model
         ->whereNotIn('id',$registers->toArray())
         ->where('admitted',1);
     }
+
+    public function isAdmitted()
+    {
+        return $this->admitted ? true : false;
+    }
 }

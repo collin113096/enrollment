@@ -23,6 +23,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return auth()->id() != 1 ? view('application.form') : view('registrar.template');
+        return auth()->id() != 1 ? redirect('/application_form') : view('registrar.template');
     }
 }
