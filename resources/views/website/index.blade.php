@@ -30,7 +30,7 @@
 			<h3 class="py-3 font-weight-bold h1">Mission Statement</h3>
 			<p>Pagsanjan Academy which was founded in 1923 is committed to foster quality education to the youth of the community of Pagsanjan and its vicinities. It is a non-sectarian school for boys and girls which aims to give them a round, complete and general education and thus promote their intellectual and moral development.</p>
 			<p>It seeks to provide opportunity for all students to foster the development of future citizens within the frameworks of the Department of Education which focuses Values Education for all students and creates a balance between sciences and humanities guided by faith in God.</p>
-			<button class="btn btn-primary btn-lg mt-3">Enroll Now !</button>
+			<a class="btn btn-primary btn-lg mt-3" href="/register">Enroll Now !</a>
 		</div>
 		<div class="col-md-6 d-flex align-items-center justify-content-center">
 			<img class="w-50" src="{{ asset('images/facility/student.PNG') }}">
