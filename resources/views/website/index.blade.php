@@ -143,6 +143,7 @@
 	</div>
 </div>
 </div>
+</div>
 
 <!-- FOOTER -->
 <div class="text-justify bg-dark text-white py-5">
