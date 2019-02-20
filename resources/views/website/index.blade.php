@@ -88,49 +88,57 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
-			<h1 class="text-center mb-5 border-bottom pb-3">News and Events</h1>
+			<h1 class="text-center mb-5 border-bottom pb-3">Faculty</h1>
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-4 mb-3">
-			<div class="card">
-				<div class="card-img-top">
-					<img class="w-100" src="{{ asset('images/facility/arch.jpg') }}" alt="">
+		<div class="col-md-12">
+			<div id="faculty" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner">
+				@inject('teacher','App\Teacher')
+
+				@foreach($teacher->all() as $teacher)
+
+				@if($loop->iteration == 1)
+					<div class="carousel-item active">
+					<div class="row">
+				@else
+					@if($loop->iteration == 4 || $loop->iteration == 7 || 
+					$loop->iteration == 10 ||
+					$loop->iteration == 13 || $loop->iteration == 16 || $loop->iteration == 19 || $loop->iteration == 22
+					)
+					<div class="carousel-item">
+					<div class="row">
+					@endif
+				@endif			
+						@component('website.teacher')
+							@slot('photo')
+							{{ asset("storage/$teacher->photo") }}
+							@endslot
+
+							@slot('name')
+							{{ $teacher->last_name }}, {{ $teacher->first_name }} {{$teacher->middle_name }}
+							@endslot
+
+							@slot('job_type')
+							{{ $teacher->job_type }}
+							@endslot
+						@endcomponent				
+				@if($loop->iteration % 3 == 0)
 				</div>
-				<div class="card-body">
-					<div class="card-title"><strong>Rizal Day</strong></div>
-					<p style="height:120px; overflow:hidden;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque sequi, in distinctio. Repudiandae quas saepe quis, at nobis tempore reprehenderit corrupti cumque quidem sapiente corporis nisi ipsa iure repellat ex.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque sequi, in distinctio. Repudiandae quas saepe quis, at nobis tempore reprehenderit corrupti cumque quidem sapiente corporis nisi ipsa iure repellat ex.
-					</p>
-					<button class="btn btn-primary mt-3">Learn More</button>
 				</div>
-			</div>
+				@endif
+
+				@endforeach
 		</div>
 
-		<div class="col-md-4 mb-3">
-			<div class="card">
-				<div class="card-img-top">
-					<img class="w-100" src="{{ asset('images/facility/arch.jpg') }}" alt="">
-				</div>
-				<div class="card-body">
-					<div class="card-title"><strong>Bonifacio Day</strong></div>
-					<p style="height:120px; overflow:hidden;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque sequi, in distinctio. Repudiandae quas saepe quis, at nobis tempore reprehenderit corrupti cumque quidem sapiente corporis nisi ipsa iure repellat ex.</p>
-					<button class="btn btn-primary mt-3">Learn More</button>
-				</div>
-			</div>
-		</div>
-
-		<div class="col-md-4 mb-3">
-			<div class="card">
-				<div class="card-img-top">
-					<img class="w-100" src="{{ asset('images/facility/arch.jpg') }}" alt="">
-				</div>
-				<div class="card-body">
-					<div class="card-title"><strong>Chinese New Year</strong></div>
-					<p style="height:120px; overflow:hidden;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque sequi, in distinctio. Repudiandae quas saepe quis, at nobis tempore reprehenderit corrupti cumque quidem sapiente corporis nisi ipsa iure repellat ex.</p>
-					<button class="btn btn-primary mt-3">Learn More</button>
-				</div>
-			</div>
+	<a class="carousel-control-prev text-dark" href="#faculty" data-slide="prev">
+		<i class="fa fa-chevron-left"></i>
+	</a>
+	<a class="carousel-control-next text-dark" href="#faculty" data-slide="next">
+		<i class="fa fa-chevron-right"></i>
+	</a>
+</div>	
 		</div>
 	</div>
 </div>

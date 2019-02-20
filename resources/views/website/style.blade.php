@@ -10,4 +10,8 @@
 	.divider2 {
     background-image: linear-gradient(183deg,#ffed4a 50%, #f8fafc 50%);
 	}
+
+	#faculty .carousel-control-next, #faculty .carousel-control-prev{
+		width:7%;
+	}
 </style>
