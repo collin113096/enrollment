@@ -19,6 +19,7 @@ class CreateRegistersTable extends Migration
             $table->string('student_lrn');
             $table->string('school_year');
             $table->unsignedInteger('section_id');
+            $table->timestamps();
 
             $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             $table->foreign('section_id')->references('id')->on('sections')->onDelete('cascade');

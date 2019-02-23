@@ -25,9 +25,9 @@
 		</div>
 
 		<div class="card-footer">
-				<button class="btn btn-sm badge-pill">Personal Info</button>
-				<button class="btn btn-sm badge-pill">Documents</button>
-				<button class="btn btn-sm badge-pill">Grades</button>
+				<button class="btn btn-sm badge-pill" data-toggle="modal" data-target="#personal-info{{ $student->id }}">Personal Info</button>
+				<button class="btn btn-sm badge-pill" data-toggle="modal" data-target="#documents{{ $student->id }}">Documents</button>
+				<button class="btn btn-sm badge-pill" data-toggle="modal" data-target="#grades{{ $student->id }}">Grades</button>
 		</div>
 
 	</div>
