@@ -132,6 +132,11 @@ class Student extends Model
         return $this->admitted ? true : false;
     }
 
+     public function isRegistered()
+    {
+         return DB::table('registers')->where('student_id',$this->id)->pluck('student_id')->first() ? true : false;
+    }
+
     public function fee($payment_mode)
     {
         return Fee::where([

@@ -13,7 +13,7 @@
 					<li>Mother's Contact No. {{ $student->mother->contact }}</li>
 				</ul>
 			</div>
-			@else
+			@elseif(!$student->isRegistered())
 			<div class="alert alert-success boder-success">
 				<h1>You're Admitted to Pagsanjan Academy</h1>
 				<p>Register Now at Pagsanjan Academy. Make a payment, whether you want to pay through online or through the school the choice is yours</p>
@@ -65,6 +65,10 @@
 						</div>
 					</div>
 				</div>
+			</div>
+			@else
+			<div class="alert alert-success border-success">
+				<h1>You are now successfully Enrolled!</h1>
 			</div>
 			@endif
 		</div>
