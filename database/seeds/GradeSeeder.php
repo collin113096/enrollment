@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Grade;
 
 class GradeSeeder extends Seeder
 {
@@ -11,10 +12,14 @@ class GradeSeeder extends Seeder
      */
     public function run()
     {
-        for($i=1;$i<=10;$i++){
-        	\App\Grade::create([
-        		'name' => 'Grade '.$i,
-       		 ]);
-        }
+	   Grade::create(['name' => 'Nursery']);
+       Grade::create(['name' => 'Kinder']);
+       Grade::create(['name' => 'Prep']);
+
+      for($i=1;$i<=10;$i++)
+      {
+             Grade::create(['name' => 'Grade '.$i]);
+      }
+
     }
 }
