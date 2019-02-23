@@ -44,7 +44,7 @@
 										Bring Assessment Form
 									</strong>
 									<div>
-										<a class="mt-1 btn btn-primary btn-sm" href="">Save as PDF</a>
+										<a class="mt-1 btn btn-primary btn-sm" href="/assessments">Save as PDF</a>
 									</div>
 							</div>
 							</div>
