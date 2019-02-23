@@ -26,6 +26,7 @@ All Fees
 	<th>Tuition</th>
 	<th>Misc</th>
 	<th>Computer</th>
+	<th>Internet</th>
 	<th class="text-center">Action</th>
 @endslot
 
@@ -38,6 +39,7 @@ All Fees
 		<td>{{ $fee->tuition }}</td>
 		<td>{{ $fee->misc }}</td>
 		<td>{{ $fee->computer }}</td>
+		<td>{{ $fee->internet }}</td>
 		<td class="text-center">
 		@edit
 			@slot('href')

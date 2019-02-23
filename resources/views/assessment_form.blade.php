@@ -24,7 +24,7 @@
 				</tr>
 				<tr>
 					<td><strong>Internet</strong></td>
-					<td>1200</td>
+					<td>{{ $fee->internet }}</td>
 				</tr>
 			</tbody>
 		</table>

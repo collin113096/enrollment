@@ -54,7 +54,7 @@ $modes = [
 
 @number
 	@slot('label')
-		Registration
+		Registration Fee
 	@endslot
 	@slot('name')
 		registration
@@ -65,7 +65,7 @@ $modes = [
 
 @number
 	@slot('label')
-	Tuition 
+	Tuition Fee
 	@endslot
 
 	@slot('name')
@@ -78,7 +78,7 @@ $modes = [
 
 @number
 	@slot('label')
-	Misc
+	Misc Fee
 	@endslot
 	@slot('name')
 		misc
@@ -89,13 +89,24 @@ $modes = [
 
 @number
 	@slot('label')
-	Computer
+	Computer Fee
 	@endslot
 
 	@slot('name')
 	computer
 	@endslot
 
+	@slot('value')
+	@endslot
+@endnumber
+
+@number
+	@slot('label')
+	Internet Fee
+	@endslot
+	@slot('name')
+	internet
+	@endslot
 	@slot('value')
 	@endslot
 @endnumber

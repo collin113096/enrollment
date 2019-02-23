@@ -54,7 +54,7 @@ $modes = [
 
 @number
 	@slot('label')
-	Registration
+	Registration Fee
 	@endslot
 
 	@slot('name')
@@ -68,7 +68,7 @@ $modes = [
 
 @number
 	@slot('label')
-	Tuition
+	Tuition Fee
 	@endslot
 
 	@slot('name')
@@ -82,7 +82,7 @@ $modes = [
 
 @number
 	@slot('label')
-	Misc
+	Misc Fee
 	@endslot
 
 	@slot('name')
@@ -96,7 +96,7 @@ $modes = [
 
 @number
 	@slot('label')
-	Computer
+	Computer Fee
 	@endslot
 
 	@slot('name')
@@ -105,6 +105,20 @@ $modes = [
 
 	@slot('value')
 	{{ $fee->registration }}
+	@endslot
+@endnumber
+
+@number
+	@slot('label')
+	Internet Fee
+	@endslot
+
+	@slot('name')
+	internet
+	@endslot
+
+	@slot('value')
+	{{ $fee->internet }}
 	@endslot
 @endnumber
 
