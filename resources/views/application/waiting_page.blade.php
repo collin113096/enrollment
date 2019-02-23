@@ -21,12 +21,17 @@
 			<div class="text-center">
 				<div class="row">
 					<div class="col-md-6">
-						<div class="card mb-3">
+						<div class="card mb-3" style="height:493px">
 							<div class="card-header">
 								<h3 class="font-weight-bold">Method One</h3>
 								<strong>Make Payment through School</strong>
 							</div>
 							<div class="card-body">
+								<div class="alert bg-light">
+									<h5 class="text-danger"><strong>Enroll only with only 1,500</strong></h5>
+									<p>Everything to pay by installment for whole year</p>
+									<p><strong>Note:</strong> Books - Cash</p>
+								</div>
 								<form method="post" action="/assessments/{{ $student->id }}">
 									@csrf
 								<div class="py-3">
@@ -60,7 +65,48 @@
 								<strong>Make payment through Online</strong>
 							</div>
 							<div class="card-body">
-							
+								<!-- STRIPE FORM -->
+								
+								<form action="/api/charge" method="POST">
+																
+									<div class="form-group form-row">
+										<label for="" class="col-md-4 col-form-label text-md-right"><strong>Registration Fee</strong></label>
+										<div class="col-md-6"><input type="text" class="form-control" readonly="" value="{{ $student->fee('Cash')->registration }}"></div>
+									</div>
+									<div class="form-group form-row">
+										<label for="" class="col-md-4 col-form-label text-md-right"><strong>Tuition Fee</strong></label>
+										<div class="col-md-6"><input type="text" class="form-control" readonly="" value="{{ $student->fee('Cash')->tuition }}"></div>
+									</div>
+									<div class="form-group form-row">
+										<label for="" class="col-md-4 col-form-label text-md-right"><strong>Misc Fee</strong></label>
+										<div class="col-md-6"><input type="text" class="form-control" readonly="" value="{{ $student->fee('Cash')->misc }}"></div>
+									</div>
+									<div class="form-group form-row">
+										<label for="" class="col-md-4 col-form-label text-md-right"><strong>Computer Fee</strong></label>
+										<div class="col-md-6"><input type="text" class="form-control" readonly="" value="{{ $student->fee('Cash')->computer }}"></div>
+									</div>
+									<div class="form-group form-row">
+										<label for="" class="col-md-4 col-form-label text-md-right"><strong>Internet Fee</strong></label>
+										<div class="col-md-6"><input type="text" class="form-control" readonly="" value="{{ $student->fee('Cash')->internet }}"></div>
+									</div>
+								
+									<div class="form-group form-row">
+										<label for="" class="col-md-4 col-form-label text-md-right"><strong>Fee Total</strong></label>
+										<div class="col-md-6"><input type="text" class="form-control" readonly="" name="total_fee" value="{{ $student->fee('Cash')->total() }}"></div>
+									</div>
+								  <script
+								    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+								    data-key="{{ config('services.stripe.key' )}}"
+								    data-amount="{{ $student->fee('Cash')->total() * 100}}"
+								    data-name="Pagsanjan Academy"
+								    data-description="Online Enrollment"
+								    data-image="{{ asset('images/pagsanjan-academy-logo.png') }}"
+								    data-locale="auto"
+								    data-zip-code="true"
+								    data-currency="php">
+								  </script>
+								</form>
+								<!-- END STRIPE FORM -->
 							</div>
 						</div>
 					</div>

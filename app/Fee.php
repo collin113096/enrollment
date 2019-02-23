@@ -34,6 +34,6 @@ class Fee extends Model
 
     public function total()
     {
-        return $this->registration + $this->tuition + $this->misc + $this->computer;
+        return $this->registration + $this->tuition + $this->misc + $this->computer + $this->internet;
     }
 }
