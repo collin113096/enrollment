@@ -1,6 +1,12 @@
 @extends('enrollee.template')
 
 @section('content')
+<style>
+	.form-row .col-md-6 
+{
+    border-bottom: 1px solid gainsboro;
+}
+</style>
 <div class="container">
 	<div class="row">
 		<div class="col-md-12">
@@ -71,28 +77,28 @@
 																
 									<div class="form-group form-row">
 										<label for="" class="col-md-4 col-form-label text-md-right"><strong>Registration Fee</strong></label>
-										<div class="col-md-6"><input type="text" class="form-control" readonly="" value="{{ $student->fee('Cash')->registration }}"></div>
+										<div class="col-md-6"><input type="text" class="form-control bg-white border-0" readonly="" value="{{ $student->fee('Cash')->registration }}"></div>
 									</div>
 									<div class="form-group form-row">
 										<label for="" class="col-md-4 col-form-label text-md-right"><strong>Tuition Fee</strong></label>
-										<div class="col-md-6"><input type="text" class="form-control" readonly="" value="{{ $student->fee('Cash')->tuition }}"></div>
+										<div class="col-md-6"><input type="text" class="form-control bg-white border-0" readonly="" value="{{ $student->fee('Cash')->tuition }}"></div>
 									</div>
 									<div class="form-group form-row">
 										<label for="" class="col-md-4 col-form-label text-md-right"><strong>Misc Fee</strong></label>
-										<div class="col-md-6"><input type="text" class="form-control" readonly="" value="{{ $student->fee('Cash')->misc }}"></div>
+										<div class="col-md-6"><input type="text" class="form-control bg-white border-0" readonly="" value="{{ $student->fee('Cash')->misc }}"></div>
 									</div>
 									<div class="form-group form-row">
 										<label for="" class="col-md-4 col-form-label text-md-right"><strong>Computer Fee</strong></label>
-										<div class="col-md-6"><input type="text" class="form-control" readonly="" value="{{ $student->fee('Cash')->computer }}"></div>
+										<div class="col-md-6"><input type="text" class="form-control bg-white border-0" readonly="" value="{{ $student->fee('Cash')->computer }}"></div>
 									</div>
 									<div class="form-group form-row">
 										<label for="" class="col-md-4 col-form-label text-md-right"><strong>Internet Fee</strong></label>
-										<div class="col-md-6"><input type="text" class="form-control" readonly="" value="{{ $student->fee('Cash')->internet }}"></div>
+										<div class="col-md-6"><input type="text" class="form-control bg-white border-0" readonly="" value="{{ $student->fee('Cash')->internet }}"></div>
 									</div>
 								
 									<div class="form-group form-row">
 										<label for="" class="col-md-4 col-form-label text-md-right"><strong>Fee Total</strong></label>
-										<div class="col-md-6"><input type="text" class="form-control" readonly="" name="total_fee" value="{{ $student->fee('Cash')->total() }}"></div>
+										<div class="col-md-6"><input type="text" class="form-control bg-white border-0" readonly="" name="total_fee" value="{{ $student->fee('Cash')->total() }}"></div>
 									</div>
 								  <script
 								    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
