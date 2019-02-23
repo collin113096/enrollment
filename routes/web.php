@@ -52,7 +52,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/grade/{grade}/sections','GradeSectionController@displaySections');
 	Route::get('/grade/{grade}/section/{section}/students','SectionStudentController@displayStudents');
 
-	Route::get('/assessments','AssessmentController@download');
+	Route::post('/assessments/{student}','AssessmentController@download');
 });
 Auth::routes();
 

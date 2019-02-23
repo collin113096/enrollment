@@ -27,15 +27,17 @@
 								<strong>Make Payment through School</strong>
 							</div>
 							<div class="card-body">
+								<form method="post" action="/assessments/{{ $student->id }}">
+									@csrf
 								<div class="py-3">
 									<strong>Choose Mode of Payment</strong>
 									<div class="custom-control custom-radio">
-										<input class="custom-control-input" type="radio" name="mode_of_payment" id="cash">
+										<input class="custom-control-input" type="radio" name="payment_mode" id="cash" value="Cash">
 										<label class="custom-control-label" for="cash">Cash</label>							
 									</div>
 
 									<div class="custom-control custom-radio">
-										<input class="custom-control-input" type="radio" name="mode_of_payment" id="installment">
+										<input class="custom-control-input" type="radio" name="payment_mode" id="installment" value="Installment">
 										<label class="custom-control-label" for="installment">Installment</label>
 									</div>
 								</div>
@@ -44,9 +46,10 @@
 										Bring Assessment Form
 									</strong>
 									<div>
-										<a class="mt-1 btn btn-primary btn-sm" href="/assessments">Save as PDF</a>
+										<button class="mt-1 btn btn-primary btn-sm">Save as PDF</button>
 									</div>
-							</div>
+								</div>
+								</form>
 							</div>
 						</div>
 					</div>

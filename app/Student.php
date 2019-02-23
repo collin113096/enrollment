@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Register;
+use App\Fee;
 use Illuminate\Support\Facades\DB;
 
 class Student extends Model
@@ -129,5 +130,13 @@ class Student extends Model
     public function isAdmitted()
     {
         return $this->admitted ? true : false;
+    }
+
+    public function fee($payment_mode)
+    {
+        return Fee::where([
+            ['payment_mode', $payment_mode],
+            ['grade_id', $this->grade->id]
+        ])->first();
     }
 }
