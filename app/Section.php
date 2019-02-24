@@ -36,4 +36,9 @@ class Section extends Model
         return $this->teachers->count() >= 1 ? true:false;
     }
 
+    public function haveNoStudents()
+    {
+        return $this->students->count() ? false : true;
+    }
+
 }
