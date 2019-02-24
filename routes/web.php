@@ -54,6 +54,7 @@ Route::group(['middleware' => 'auth'], function(){
 
 
 	Route::post('/assessments/{student}','AssessmentController@download');
+	Route::post('/sms/{student}','SmsController@send');
 });
 Auth::routes();
 

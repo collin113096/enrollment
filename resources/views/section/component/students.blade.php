@@ -28,6 +28,7 @@
 				<button class="btn btn-sm badge-pill" data-toggle="modal" data-target="#personal-info{{ $student->id }}">Personal Info</button>
 				<button class="btn btn-sm badge-pill" data-toggle="modal" data-target="#documents{{ $student->id }}">Documents</button>
 				<button class="btn btn-sm badge-pill" data-toggle="modal" data-target="#grades{{ $student->id }}">Grades</button>
+				<button class="btn btn-sm badge-pill mt-1" data-toggle="modal" data-target="#sms{{ $student->id }}">Send SMS</button>
 		</div>
 
 	</div>

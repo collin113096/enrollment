@@ -199,6 +199,27 @@
 						</div>
 					</div>
 				</div>
+
+				<!-- SMS -->
+				<div class="modal fade" id="sms{{ $student->id }}">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<strong>Send message to the parents of this student</strong>
+							</div>
+							<div class="modal-body">
+								<p>Once you send this message, it automatically goes to the student father and mother's contact no.</p>
+								<form method="post" action="/sms/{{ $student->id }}">
+									@csrf
+									<textarea class="form-control" name="message" rows="5">
+									</textarea>
+									<button class="btn btn-primary mt-3">Send Message</button>
+									<button class="btn mt-3" data-dismiss="modal">Cancel</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
 			@endforeach
 			@endif
 			@else
