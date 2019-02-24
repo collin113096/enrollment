@@ -4,6 +4,7 @@
 @inject('student','App\Student')
 @inject('register','App\Register')
 @inject('suggestion', 'App\Suggestion')
+@inject('teacher', 'App\Teacher')
 
 <li class="nav-item">
 	<a href="/applicants" class="nav-link">
@@ -30,6 +31,16 @@
 		Registered
 		<span class="badge badge-primary">
 			{{ $register->count() }}
+		</span>
+	</a>
+</li>
+
+<!-- 3RD LIST ITEM -->
+<li class="nav-item">
+	<a href="/payrolls" class="nav-link">
+		Payroll
+		<span class="badge badge-primary">
+			{{ $teacher->count() }}
 		</span>
 	</a>
 </li>

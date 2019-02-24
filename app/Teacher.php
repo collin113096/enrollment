@@ -24,4 +24,9 @@ class Teacher extends Model
         return $this->where('assigned',0)->get()->isEmpty();
     }
 
+    public function count()
+    {
+        return self::all()->count();
+    }
+
 }

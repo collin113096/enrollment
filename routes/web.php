@@ -55,6 +55,10 @@ Route::group(['middleware' => 'auth'], function(){
 
 	Route::post('/assessments/{student}','AssessmentController@download');
 	Route::post('/sms/{student}','SmsController@send');
+
+	Route::get('/payrolls','PayrollController@allTeachers');
+	Route::get('/payrolls/{teacher}','PayrollController@showTeacher');
+	
 });
 Auth::routes();
 
