@@ -154,11 +154,17 @@
 								<strong>Documents</strong>
 							</div>
 							<div class="modal-body">								
-								<div class="list-group">
+								@if($student->haveDocuments())
+								<div class="list-group list-group-flush">
 									@foreach($student->documents as $document)
 										<li class="list-group-item list-group-item-action" data-toggle="modal" data-target="#document{{ $document->id }}">{{ $document->document_type }}</li>
 									@endforeach
-								</div>								
+								</div>		
+								@else
+								<div class="alert alert-primary">
+									This student have no documents
+								</div>				
+								@endif		
 							</div>
 						</div>
 					</div>

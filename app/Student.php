@@ -144,4 +144,9 @@ class Student extends Model
             ['grade_id', $this->grade->id]
         ])->first();
     }
+
+    public function haveDocuments()
+    {
+        return $this->documents->count() ? true:false;
+    }
 }
