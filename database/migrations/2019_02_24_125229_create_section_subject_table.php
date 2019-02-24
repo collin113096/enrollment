@@ -14,8 +14,11 @@ class CreateSectionSubjectTable extends Migration
     public function up()
     {
         Schema::create('section_subject', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->unsignedInteger('section_id');
+            $table->unsignedInteger('subject_id');
+
+            $table->foreign('section_id')->references('id')->on("sections");
+            $table->foreign('subject_id')->references('id')->on('subjects');
         });
     }
 

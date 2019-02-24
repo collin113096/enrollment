@@ -14,8 +14,11 @@ class CreateSubjectTeacherTable extends Migration
     public function up()
     {
         Schema::create('subject_teacher', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
+            $table->unsignedInteger('subject_id');
+            $table->unsignedInteger('teacher_id');
+
+            $table->foreign('subject_id')->references('id')->on('subjects');
+            $table->foreign('teacher_id')->references('id')->on('teachers');
         });
     }
 
