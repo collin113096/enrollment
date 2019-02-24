@@ -1,4 +1,4 @@
-<form class="d-inline-block w-100" method="post" action="{{ $url }}">
+<form class="mb-0" method="post" action="{{ $url }}">
 @csrf
 @method('PATCH')
 @section('form_body')
