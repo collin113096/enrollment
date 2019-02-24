@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Samp extends Model
+class Sms extends Model
 {
 	private $message = "Pagsanjan Academy Online Enrollment";
 
