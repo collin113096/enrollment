@@ -23,8 +23,8 @@ class AdmissionController extends Controller
     public function update(Student $student, Sms $sms){
 
     	$student->admitted();
-        $sms->message("You're child is admitted to Pagsanjan Academy. To view payment procedure go to your account");
-        $sms->sentTo([$student->father->contact, $student->mother->contact]);
+        // $sms->message("You're child is admitted to Pagsanjan Academy. To view payment procedure go to your account");
+        // $sms->sentTo([$student->father->contact, $student->mother->contact]);
     	return redirect('/applicants');
     }
 }
