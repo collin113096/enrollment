@@ -5,6 +5,16 @@
 @endsection
 
 @section('body')
+<style>
+	@media screen and (min-width: 576px)
+	{
+		.individual-document .modal-dialog 
+		{
+		    max-width: 800px;
+		    margin: 1.75rem auto;
+		}
+	}
+</style>
 <div class="card mb-3">
 
 	<div class="card-header h5 text-white p-4 bg-dark">
@@ -143,12 +153,32 @@
 							<div class="modal-header">
 								<strong>Documents</strong>
 							</div>
-							<div class="modal-body">
-								{{ $student->id }}
+							<div class="modal-body">								
+								<div class="list-group">
+									@foreach($student->documents as $document)
+										<li class="list-group-item list-group-item-action" data-toggle="modal" data-target="#document{{ $document->id }}">{{ $document->document_type }}</li>
+									@endforeach
+								</div>								
 							</div>
 						</div>
 					</div>
 				</div>
+
+				@foreach($student->documents as $document)
+					<div class="modal fade individual-document" id="document{{ $document->id }}">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<strong>{{ $document->document_type }}</strong>
+								</div>
+								@php $url = $document->url; @endphp
+								<div class="modal-body">
+									<img class="w-100" src='{{ asset("storage/$url") }}'>
+								</div>
+							</div>
+						</div>
+					</div>
+				@endforeach
 
 				<!-- GRADES -->
 				<div class="modal fade" id="grades{{ $student->id }}">

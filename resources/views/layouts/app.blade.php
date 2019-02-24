@@ -21,19 +21,10 @@
     <script src="https://js.stripe.com/v3/"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>
-        .navbar a.nav-link {
-            color: white !important;
-        }
-
-        .navbar a.navbar-brand {
-            color: white !important;
-        }
-    </style>
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg navbar-light navbar-laravel" style="background:#252a62">
+        <nav class="navbar navbar-expand-lg navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{ asset('images/pagsanjan-academy-logo.png') }}" width="70px">

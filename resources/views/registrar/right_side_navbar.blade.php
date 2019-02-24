@@ -3,7 +3,7 @@
 
 @inject('student','App\Student')
 @inject('register','App\Register')
-@inject('suggestion', 'App\Suggestion');
+@inject('suggestion', 'App\Suggestion')
 
 <li class="nav-item">
 	<a href="/applicants" class="nav-link">
