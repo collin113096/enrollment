@@ -9,8 +9,13 @@ class Subject extends Model
     public $timestamps = false;
     protected $guarded = [];
 
-    public function classes()
+    public function teachers()
     {
-    	return $this->hasMany('App\Class');
+    	return $this->belongsToMany('App\Teacher');
+    }
+
+    public function sections()
+    {
+        return $this->belongsToMany('App\Section');
     }
 }

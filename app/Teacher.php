@@ -29,4 +29,9 @@ class Teacher extends Model
         return self::all()->count();
     }
 
+    public function subjects()
+    {
+        return $this->belongstoMany('App\Subject');
+    }
+
 }

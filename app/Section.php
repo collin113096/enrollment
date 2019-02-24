@@ -41,4 +41,9 @@ class Section extends Model
         return $this->students->count() ? false : true;
     }
 
+    public function subjects()
+    {
+        return $this->belongsToMany('App\Subject');
+    }
+
 }

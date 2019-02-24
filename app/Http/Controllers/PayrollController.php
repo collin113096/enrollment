@@ -16,6 +16,6 @@ class PayrollController extends Controller
 
     public function showTeacher(Teacher $teacher)
     {
-    	return $teacher;
+    	return view('payroll.teacher_subjects', compact('teacher'));
     }
 }
