@@ -35,6 +35,8 @@
 		<div class="table-responsive">
 		<table class="table mt-5 table-hover">
 			<tbody>
+				@inject('section','App\Section')
+				@inject('teacherSections','App\TeacherSection')
 				@foreach($teacher->subjects as $subject)
 				<tr>
 					<td class="text-center">
@@ -46,13 +48,19 @@
 						{{ $subject->name }}
 					</td>
 					<td>
-						@foreach($teacher->subject_sections as $subjectSection)
-						<div>{{ $subjectSection->name }}</div>
+						@foreach($teacherSections->where([
+							['teacher_id',$teacher->id],
+							['subject_id',$subject->id]
+						])->get() as $teacherSection)
+							<div>{{ $section->find($teacherSection->section_id)->name }}</div>
 						@endforeach
 					</td>
 					<td>
-						@foreach($teacher->subject_sections as $subjectSection)
-						<div>{{ $subject->unit }} Unit(s)</div>
+						@foreach($teacherSections->where([
+							['teacher_id',$teacher->id],
+							['subject_id',$subject->id]
+						])->get() as $teacherSection)
+							<div>{{ $subject->unit }} Unit(s)</div>
 						@endforeach
 					</td>
 					<td class="text-center">
@@ -88,12 +96,12 @@
 					subject_id
 					@endslot
 
-					@foreach($subject->all() as $subject)
+					@foreach($subject->notSelectedBefore($teacher) as $subject)
 					<option value="{{ $subject->id }}">{{ $subject->name }}</option>	
 					@endforeach
 				@endselect
 				
-				@inject('section','App\Section')
+				
 				@select
 					@slot('label')
 					Section

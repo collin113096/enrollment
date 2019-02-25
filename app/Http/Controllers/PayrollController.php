@@ -23,10 +23,9 @@ class PayrollController extends Controller
     public function addSubject(Teacher $teacher)
     {
         $teacher->subjects()->attach(request('subject_id'));
-        // dd(request('sections'));
     	foreach(request('sections') as $sectionId)
     	{
-    		$teacher->subject_sections()->attach($sectionId);
+    		$teacher->subject_sections()->attach($sectionId,['subject_id' =>request('subject_id')]);
     	}
 
     	return back();
