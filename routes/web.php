@@ -59,7 +59,7 @@ Route::group(['middleware' => 'auth'], function(){
 	Route::get('/payrolls','PayrollController@allTeachers');
 	Route::get('/payrolls/{teacher}','PayrollController@showTeacher');
 	Route::post('/payrolls/{teacher}','PayrollController@addSubject');
-	
+	Route::delete('/payrolls/{teacher}','PayrollController@destroy');
 });
 Auth::routes();
 

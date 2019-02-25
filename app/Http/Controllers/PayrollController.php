@@ -30,4 +30,11 @@ class PayrollController extends Controller
 
     	return back();
     }
+
+    public function destroy(Teacher $teacher)
+    {
+        $teacher->subjects()->detach(array_values(request('subject')));
+       
+    }
+
 }

@@ -8,7 +8,7 @@
 		
 		<div class="mb-3">
 			<button class="btn btn-primary" data-toggle="modal" data-target="#add_subject">Add Subject</button>
-			<button class="btn btn-danger">Delete Subject</button>
+			<button class="btn btn-danger" onclick="$('#subject-table').submit()">Delete Subject</button>
 		</div>
 
 		<!-- FIRST ROW -->
@@ -33,6 +33,9 @@
 
 		<!-- SECOND ROW -->
 		<div class="table-responsive">
+		<form method="post" action="/payrolls/{{ $teacher->id }}" id="subject-table">
+			@csrf
+			@method('DELETE')
 		<table class="table mt-5 table-hover">
 			<tbody>
 				@inject('section','App\Section')
@@ -41,7 +44,7 @@
 				<tr>
 					<td class="text-center">
 						<div class="form-check">
-							<input id="check{{ $loop->iteration }}" class="form-check-input" type="checkbox">
+							<input id="check{{ $loop->iteration }}" class="form-check-input" type="checkbox" name="subject[]" value="{{ $subject->id }}">
 						</div>
 					</td>
 					<td>
@@ -53,6 +56,7 @@
 							['subject_id',$subject->id]
 						])->get() as $teacherSection)
 							<div>{{ $section->find($teacherSection->section_id)->name }}</div>
+							<input type="hidden" name="sections[]" value="{{ $teacherSection->section_id }}">
 						@endforeach
 					</td>
 					<td>
@@ -73,6 +77,7 @@
 				@endforeach
 			</tbody>
 		</table>
+		</form>
 		</div>
 
 	</div>
