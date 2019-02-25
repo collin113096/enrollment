@@ -17,8 +17,8 @@ class CreateSectionSubjectTable extends Migration
             $table->unsignedInteger('teacher_id');
             $table->unsignedInteger('section_id');
 
-            $table->foreign('teacher_id')->references('id')->on('teachers');
-            $table->foreign('section_id')->references('id')->on("sections");
+            $table->foreign('teacher_id')->references('id')->on('teachers')->onDelete('cascade');
+            $table->foreign('section_id')->references('id')->on("sections")->onDelete('cascade');
         });
     }
 
