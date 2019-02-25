@@ -32,9 +32,37 @@
 		</div>
 
 		<!-- SECOND ROW -->
-		<table class="table">
+		<table class="table mt-5 table-hover">
 			<tbody>
-				
+				@foreach($teacher->subjects->unique('name') as $teacherSubject)
+				<tr>
+					<td class="text-center">
+						<div class="form-check">
+							<input id="check{{ $loop->iteration }}" class="form-check-input" type="checkbox">
+						</div>
+					</td>
+					<td>
+						<strong>Subject:</strong>
+						{{ $teacherSubject->name }} -
+					</td>
+					<td>
+						@foreach($teacher->subject_sections as $subjectSection)
+						<div>{{ $subjectSection->name }}</div>
+						@endforeach
+					</td>
+					<td>
+						@foreach($teacher->subject_sections as $subjectSection)
+						<div>{{ $teacherSubject->unit }} Unit(s)</div>
+						@endforeach
+					</td>
+					<td class="text-center">
+						@edit
+							 @slot('href')
+							 @endslot
+						@endedit
+					</td>
+				</tr>
+				@endforeach
 			</tbody>
 		</table>
 
