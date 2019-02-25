@@ -43,6 +43,8 @@
 </div>
 <div class="modal fade" id="add_subject">
 	<div class="modal-dialog">
+		<form method="post" action="/payrolls/{{ $teacher->id }}">
+		@csrf
 		<div class="modal-content">
 			<div class="modal-header">
 				<strong>Add Subject</strong>
@@ -78,7 +80,7 @@
 					@endforeach
 				@endselect
 
-					<div id="sections" class="col-md-6 offset-md-4 bg-light p-2 rounded">
+					<div id="sections" class="col-md-6 offset-md-4 bg-light p-2 rounded collapse">
 						<!-- HIDDEN ELEMENT WILL GO HERE -->
 					</div>
 				
@@ -92,6 +94,7 @@
 				<button class="btn" data-dismiss="modal">Cancel</button>
 			</div>
 		</div>
+		</form>
 	</div>
 </div>
 <script>
@@ -101,7 +104,7 @@ function Section()
 	this.index = 0;
 
 	this.add = function(){
-
+		$('#sections').show();
 		$('#sections').append(this.createDivElement());
 		this.index++;
 	};
@@ -109,11 +112,17 @@ function Section()
 	this.createDivElement = function()
 	{
 		var div = document.createElement('div');
-		div.textContent = this.selectedText();
+		div.innerHTML = this.selectedText();
 		div.append(this.createInputElement());
-		div.className = "btn btn-warning btn-sm m-1";
-		div.onclick = function(){
+		div.append(this.createItalicElement());
+		div.className = "btn btn-primary btn-sm m-1";
+		div.onclick = function()
+		{
 			$(this).remove();
+			if($('#sections > div').length == 0)
+			{
+				$('#sections').hide();
+			}
 		}
 		return div;
 	}
@@ -122,14 +131,16 @@ function Section()
 	{
 		var input = document.createElement('input');
 		input.type = "hidden";
-		input.name = "section[" + this.index + "]";
+		input.name = "sections[]";
 		input.value = this.selectedValue();
 		return input;
 	};
 
 	this.createItalicElement = function()
 	{
-
+		var icon = document.createElement('i');
+		icon.className = "fas fa-times ml-1 text-danger";
+		return icon;
 	}
 
 	this.selectedValue = function()
