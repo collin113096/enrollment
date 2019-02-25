@@ -32,6 +32,7 @@
 		</div>
 
 		<!-- SECOND ROW -->
+		<div class="table-responsive">
 		<table class="table mt-5 table-hover">
 			<tbody>
 				@foreach($teacher->subjects->unique('name') as $teacherSubject)
@@ -65,7 +66,7 @@
 				@endforeach
 			</tbody>
 		</table>
-
+		</div>
 
 	</div>
 </div>
