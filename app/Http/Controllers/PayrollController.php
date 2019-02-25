@@ -22,10 +22,11 @@ class PayrollController extends Controller
 
     public function addSubject(Teacher $teacher)
     {
-    	$subject = Subject::find(request('subject'));
+        $teacher->subjects()->attach(request('subject_id'));
+        // dd(request('sections'));
     	foreach(request('sections') as $sectionId)
     	{
-    		$subject->sections()->attach($sectionId,['teacher_id' => $teacher->id]);
+    		$teacher->subject_sections()->attach($sectionId);
     	}
 
     	return back();

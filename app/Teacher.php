@@ -31,7 +31,7 @@ class Teacher extends Model
 
     public function subjects()
     {
-        return $this->belongsToMany('App\Subject','section_subject');
+        return $this->belongsToMany('App\Subject');
     }
 
     public function subject_sections()

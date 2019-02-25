@@ -35,7 +35,7 @@
 		<div class="table-responsive">
 		<table class="table mt-5 table-hover">
 			<tbody>
-				@foreach($teacher->subjects->unique('name') as $teacherSubject)
+				@foreach($teacher->subjects as $subject)
 				<tr>
 					<td class="text-center">
 						<div class="form-check">
@@ -43,8 +43,7 @@
 						</div>
 					</td>
 					<td>
-						<strong>Subject:</strong>
-						{{ $teacherSubject->name }} -
+						{{ $subject->name }}
 					</td>
 					<td>
 						@foreach($teacher->subject_sections as $subjectSection)
@@ -53,7 +52,7 @@
 					</td>
 					<td>
 						@foreach($teacher->subject_sections as $subjectSection)
-						<div>{{ $teacherSubject->unit }} Unit(s)</div>
+						<div>{{ $subject->unit }} Unit(s)</div>
 						@endforeach
 					</td>
 					<td class="text-center">
@@ -86,7 +85,7 @@
 					@endslot
 
 					@slot('name')
-					subject
+					subject_id
 					@endslot
 
 					@foreach($subject->all() as $subject)
