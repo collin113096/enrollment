@@ -8,7 +8,7 @@
 		
 		<div class="mb-3">
 			<button class="btn btn-primary" data-toggle="modal" data-target="#add_subject">Add Subject</button>
-			<button class="btn btn-danger" onclick="$('#subject-table').submit()">Delete Subject</button>
+			<button id="delete-button" class="btn btn-danger" onclick="$('#subject-table').submit();" disabled>Delete Subject</button>
 		</div>
 
 		<!-- FIRST ROW -->
@@ -44,7 +44,7 @@
 				<tr>
 					<td class="text-center">
 						<div class="form-check">
-							<input id="check{{ $loop->iteration }}" class="form-check-input" type="checkbox" name="subject[]" value="{{ $subject->id }}">
+							<input id="check{{ $loop->iteration }}" class="form-check-input" type="checkbox" name="subject[]" value="{{ $subject->id }}" onclick="canDelete()">
 						</div>
 					</td>
 					<td>
@@ -197,5 +197,9 @@ function Section()
 
 var section = new Section();
 
+function canDelete()
+{
+	$('.form-check-input:checked').length ? $('#delete-button').attr('disabled',false) : $('#delete-button').attr('disabled',true)
+}
 </script>
 @endsection
