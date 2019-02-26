@@ -11,6 +11,9 @@
 		<div class="carousel-item active">
 			<img class="w-100" src="{{ asset('images/facility/banner.JPG') }}">
 		</div>
+		<div class="carousel-item">
+			<img class="w-100" src="{{ asset('images/facility/banner2.JPG') }}">
+		</div>
 		
 	</div>
 
