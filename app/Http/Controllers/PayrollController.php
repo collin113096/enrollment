@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Teacher;
 use App\Subject;
+use Illuminate\Support\Facades\DB;
 
 class PayrollController extends Controller
 {
@@ -35,6 +36,14 @@ class PayrollController extends Controller
     {
         $teacher->subjects()->detach(array_values(request('subject')));
        
+        foreach(request('sections') as $sectionId)
+        {
+             DB::table('section_subject')->where([
+                ['teacher_id',$teacher->id],
+                ['subject_id', request('subject')]
+               ])->delete();
+        }
+       return back();
     }
 
 }
